@@ -1,0 +1,189 @@
+
+/* Class = "UIButton"; normalTitle = "添加线下收款记录"; ObjectID = "0L7-qb-yRh"; */
+"0L7-qb-yRh.normalTitle" = "添加线下收款记录";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "1AT-t6-3xf"; */
+"1AT-t6-3xf.text" = "Label";
+
+/* Class = "UILabel"; text = "本次收款"; ObjectID = "1WX-rK-lua"; */
+"1WX-rK-lua.text" = "本次收款";
+
+/* Class = "UILabel"; text = "加入购物车"; ObjectID = "2lc-c3-6jG"; */
+"2lc-c3-6jG.text" = "加入购物车";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "4eG-Ds-Gdc"; */
+"4eG-Ds-Gdc.text" = "Label";
+
+/* Class = "UILabel"; text = "已收："; ObjectID = "4tH-Mu-leI"; */
+"4tH-Mu-leI.text" = "已收：";
+
+/* Class = "UILabel"; text = "支付宝流水号"; ObjectID = "77G-2c-0f0"; */
+"77G-2c-0f0.text" = "支付宝流水号";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "8Si-8A-kMQ"; */
+"8Si-8A-kMQ.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "税制"; ObjectID = "9xI-cI-t9F"; */
+"9xI-cI-t9F.normalTitle" = "税制";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "B9U-eX-bhg"; */
+"B9U-eX-bhg.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Dbn-EL-erM"; */
+"Dbn-EL-erM.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "支付方式"; ObjectID = "EsH-M8-PzS"; */
+"EsH-M8-PzS.text" = "支付方式";
+
+/* Class = "UILabel"; text = "到账时间"; ObjectID = "GMn-On-aLJ"; */
+"GMn-On-aLJ.text" = "到账时间";
+
+/* Class = "UIButton"; normalTitle = "全选"; ObjectID = "HoE-Yy-Nlh"; */
+"HoE-Yy-Nlh.normalTitle" = "全选";
+
+/* Class = "UIButton"; normalTitle = "清空"; ObjectID = "I4O-ud-bde"; */
+"I4O-ud-bde.normalTitle" = "清空";
+
+/* Class = "UIButton"; normalTitle = "0"; ObjectID = "Id0-5H-3bj"; */
+"Id0-5H-3bj.normalTitle" = "0";
+
+/* Class = "UILabel"; text = "尚未收款"; ObjectID = "JXa-8B-SVn"; */
+"JXa-8B-SVn.text" = "尚未收款";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "JpE-BQ-XmC"; */
+"JpE-BQ-XmC.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "请输入买手店名称"; ObjectID = "K4l-XW-pKo"; */
+"K4l-XW-pKo.placeholder" = "请输入买手店名称";
+
+/* Class = "UILabel"; text = "%"; ObjectID = "LsO-1Q-WS3"; */
+"LsO-1Q-WS3.text" = "%";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Pc8-oA-Pl2"; */
+"Pc8-oA-Pl2.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "RS0-dS-iLN"; */
+"RS0-dS-iLN.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "完成编辑"; ObjectID = "Sh8-1F-cvr"; */
+"Sh8-1F-cvr.normalTitle" = "完成编辑";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "TAP-em-B1Z"; */
+"TAP-em-B1Z.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "建立订单"; ObjectID = "TQV-PM-blw"; */
+"TQV-PM-blw.normalTitle" = "建立订单";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "UHy-Qj-gUC"; */
+"UHy-Qj-gUC.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "VLt-hk-C0P"; */
+"VLt-hk-C0P.text" = "Label";
+
+/* Class = "UITextField"; placeholder = "0"; ObjectID = "VSd-m3-CFz"; */
+"VSd-m3-CFz.placeholder" = "0";
+
+/* Class = "UIButton"; normalTitle = "8"; ObjectID = "W9F-yf-8PX"; */
+"W9F-yf-8PX.normalTitle" = "8";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "WUX-wo-X3w"; */
+"WUX-wo-X3w.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "删除此条记录"; ObjectID = "XBw-qH-cKZ"; */
+"XBw-qH-cKZ.normalTitle" = "删除此条记录";
+
+/* Class = "UIButton"; normalTitle = "保存"; ObjectID = "YKr-1s-w0R"; */
+"YKr-1s-w0R.normalTitle" = "保存";
+
+/* Class = "UILabel"; text = "付款时间"; ObjectID = "YLq-lH-LVn"; */
+"YLq-lH-LVn.text" = "付款时间";
+
+/* Class = "UIButton"; normalTitle = "确定"; ObjectID = "YUb-pf-lvc"; */
+"YUb-pf-lvc.normalTitle" = "确定";
+
+/* Class = "UILabel"; text = "已经收款"; ObjectID = "ZeY-eK-aym"; */
+"ZeY-eK-aym.text" = "已经收款";
+
+/* Class = "UILabel"; text = "待审核"; ObjectID = "NNo-cl-26I"; */
+"NNo-cl-26I.text" = "待审核";
+
+/* Class = "UIButton"; normalTitle = "5"; ObjectID = "aAL-AJ-nGP"; */
+"aAL-AJ-nGP.normalTitle" = "5";
+
+/* Class = "UIButton"; normalTitle = "作废此条记录"; ObjectID = "ae5-0g-Rci"; */
+"ae5-0g-Rci.normalTitle" = "作废此条记录";
+
+/* Class = "UIButton"; normalTitle = "删除本条付款记录"; ObjectID = "d7E-8B-xsb"; */
+"d7E-8B-xsb.normalTitle" = "删除本条付款记录";
+
+/* Class = "UIButton"; normalTitle = "确定"; ObjectID = "dOv-Cp-SqR"; */
+"dOv-Cp-SqR.normalTitle" = "确定";
+
+/* Class = "UIButton"; normalTitle = "6"; ObjectID = "dzF-e8-y41"; */
+"dzF-e8-y41.normalTitle" = "6";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "edX-k4-HSE"; */
+"edX-k4-HSE.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "4"; ObjectID = "ffd-Qk-xDb"; */
+"ffd-Qk-xDb.normalTitle" = "4";
+
+/* Class = "UIButton"; normalTitle = "编辑"; ObjectID = "fqr-h0-m1b"; */
+"fqr-h0-m1b.normalTitle" = "编辑";
+
+/* Class = "UITextField"; text = "90"; ObjectID = "hKO-ex-Cie"; */
+"hKO-ex-Cie.text" = "90";
+
+/* Class = "UILabel"; text = "未收："; ObjectID = "hXx-qE-d2X"; */
+"hXx-qE-d2X.text" = "未收：";
+
+/* Class = "UILabel"; text = "颜色"; ObjectID = "kAf-Fi-ZWL"; */
+"kAf-Fi-ZWL.text" = "颜色";
+
+/* Class = "UIButton"; normalTitle = "删除"; ObjectID = "kN5-0q-CvX"; */
+"kN5-0q-CvX.normalTitle" = "删除";
+
+/* Class = "UILabel"; text = "订单总价"; ObjectID = "lW4-9r-PPc"; */
+"lW4-9r-PPc.text" = "订单总价";
+
+/* Class = "UILabel"; text = "添加收款记录"; ObjectID = "qJg-q1-mC4"; */
+"qJg-q1-mC4.text" = "添加收款记录";
+
+/* Class = "UIButton"; normalTitle = "保存修改"; ObjectID = "rhh-qb-qsZ"; */
+"rhh-qb-qsZ.normalTitle" = "保存修改";
+
+/* Class = "UIButton"; normalTitle = "确认到账"; ObjectID = "sGi-Hj-aH8"; */
+"sGi-Hj-aH8.normalTitle" = "确认到账";
+
+/* Class = "UIButton"; normalTitle = "2"; ObjectID = "t6Y-9L-A6h"; */
+"t6Y-9L-A6h.normalTitle" = "2";
+
+/* Class = "UIButton"; normalTitle = "9"; ObjectID = "tuX-Vo-Dk0"; */
+"tuX-Vo-Dk0.normalTitle" = "9";
+
+/* Class = "UILabel"; text = "确定"; ObjectID = "uxd-r2-9ql"; */
+"uxd-r2-9ql.text" = "确定";
+
+/* Class = "UIButton"; normalTitle = "取消"; ObjectID = "vFO-zN-ws4"; */
+"vFO-zN-ws4.normalTitle" = "取消";
+
+/* Class = "UIButton"; normalTitle = "1"; ObjectID = "vVI-Y0-2QD"; */
+"vVI-Y0-2QD.normalTitle" = "1";
+
+/* Class = "UILabel"; text = "！请仔细检查买手店名称、注册邮箱，及所在地信息"; ObjectID = "vdD-f9-NEN"; */
+"vdD-f9-NEN.text" = "！请仔细检查买手店名称、注册邮箱，及所在地信息";
+
+/* Class = "UIButton"; normalTitle = "7"; ObjectID = "wGg-Sp-htp"; */
+"wGg-Sp-htp.normalTitle" = "7";
+
+/* Class = "UIButton"; normalTitle = "填写金额不能大于尚未收款金额"; ObjectID = "wIt-w3-RHt"; */
+"wIt-w3-RHt.normalTitle" = "填写金额不能大于尚未收款金额";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "xwo-sb-wM1"; */
+"xwo-sb-wM1.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "3"; ObjectID = "yp1-Gf-QLK"; */
+"yp1-Gf-QLK.normalTitle" = "3";
+
+/* Class = "UILabel"; text = "确认"; ObjectID = "z0h-Bc-PUD"; */
+"z0h-Bc-PUD.text" = "确认";

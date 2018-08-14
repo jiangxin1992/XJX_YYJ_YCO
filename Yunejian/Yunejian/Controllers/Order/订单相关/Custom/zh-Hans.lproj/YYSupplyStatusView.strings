@@ -1,0 +1,9 @@
+
+/* Class = "UILabel"; text = "15.10.10"; ObjectID = "LfC-Du-I3m"; */
+"LfC-Du-I3m.text" = "15.10.10";
+
+/* Class = "UILabel"; text = "发货截止日期"; ObjectID = "TeV-dw-fwv"; */
+"TeV-dw-fwv.text" = "发货截止日期";
+
+/* Class = "UILabel"; text = "距离截止发货日期还有"; ObjectID = "rp4-Hy-oFe"; */
+"rp4-Hy-oFe.text" = "距离截止发货日期还有";

@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "收款"; ObjectID = "JV4-Yh-RKs"; */
+"JV4-Yh-RKs.text" = "Payment Status";
+
+/* Class = "UILabel"; text = "80%货款已收"; ObjectID = "JYY-QO-9h2"; */
+"JYY-QO-9h2.text" = "80% Paid";
+
+/* Class = "UIButton"; normalTitle = "添加收款记录"; ObjectID = "U80-Mg-TUd"; */
+"U80-Mg-TUd.normalTitle" = "Add Payment";
+
+/* Class = "UILabel"; text = "0° | 90°"; ObjectID = "rac-9h-BbG"; */
+"rac-9h-BbG.text" = "0° | 90°";
+
+/* Class = "UIButton"; normalTitle = "查看收款记录"; ObjectID = "zKP-n3-gTG"; */
+"zKP-n3-gTG.normalTitle" = "Payment History";

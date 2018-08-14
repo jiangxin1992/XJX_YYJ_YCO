@@ -1,0 +1,117 @@
+
+/* Class = "UIButton"; normalTitle = "— 取消合作"; ObjectID = "1CP-WD-fDE"; */
+"1CP-WD-fDE.normalTitle" = "— Cancel Coop";
+
+/* Class = "UIButton"; normalTitle = "查看品牌"; ObjectID = "4aX-MX-n1p"; */
+"4aX-MX-n1p.normalTitle" = "View the Brand";
+
+/* Class = "UIButton"; normalTitle = "建立合作"; ObjectID = "4vd-5N-EZf"; */
+"4vd-5N-EZf.normalTitle" = "Find More Retailers";
+
+/* Class = "UIButton"; normalTitle = "所有系列"; ObjectID = "5On-vL-Tej"; */
+"5On-vL-Tej.normalTitle" = "All the Collections";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "5c9-b9-FBD"; */
+"5c9-b9-FBD.text" = "Label";
+
+/* Class = "UILabel"; text = "款式名称"; ObjectID = "6d0-Dy-pk2"; */
+"6d0-Dy-pk2.text" = "Style Name";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "8EQ-21-ZbD"; */
+"8EQ-21-ZbD.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "92S-q8-yw6"; */
+"92S-q8-yw6.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "+ 添加品牌"; ObjectID = "9kp-6m-sj3"; */
+"9kp-6m-sj3.normalTitle" = "+ Add Brand";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "COV-LC-LR4"; */
+"COV-LC-LR4.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Cm3-MO-chz"; */
+"Cm3-MO-chz.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Di3-6b-8UB"; */
+"Di3-6b-8UB.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "FXB-Pp-gWs"; */
+"FXB-Pp-gWs.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "邀请中品牌"; ObjectID = "Gor-Lk-vnR"; */
+"Gor-Lk-vnR.normalTitle" = "Pending Request";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "GpL-U6-BHh"; */
+"GpL-U6-BHh.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "添加"; ObjectID = "HKY-4I-u3s"; */
+"HKY-4I-u3s.normalTitle" = "Add";
+
+/* Class = "UILabel"; text = "批发价"; ObjectID = "HUY-mM-BcE"; */
+"HUY-mM-BcE.text" = "Wholesale Price";
+
+/* Class = "UILabel"; text = "已邀请"; ObjectID = "Hg7-aT-CF6"; */
+"Hg7-aT-CF6.text" = "Invited";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "I1b-2E-4c7"; */
+"I1b-2E-4c7.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "JLF-TS-fMj"; */
+"JLF-TS-fMj.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "已邀请"; ObjectID = "Kvg-x1-9tW"; */
+"Kvg-x1-9tW.normalTitle" = "Invited";
+
+/* Class = "UIButton"; normalTitle = "查看更多 >"; ObjectID = "Nto-4U-5J8"; */
+"Nto-4U-5J8.normalTitle" = "More >";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Oqh-1D-TJW"; */
+"Oqh-1D-TJW.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Oy2-TV-aff"; */
+"Oy2-TV-aff.text" = "Label";
+
+/* Class = "UILabel"; text = "零售价"; ObjectID = "PNj-3z-nCa"; */
+"PNj-3z-nCa.text" = "Retail Price";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "QZD-zY-AqS"; */
+"QZD-zY-AqS.text" = "Label";
+
+/* Class = "UILabel"; text = "品牌"; ObjectID = "aGe-5R-Yiq"; */
+"aGe-5R-Yiq.text" = "Brand";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "aRl-wv-Rrv"; */
+"aRl-wv-Rrv.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "bpK-b0-xxi"; */
+"bpK-b0-xxi.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "所有合作品牌"; ObjectID = "d9v-lN-K6B"; */
+"d9v-lN-K6B.normalTitle" = "All Brands Carried";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "dCC-oE-zGf"; */
+"dCC-oE-zGf.text" = "Label";
+
+/* Class = "UILabel"; text = "无品牌简介"; ObjectID = "elX-G7-KsF"; */
+"elX-G7-KsF.text" = "No Brand Details";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "fsb-Zk-K2H"; */
+"fsb-Zk-K2H.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "g3s-bf-cn1"; */
+"g3s-bf-cn1.text" = "Label";
+
+/* Class = "UILabel"; text = "所有系列"; ObjectID = "gZf-1O-RVi"; */
+"gZf-1O-RVi.text" = "All the Collections";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "kS6-1p-H1T"; */
+"kS6-1p-H1T.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "rQg-FV-EVs"; */
+"rQg-FV-EVs.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "t4O-hc-yv0"; */
+"t4O-hc-yv0.text" = "Label";
+
+/* Class = "UILabel"; text = "款式款号"; ObjectID = "ua1-fw-bea"; */
+"ua1-fw-bea.text" = "Style Code";

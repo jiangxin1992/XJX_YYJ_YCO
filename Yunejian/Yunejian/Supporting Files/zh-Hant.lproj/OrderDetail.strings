@@ -1,0 +1,204 @@
+
+/* Class = "UILabel"; text = "输入订单备注"; ObjectID = "08R-IS-T1b"; */
+"08R-IS-T1b.text" = "输入订单备注";
+
+/* Class = "UILabel"; text = "颜色"; ObjectID = "0kU-WB-WVk"; */
+"0kU-WB-WVk.text" = "颜色";
+
+/* Class = "UILabel"; text = "订单修改"; ObjectID = "23C-xf-9Za"; */
+"23C-xf-9Za.text" = "订单修改";
+
+/* Class = "UILabel"; text = "发货日期"; ObjectID = "2cM-t7-Wg4"; */
+"2cM-t7-Wg4.text" = "发货日期";
+
+/* Class = "UILabel"; text = "共计：6款 28件 总价：￥8000.00"; ObjectID = "2yq-2y-Pae"; */
+"2yq-2y-Pae.text" = "共计：6款 28件 总价：￥8000.00";
+
+/* Class = "UILabel"; text = "共计6款 28件"; ObjectID = "5Vb-Bp-0I3"; */
+"5Vb-Bp-0I3.text" = "共计6款 28件";
+
+/* Class = "UILabel"; text = "销售代表"; ObjectID = "6Dc-ae-1oU"; */
+"6Dc-ae-1oU.text" = "销售代表";
+
+/* Class = "UILabel"; text = "已下单"; ObjectID = "7OQ-R6-Fgp"; */
+"7OQ-R6-Fgp.text" = "已下单";
+
+/* Class = "UILabel"; text = "栋梁 | zhangda@boundless.com | 上海"; ObjectID = "8jB-A2-NEf"; */
+"8jB-A2-NEf.text" = "栋梁 | zhangda@boundless.com | 上海";
+
+/* Class = "UILabel"; text = "发货日期"; ObjectID = "95u-0i-Jua"; */
+"95u-0i-Jua.text" = "发货日期";
+
+/* Class = "UILabel"; text = "已离线，离线状态下新建的订单将在联网后上传!"; ObjectID = "9Gm-6F-z2P"; */
+"9Gm-6F-z2P.text" = "已离线，离线状态下新建的订单将在联网后上传!";
+
+/* Class = "UILabel"; text = "单价"; ObjectID = "A6w-vI-Lpc"; */
+"A6w-vI-Lpc.text" = "单价";
+
+/* Class = "UIButton"; normalTitle = "保存修改"; ObjectID = "Av2-dk-HfA"; */
+"Av2-dk-HfA.normalTitle" = "保存修改";
+
+/* Class = "UILabel"; text = "2 点击扫一扫导入订单"; ObjectID = "B3e-Jw-HbK"; */
+"B3e-Jw-HbK.text" = "2 点击扫一扫导入订单";
+
+/* Class = "UIButton"; normalTitle = "发送邮件"; ObjectID = "BiL-al-fXB"; */
+"BiL-al-fXB.normalTitle" = "发送邮件";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Bwn-tT-pqt"; */
+"Bwn-tT-pqt.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "发货"; ObjectID = "Cpz-JK-Y06"; */
+"Cpz-JK-Y06.text" = "发货";
+
+/* Class = "UIButton"; normalTitle = "此款式不支持补货"; ObjectID = "DyD-bW-wLJ"; */
+"DyD-bW-wLJ.normalTitle" = "此款式不支持补货";
+
+/* Class = "UILabel"; text = "20%货款已收"; ObjectID = "FF9-io-feo"; */
+"FF9-io-feo.text" = "20%货款已收";
+
+/* Class = "UILabel"; text = "收件地址"; ObjectID = "GMJ-rL-QdZ"; */
+"GMJ-rL-QdZ.text" = "收件地址";
+
+/* Class = "UILabel"; text = "已取消"; ObjectID = "JUt-1I-CDf"; */
+"JUt-1I-CDf.text" = "已取消";
+
+/* Class = "UILabel"; text = "税前总价"; ObjectID = "Kbi-Uc-Lsg"; */
+"Kbi-Uc-Lsg.text" = "税前总价";
+
+/* Class = "UITextField"; placeholder = "发送此订单至邮箱"; ObjectID = "OA8-Qe-Ghm"; */
+"OA8-Qe-Ghm.placeholder" = "发送此订单至邮箱";
+
+/* Class = "UIButton"; normalTitle = "添加备注"; ObjectID = "OvC-Gz-Jqs"; */
+"OvC-Gz-Jqs.normalTitle" = "添加备注";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "QJf-Ed-YOq"; */
+"QJf-Ed-YOq.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "关闭"; ObjectID = "Qka-C3-jbN"; */
+"Qka-C3-jbN.normalTitle" = "关闭";
+
+/* Class = "UILabel"; text = "已失效订单"; ObjectID = "QqQ-dw-77B"; */
+"QqQ-dw-77B.text" = "已失效订单";
+
+/* Class = "UILabel"; text = "谁谁谁 修改订单"; ObjectID = "RdC-Oh-QhB"; */
+"RdC-Oh-QhB.text" = "谁谁谁 修改订单";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Rip-BD-BiA"; */
+"Rip-BD-BiA.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "订单号. 3121415161     建单时间 2015/09/09  13: 00"; ObjectID = "RuP-q1-JRt"; */
+"RuP-q1-JRt.text" = "订单号. 3121415161     建单时间 2015/09/09  13: 00";
+
+/* Class = "UILabel"; text = "结算"; ObjectID = "VaU-nH-i9u"; */
+"VaU-nH-i9u.text" = "结算";
+
+/* Class = "UIButton"; normalTitle = "取消订单"; ObjectID = "XKe-5P-nkM"; */
+"XKe-5P-nkM.normalTitle" = "取消订单";
+
+/* Class = "UILabel"; text = "到"; ObjectID = "b0g-oT-djc"; */
+"b0g-oT-djc.text" = "到";
+
+/* Class = "UIButton"; normalTitle = "查看追单"; ObjectID = "biB-2d-whg"; */
+"biB-2d-whg.normalTitle" = "查看追单";
+
+/* Class = "UILabel"; text = "总件数"; ObjectID = "bxg-uf-k9i"; */
+"bxg-uf-k9i.text" = "总件数";
+
+/* Class = "UILabel"; text = "3 扫描左边二维码，成功导入订单"; ObjectID = "dLh-PV-Pox"; */
+"dLh-PV-Pox.text" = "3 扫描左边二维码，成功导入订单";
+
+/* Class = "UILabel"; text = "确认要取消订单吗？"; ObjectID = "dTd-YU-CRY"; */
+"dTd-YU-CRY.text" = "确认要取消订单吗？";
+
+/* Class = "UIButton"; normalTitle = "+ 添加款式"; ObjectID = "e5v-rp-uOb"; */
+"e5v-rp-uOb.normalTitle" = "+ 添加款式";
+
+/* Class = "UILabel"; text = "总价"; ObjectID = "fIR-nt-h1Z"; */
+"fIR-nt-h1Z.text" = "总价";
+
+/* Class = "UILabel"; text = "1 关注YCO System服务号"; ObjectID = "g0I-06-vey"; */
+"g0I-06-vey.text" = "1 关注YCO System服务号";
+
+/* Class = "UIButton"; normalTitle = "保存"; ObjectID = "gQH-BC-03R"; */
+"gQH-BC-03R.normalTitle" = "保存";
+
+/* Class = "UILabel"; text = "15/09/09 12:00\n"; ObjectID = "h5G-ke-9fq"; */
+"h5G-ke-9fq.text" = "15/09/09 12:00\n";
+
+/* Class = "UIButton"; normalTitle = "二维码"; ObjectID = "hRD-8v-99e"; */
+"hRD-8v-99e.normalTitle" = "二维码";
+
+/* Class = "UIButton"; normalTitle = "已确认"; ObjectID = "hvP-E2-80Y"; */
+"hvP-E2-80Y.normalTitle" = "已确认";
+
+/* Class = "UIButton"; normalTitle = "所有订单"; ObjectID = "ijH-rK-skF"; */
+"ijH-rK-skF.normalTitle" = "所有订单";
+
+/* Class = "UILabel"; text = "总价"; ObjectID = "ixH-xh-GWs"; */
+"ixH-xh-GWs.text" = "总价";
+
+/* Class = "UIButton"; normalTitle = "邮件"; ObjectID = "kby-qD-KwN"; */
+"kby-qD-KwN.normalTitle" = "邮件";
+
+/* Class = "UIButton"; normalTitle = "取消全选"; ObjectID = "lIE-5Y-Tzf"; */
+"lIE-5Y-Tzf.normalTitle" = "取消全选";
+
+/* Class = "UIButton"; normalTitle = "确认追单"; ObjectID = "mds-Yg-ao7"; */
+"mds-Yg-ao7.normalTitle" = "确认追单";
+
+/* Class = "UILabel"; text = "请输入备注"; ObjectID = "mvz-f6-HWY"; */
+"mvz-f6-HWY.text" = "请输入备注";
+
+/* Class = "UILabel"; text = "建单场合"; ObjectID = "nIr-W8-PiK"; */
+"nIr-W8-PiK.text" = "建单场合";
+
+/* Class = "UILabel"; text = "订单"; ObjectID = "oKK-lS-9Qs"; */
+"oKK-lS-9Qs.text" = "订单";
+
+/* Class = "UILabel"; text = "15/09/09 12:00\n"; ObjectID = "pYS-8T-sLI"; */
+"pYS-8T-sLI.text" = "15/09/09 12:00\n";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "qWV-5V-q6N"; */
+"qWV-5V-q6N.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "添加收款记录"; ObjectID = "qdl-3i-irL"; */
+"qdl-3i-irL.normalTitle" = "添加收款记录";
+
+/* Class = "UILabel"; text = "选择需要追单的款式"; ObjectID = "szo-kH-LTh"; */
+"szo-kH-LTh.text" = "选择需要追单的款式";
+
+/* Class = "UILabel"; text = "操作确认"; ObjectID = "cqn-dK-58x"; */
+"cqn-dK-58x.text" = "操作确认";
+
+/* Class = "UILabel"; text = "买手店*【必须】"; ObjectID = "tqZ-Na-Mlg"; */
+"tqZ-Na-Mlg.text" = "买手店*【必须】";
+
+/* Class = "UILabel"; text = "订单类型*【必须】"; ObjectID = "OsC-ja-Sf6"; */
+"OsC-ja-Sf6.text" = "订单类型*【必须】";
+
+/* Class = "UILabel"; text = "取消订单"; ObjectID = "un7-7d-NTw"; */
+"un7-7d-NTw.text" = "取消订单";
+
+/* Class = "UILabel"; text = "意向单"; ObjectID = "ur1-yK-Du8"; */
+"ur1-yK-Du8.text" = "意向单";
+
+/* Class = "UILabel"; text = "从"; ObjectID = "w5I-iG-r9Q"; */
+"w5I-iG-r9Q.text" = "从";
+
+/* Class = "UIButton"; normalTitle = "取消"; ObjectID = "wCb-Ut-6Ai"; */
+"wCb-Ut-6Ai.normalTitle" = "取消";
+
+/* Class = "UIButton"; normalTitle = "确认"; ObjectID = "95R-sj-9FU"; */
+"95R-sj-9FU.normalTitle" = "确认";
+
+/* Class = "UILabel"; text = "对方处理中"; ObjectID = "wSF-ej-aaT"; */
+"wSF-ej-aaT.text" = "对方处理中";
+
+/* Class = "UIButton"; normalTitle = "已取消"; ObjectID = "xDH-Ut-YST"; */
+"xDH-Ut-YST.normalTitle" = "已取消";
+
+/* Class = "UILabel"; text = "为款式添加备注"; ObjectID = "xlP-TW-8DK"; */
+"xlP-TW-8DK.text" = "为款式添加备注";
+
+/* Class = "UILabel"; text = "共计6款 28件"; ObjectID = "zzz-AH-t3y"; */
+"zzz-AH-t3y.text" = "共计6款 28件";

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="YYBuyerInfoRemarkCell" rowHeight="130" id="TIZ-RW-VG9" customClass="YYBuyerInfoRemarkCell">
+            <rect key="frame" x="0.0" y="0.0" width="509" height="150"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TIZ-RW-VG9" id="ah0-wU-djF">
+                <rect key="frame" x="0.0" y="0.0" width="509" height="149.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lib-UI-Zjy">
+                        <rect key="frame" x="0.0" y="0.0" width="509" height="10"/>
+                        <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="dFW-56-38H"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="订单备注" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVw-T0-WvY">
+                        <rect key="frame" x="40" y="35" width="61.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdR-xf-5wX">
+                        <rect key="frame" x="101.5" y="28" width="410" height="72"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="410" id="3Vb-LS-krT"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dPh-e9-1DK">
+                        <rect key="frame" x="207" y="10" width="262" height="120"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="262" id="J1K-PF-80E"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="dPh-e9-1DK" firstAttribute="leading" secondItem="kdR-xf-5wX" secondAttribute="trailing" constant="15" id="3cG-nV-Dkb"/>
+                    <constraint firstAttribute="bottom" secondItem="dPh-e9-1DK" secondAttribute="bottom" constant="20" id="9BZ-DY-lVJ"/>
+                    <constraint firstItem="dPh-e9-1DK" firstAttribute="top" secondItem="Lib-UI-Zjy" secondAttribute="bottom" id="BiL-Im-yFa"/>
+                    <constraint firstAttribute="trailing" secondItem="Lib-UI-Zjy" secondAttribute="trailing" id="GWG-GJ-BZi"/>
+                    <constraint firstItem="EVw-T0-WvY" firstAttribute="top" secondItem="ah0-wU-djF" secondAttribute="top" constant="35" id="Pbc-Qy-1qQ"/>
+                    <constraint firstItem="kdR-xf-5wX" firstAttribute="top" secondItem="ah0-wU-djF" secondAttribute="top" constant="28" id="W83-gW-Tt2"/>
+                    <constraint firstItem="kdR-xf-5wX" firstAttribute="leading" secondItem="EVw-T0-WvY" secondAttribute="trailing" id="XL8-CL-gce"/>
+                    <constraint firstItem="Lib-UI-Zjy" firstAttribute="top" secondItem="ah0-wU-djF" secondAttribute="top" id="ddx-iR-MJS"/>
+                    <constraint firstItem="EVw-T0-WvY" firstAttribute="leading" secondItem="ah0-wU-djF" secondAttribute="leading" constant="40" id="g0l-VY-LZS"/>
+                    <constraint firstAttribute="bottom" secondItem="kdR-xf-5wX" secondAttribute="bottom" constant="50" id="gS8-mN-VFW"/>
+                    <constraint firstAttribute="trailing" secondItem="dPh-e9-1DK" secondAttribute="trailing" constant="40" id="lh1-AN-AyX"/>
+                    <constraint firstItem="Lib-UI-Zjy" firstAttribute="leading" secondItem="ah0-wU-djF" secondAttribute="leading" id="oUQ-ZZ-u3S"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="3cG-nV-Dkb"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="taxInfoContainerView" destination="dPh-e9-1DK" id="xe1-Ym-OAE"/>
+                <outlet property="txtView" destination="kdR-xf-5wX" id="TCE-HG-LOH"/>
+            </connections>
+            <point key="canvasLocation" x="191.5" y="302"/>
+        </tableViewCell>
+    </objects>
+</document>

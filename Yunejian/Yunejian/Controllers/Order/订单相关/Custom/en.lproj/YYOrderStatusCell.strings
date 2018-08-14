@@ -1,0 +1,18 @@
+
+/* Class = "UILabel"; text = "已取消"; ObjectID = "8Pv-Lv-nkU"; */
+"8Pv-Lv-nkU.text" = "Cancelled";
+
+/* Class = "UILabel"; text = "意向单"; ObjectID = "Bph-Sz-hL9"; */
+"Bph-Sz-hL9.text" = "pending";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Wxc-z3-e9a"; */
+"Wxc-z3-e9a.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Wxh-AL-iXv"; */
+"Wxh-AL-iXv.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "已确认"; ObjectID = "rrW-9u-WZy"; */
+"rrW-9u-WZy.normalTitle" = "Confirmed";
+
+/* Class = "UILabel"; text = "状态"; ObjectID = "woA-NI-3pn"; */
+"woA-NI-3pn.text" = "Status";

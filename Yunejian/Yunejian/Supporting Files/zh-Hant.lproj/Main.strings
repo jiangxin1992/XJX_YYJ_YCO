@@ -1,0 +1,99 @@
+
+/* Class = "UILabel"; text = "SHOWROOM"; ObjectID = "1Zi-vV-IA2"; */
+"1Zi-vV-IA2.text" = "SHOWROOM";
+
+/* Class = "UIButton"; normalTitle = "没收到，再发一封"; ObjectID = "2ij-rT-3nn"; */
+"2ij-rT-3nn.normalTitle" = "没收到，再发一封";
+
+/* Class = "UITextField"; placeholder = "请输入登录时使用的Email*"; ObjectID = "3nr-gZ-ZZN"; */
+"3nr-gZ-ZZN.placeholder" = "请输入登录时使用的Email*";
+
+/* Class = "UIButton"; normalTitle = "忘记密码"; ObjectID = "2Ob-tU-QLy"; */
+"2Ob-tU-QLy.normalTitle" = "忘记密码";
+
+/* Class = "UIButton"; normalTitle = "查看邮件"; ObjectID = "BTq-kq-vG4"; */
+"BTq-kq-vG4.normalTitle" = "查看邮件";
+
+/* Class = "UILabel"; text = "啊哦，没有通过品牌验证"; ObjectID = "DG9-1x-PzT"; */
+"DG9-1x-PzT.text" = "啊哦，没有通过品牌验证";
+
+/* Class = "UITextField"; placeholder = "输入验证码"; ObjectID = "Glp-2t-E5y"; */
+"Glp-2t-E5y.placeholder" = "输入验证码";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "IhF-kA-4f5"; */
+"IhF-kA-4f5.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "编辑此页"; ObjectID = "KXE-Xe-j7h"; */
+"KXE-Xe-j7h.normalTitle" = "编辑此页";
+
+/* Class = "UITextField"; placeholder = "输入密码"; ObjectID = "L7Z-T5-RhC"; */
+"L7Z-T5-RhC.placeholder" = "输入密码";
+
+/* Class = "UILabel"; text = "2.请在网页版YCO System(app.yunejian.com)重新验证品牌信息。"; ObjectID = "MoE-Hk-ICS"; */
+"MoE-Hk-ICS.text" = "2.请在网页版YCO System(app.yunejian.com)重新验证品牌信息。";
+
+/* Class = "UIButton"; normalTitle = "此EMAIL格式错误"; ObjectID = "NP7-VH-ht6"; */
+"NP7-VH-ht6.normalTitle" = "此EMAIL格式错误";
+
+/* Class = "UILabel"; text = "我们已经向邮箱info@ycosystem.com发生了确认邮件，请查收"; ObjectID = "QIk-ah-5kY"; */
+"QIk-ah-5kY.text" = "我们已经向邮箱info@ycosystem.com发生了确认邮件，请查收";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "TD4-yo-Ib8"; */
+"TD4-yo-Ib8.text" = "Label";
+
+/* Class = "UILabel"; text = "请在登录的邮箱中查看验证结果邮件，或发邮件到info@ycosystem.com咨询。"; ObjectID = "TaO-uf-H9w"; */
+"TaO-uf-H9w.text" = "请在登录的邮箱中查看验证结果邮件，或发邮件到info@ycosystem.com咨询。";
+
+/* Class = "UILabel"; text = "您好！"; ObjectID = "Lfh-lJ-SnN"; */
+"Lfh-lJ-SnN.text" = "您好！";
+
+/* Class = "UILabel"; text = ""; ObjectID = "W7z-XX-OJa"; */
+"W7z-XX-OJa.text" = "";
+
+/* Class = "UIButton"; normalTitle = "注册 YCO BRAND 账户"; ObjectID = "VWC-Dl-8aF"; */
+"VWC-Dl-8aF.normalTitle" = "注册 YCO BRAND 账户";
+
+/* Class = "UIButton"; normalTitle = "即刻身份验证"; ObjectID = "Vrs-EI-bn4"; */
+"Vrs-EI-bn4.normalTitle" = "即刻身份验证";
+
+/* Class = "UITextField"; placeholder = "输入邮箱"; ObjectID = "Xb4-SM-nqB"; */
+"Xb4-SM-nqB.placeholder" = "输入邮箱";
+
+/* Class = "UILabel"; text = "设计师入驻申请"; ObjectID = "Y7S-mm-RDJ"; */
+"Y7S-mm-RDJ.text" = "设计师入驻申请";
+
+/* Class = "UIButton"; normalTitle = "已经成功验证邮箱，去登录"; ObjectID = "bCB-dG-BwP"; */
+"bCB-dG-BwP.normalTitle" = "已经成功验证邮箱，去登录";
+
+/* Class = "UIButton"; normalTitle = "我知道了"; ObjectID = "c5w-yR-1Lp"; */
+"c5w-yR-1Lp.normalTitle" = "我知道了";
+
+/* Class = "UIButton"; normalTitle = "请至邮箱点击激活邮件"; ObjectID = "cmu-Xf-ak8"; */
+"cmu-Xf-ak8.normalTitle" = "请至邮箱点击激活邮件";
+
+/* Class = "UIButton"; normalTitle = "没有收到确认邮件，再发一封"; ObjectID = "f7J-cR-Ham"; */
+"f7J-cR-Ham.normalTitle" = "没有收到确认邮件，再发一封";
+
+/* Class = "UIButton"; normalTitle = "下一步"; ObjectID = "fNG-JU-71u"; */
+"fNG-JU-71u.normalTitle" = "下一步";
+
+/* Class = "UILabel"; text = "抱歉，您未通过品牌信息验证。"; ObjectID = "j6v-jm-IMs"; */
+"j6v-jm-IMs.text" = "抱歉，您未通过品牌信息验证。";
+
+/* Class = "UIButton"; normalTitle = "申请成功"; ObjectID = "pbi-AT-Z6v"; */
+"pbi-AT-Z6v.normalTitle" = "申请成功";
+
+/* Class = "UILabel"; text = "1.请在登录的邮箱中查看验证结果邮件，或发邮件到info@ycosystem.com咨询。"; ObjectID = "rbs-HD-KJr"; */
+"rbs-HD-KJr.text" = "1.请在登录的邮箱中查看验证结果邮件，或发邮件到info@ycosystem.com咨询。";
+
+/* Class = "UILabel"; text = "品牌验证中，请耐心等待2-3工作日"; ObjectID = "u6i-r0-YeR"; */
+"u6i-r0-YeR.text" = "品牌验证中，请耐心等待2-3工作日";
+
+/* Class = "UIButton"; normalTitle = "登录"; ObjectID = "vIP-yA-lAn"; */
+"vIP-yA-lAn.normalTitle" = "登录";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "xF6-8X-UTc"; */
+"xF6-8X-UTc.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "找回密码"; ObjectID = "xno-I4-mff"; */
+"xno-I4-mff.text" = "找回密码";

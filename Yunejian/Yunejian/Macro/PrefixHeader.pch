@@ -1,0 +1,68 @@
+//
+//  PrefixHeader.pch
+//  Yunejian
+//
+//  Created by yyj on 2017/8/2.
+//  Copyright © 2017年 yyj. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#ifdef __OBJC__
+#import "Header.h"
+#import "CommonMacro.h"
+#import "RequestMacro.h"
+#endif
+
+#pragma mark - 唯一标示
+#define kYYAppID @"1029335197"
+#define kJPushAppKey  @"519f28d2996ca1f48bd8534a"
+#define kJPushChannel  @"Publish channel"
+#define kJPushIsProduction  FALSE
+
+#define kApplicationMarked @"tbPadApp"
+
+#pragma mark - ServerURL
+
+#define YYDEBUG 1 // 测试环境
+#define kYYServerURL   @"http://test.ycosystem.com/"
+
+//#define YYDEBUG 2 // 展示环境
+//#define kYYServerURL   @"http://show.ycofoundation.com/"
+
+//#define YYDEBUG 0 // 正式环境
+//#define kYYServerURL   @"http://ycosystem.com"
+
+#pragma mark - 常用
+/** 状态栏高度 */
+#define kStatusBarHeight         20
+/** 导航栏高度 44+1 */
+#define kNavigationBarHeight     45
+/** tabbar高度 */
+#define ktabbarHeight            49
+
+/** 最多显示尺寸数量 */
+#define kMaxSizeCount 10
+
+#pragma mark - register type
+#define kBrandRegisterType 3 //品牌提交审核
+#define kBuyerRegisterType 4 //买手店提交审核
+#define kBrandInfoType 5 //品牌信息修改      ---- edit ----
+#define kForgetPasswordType 6 //密码忘记
+#define kEmailPasswordType 7 //邮箱密码验证
+
+
+#pragma mark - 尺寸相关
+#define SCREEN_WIDTH 1024
+#define SCREEN_HEIGHT 768
+#define SCREEN_LEFT_FRAEM_WIDTH 150
+#define SCREEN_RIGHT_FRAEM_WIDTH 874
+
+#define BLOCK_EXEC(block, ...)      if (block) { block(__VA_ARGS__); };//用宏定义检测block是否可用!
+
+#define FormatString(args...)       [NSString stringWithFormat:args]//stringWithFormat
+#define GET_KEY_PATH(obj, PATH)     FormatString(@"%s", ((void)obj.PATH, # PATH))//KVO
+
+
+#endif /* PrefixHeader_pch */

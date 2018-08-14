@@ -1,0 +1,137 @@
+
+/* Class = "UIButton"; normalTitle = "全选"; ObjectID = "5Z4-z1-G8j"; */
+"5Z4-z1-G8j.normalTitle" = "Select All";
+
+/* Class = "UIButton"; normalTitle = "保存"; ObjectID = "6v2-ZF-lCO"; */
+"6v2-ZF-lCO.normalTitle" = "Save";
+
+/* Class = "UILabel"; text = "设置系列查看权限"; ObjectID = "8AR-KD-ide"; */
+"8AR-KD-ide.text" = "Setup Viewing Permission";
+
+/* Class = "UILabel"; text = "0个已选中"; ObjectID = "Bz4-ig-3oQ"; */
+"Bz4-ig-3oQ.text" = "0 styles selected";
+
+/* Class = "UIButton"; normalTitle = "发布"; ObjectID = "H4Y-s7-bCh"; */
+"H4Y-s7-bCh.normalTitle" = "Publish";
+
+/* Class = "UIButton"; normalTitle = "被选中的买手店已解除合作"; ObjectID = "HKW-ck-0Ta"; */
+"HKW-ck-0Ta.normalTitle" = "You have disconnected with the chosen retailer.";
+
+/* Class = "UILabel"; text = "产地"; ObjectID = "Jh1-lq-gRh"; */
+"Jh1-lq-gRh.text" = "Country of Origin";
+
+/* Class = "UIButton"; normalTitle = "更多系列信息"; ObjectID = "KXr-ix-cHl"; */
+"KXr-ix-cHl.normalTitle" = "More Info";
+
+/* Class = "UILabel"; text = "自定义查看权限"; ObjectID = "Tl0-aW-7L0"; */
+"Tl0-aW-7L0.text" = "Customize Viewing Permission";
+
+/* Class = "UILabel"; text = "系列查看权限"; ObjectID = "ej1-k8-Xhz"; */
+"ej1-k8-Xhz.text" = "Setup Viewing Permission";
+
+/* Class = "UIButton"; normalTitle = "<返回"; ObjectID = "m22-j5-Lbh"; */
+"m22-j5-Lbh.normalTitle" = "<Back";
+
+
+
+/* Class = "UILabel"; text = "价格详情"; ObjectID = "2fY-OP-CHG"; */
+"2fY-OP-CHG.text" = "Price Details";
+
+/* Class = "UILabel"; text = "尺码"; ObjectID = "2qG-yQ-2aP"; */
+"2qG-yQ-2aP.text" = "Size";
+
+/* Class = "UILabel"; text = "Price"; ObjectID = "3kp-m6-j5n"; */
+"3kp-m6-j5n.text" = "Price";
+
+/* Class = "UILabel"; text = "批发价"; ObjectID = "7AW-3B-BrC"; */
+"7AW-3B-BrC.text" = "Wholesale";
+
+/* Class = "UILabel"; text = "零售价"; ObjectID = "7Oa-74-kPU"; */
+"7Oa-74-kPU.text" = "Retail";
+
+/* Class = "UILabel"; text = "款式名称"; ObjectID = "7zs-dz-e2C"; */
+"7zs-dz-e2C.text" = "Name";
+
+/* Class = "UILabel"; text = "发货波段"; ObjectID = "8Me-hh-f7Y"; */
+"8Me-hh-f7Y.text" = "Delivery";
+
+/* Class = "UILabel"; text = "Styles"; ObjectID = "99o-LH-gpv"; */
+"99o-LH-gpv.text" = "Styles";
+
+/* Class = "UILabel"; text = "Linesheet"; ObjectID = "EwJ-Kv-8uf"; */
+"EwJ-Kv-8uf.text" = "Collection";
+
+/* Class = "UILabel"; text = "over"; ObjectID = "KGK-Q7-BpH"; */
+"KGK-Q7-BpH.text" = "Expired";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "MAD-vH-fHS"; */
+"MAD-vH-fHS.text" = "Label";
+
+/* Class = "UILabel"; text = "Category"; ObjectID = "OVH-ut-f5v"; */
+"OVH-ut-f5v.text" = "Category";
+
+/* Class = "UIButton"; normalTitle = "Add"; ObjectID = "Pll-hH-0wf"; */
+"Pll-hH-0wf.normalTitle" = "Add";
+
+/* Class = "UIButton"; normalTitle = "加入购物车"; ObjectID = "rDd-vN-y7r"; */
+"rDd-vN-y7r.normalTitle" = "Add to Cart";
+
+/* Class = "UIButton"; normalTitle = "取消"; ObjectID = "Lwe-uo-eHk"; */
+"Lwe-uo-eHk.normalTitle" = "Cancel";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "SA8-99-EVK"; */
+"SA8-99-EVK.text" = "Label";
+
+/* Class = "UILabel"; text = "材质"; ObjectID = "TWR-Gf-dQy"; */
+"TWR-Gf-dQy.text" = "Material";
+
+/* Class = "UILabel"; text = "类别"; ObjectID = "ThB-HS-94Z"; */
+"ThB-HS-94Z.text" = "Category";
+
+/* Class = "UILabel"; text = "No Data"; ObjectID = "U8D-rP-Nw4"; */
+"U8D-rP-Nw4.text" = "No Data";
+
+/* Class = "UILabel"; text = "LookBook"; ObjectID = "UYR-wf-U0L"; */
+"UYR-wf-U0L.text" = "LookBook";
+
+/* Class = "UILabel"; text = "Style Name"; ObjectID = "VgG-SB-5r9"; */
+"VgG-SB-5r9.text" = "Style Name";
+
+/* Class = "UILabel"; text = "over"; ObjectID = "XBd-dd-1du"; */
+"XBd-dd-1du.text" = "Expired";
+
+/* Class = "UILabel"; text = "Style Code"; ObjectID = "byR-Um-lNd"; */
+"byR-Um-lNd.text" = "Style Code";
+
+/* Class = "UILabel"; text = "No Lookbook"; ObjectID = "fYS-N1-Dx5"; */
+"fYS-N1-Dx5.text" = "No Lookbook";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "g20-CP-e23"; */
+"g20-CP-e23.text" = "Description";
+
+/* Class = "UILabel"; text = "Style Code"; ObjectID = "gHh-Xl-6ub"; */
+"gHh-Xl-6ub.text" = "Style Code";
+
+/* Class = "UIButton"; normalTitle = "Add to Cart"; ObjectID = "ijY-oI-dWE"; */
+"ijY-oI-dWE.normalTitle" = "Add to Cart";
+
+/* Class = "UILabel"; text = "Material"; ObjectID = "imS-fj-9Hl"; */
+"imS-fj-9Hl.text" = "Material";
+
+/* Class = "UILabel"; text = "下载"; ObjectID = "mhn-hv-sX9"; */
+"mhn-hv-sX9.text" = "Download";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "rVm-63-xXf"; */
+"rVm-63-xXf.text" = "Label";
+
+/* Class = "UILabel"; text = "Size"; ObjectID = "rkl-eH-cd9"; */
+"rkl-eH-cd9.text" = "Size";
+
+/* Class = "UILabel"; text = "！您与此品牌不是合作关系，只有订单已包含的系列在此可见。"; ObjectID = "rxf-fW-MCR"; */
+"rxf-fW-MCR.text" = "！You haven't connected with the brand, thus only the collection you've ordered are visible to you.";
+
+/* Class = "UILabel"; text = "Products"; ObjectID = "xTo-4K-QWw"; */
+"xTo-4K-QWw.text" = "Collection";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "zki-7o-Uzg"; */
+"zki-7o-Uzg.text" = "Label";

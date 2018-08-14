@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "共计"; ObjectID = "3YL-eZ-MS5"; */
+"3YL-eZ-MS5.text" = "Total";
+
+/* Class = "UILabel"; text = "实付"; ObjectID = "IZq-SP-2Aj"; */
+"IZq-SP-2Aj.text" = "Actual Payment";
+
+/* Class = "UILabel"; text = "折扣"; ObjectID = "c2V-6k-Qr1"; */
+"c2V-6k-Qr1.text" = "Discount";
+
+/* Class = "UILabel"; text = "税前总价"; ObjectID = "e3Q-at-AIW"; */
+"e3Q-at-AIW.text" = "Pretax Total";
+
+/* Class = "UILabel"; text = "税金"; ObjectID = "my9-Az-x2h"; */
+"my9-Az-x2h.text" = "Tax";

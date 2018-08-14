@@ -1,0 +1,9 @@
+
+/* Class = "UILabel"; text = "来自买手店"; ObjectID = "DKB-jJ-jBK"; */
+"DKB-jJ-jBK.text" = "From Retailer";
+
+/* Class = "UIButton"; normalTitle = "删除"; ObjectID = "ntb-gA-qUP"; */
+"ntb-gA-qUP.normalTitle" = "Delete";
+
+/* Class = "UIButton"; normalTitle = "修改"; ObjectID = "thV-jJ-1Ez"; */
+"thV-jJ-1Ez.normalTitle" = "Modify";
