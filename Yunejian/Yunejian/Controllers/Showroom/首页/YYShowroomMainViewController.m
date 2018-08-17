@@ -50,7 +50,7 @@
 //导航栏上的  调用出来用来改变他的透明度
 @property (assign ,nonatomic) CGFloat alpha;
 @property (nonatomic ,strong) UIImageView *barImageView;
-@property (nonatomic ,strong) YYNavView *NavView;
+@property (nonatomic ,strong) YYNavView *navView;
 
 @property(nonatomic,strong) YYSettingViewController *settingViewController;
 
@@ -83,7 +83,7 @@
 
     if(self.alpha<1.0f){
         self.barImageView.alpha = 0;
-        self.NavView.alpha = 0;
+        self.navView.alpha = 0;
     }
 }
 
@@ -91,7 +91,7 @@
     [super viewDidAppear:animated];
     if(self.alpha<1.0f){
         self.barImageView.alpha = 0;
-        self.NavView.alpha = 0;
+        self.navView.alpha = 0;
     }
 }
 #pragma mark - SomePrepare
@@ -108,7 +108,7 @@
     _arrayData = [[NSMutableArray alloc] init];
 
     self.currentUser = [YYUser currentUser];
-    if(_currentUser.userType == 5){
+    if(_currentUser.userType == YYUserTypeShowroom){
         //showroom权限
         self.permissionStatus = 1;
     }else{
@@ -121,8 +121,8 @@
     self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
     self.view.backgroundColor = _define_white_color;
     
-    _NavView = [[YYNavView alloc] initWithTitle:@""];
-    self.navigationItem.titleView = _NavView;
+    _navView = [[YYNavView alloc] initWithTitle:@""];
+    self.navigationItem.titleView = _navView;
     
     UIButton *searchButton = [UIButton getCustomImgBtnWithImageStr:@"search_Showroom_icon" WithSelectedImageStr:nil];
     [searchButton addTarget:self action:@selector(searchAction) forControlEvents:UIControlEventTouchUpInside];
@@ -172,7 +172,7 @@
     _barImageView = [self.navigationController.navigationBar.subviews firstObject];
     _barImageView.backgroundColor = _define_white_color;
     _barImageView.alpha = _alpha;
-    _NavView.alpha = _alpha;
+    _navView.alpha = _alpha;
     
 }
 -(void)notificationAction{
@@ -192,7 +192,7 @@
     WeakSelf(ws);
     [YYShowroomApi hasPermissionToVisitOrderingWithBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, BOOL hasPermission, NSError *error) {
         [MBProgressHUD hideAllHUDsForView:ws.view animated:YES];
-        if(rspStatusAndMessage.status == kCode100){
+        if(rspStatusAndMessage.status == YYReqStatusCode100){
             if(hasPermission){
                 ws.permissionStatus = 1;
                 //获取红星
@@ -215,7 +215,7 @@
     WeakSelf(ws);
     if(_permissionStatus == 1){
         [YYShowroomApi hasOrderingMsgWithBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, BOOL hasMsg, NSError *error) {
-            if(rspStatusAndMessage.status == kCode100){
+            if(rspStatusAndMessage.status == YYReqStatusCode100){
                 ws.hasOrderingMsg = hasMsg;
             }else{
                 ws.hasOrderingMsg = NO;
@@ -272,7 +272,7 @@
             if([type isEqualToString:@"scrollviewdidscroll"]){
                 ws.alpha = (double)(contentOffsetY / ((240.0f/2048.0f)*SCREEN_WIDTH-90)) -1.0f;
                 ws.barImageView.alpha = ws.alpha;
-                ws.NavView.alpha = ws.alpha;
+                ws.navView.alpha = ws.alpha;
             }else if([type isEqualToString:@"navviewdismiss"]){
                 if(ws.alpha<1.0f)
                 {
@@ -281,7 +281,7 @@
                     [UIView setAnimationCurve: UIViewAnimationCurveEaseInOut];
                     [UIView setAnimationDelegate:ws];
                     ws.barImageView.alpha = 0;
-                    ws.NavView.alpha = 0;
+                    ws.navView.alpha = 0;
                     [UIView commitAnimations];
                 }
             }
@@ -335,15 +335,15 @@
     WeakSelf(ws);
     [YYShowroomApi getShowroomBrandListWithBlock:^(YYRspStatusAndMessage *rspStatusAndMessage,YYShowroomBrandListModel *brandListModel,NSError *error) {
         [MBProgressHUD hideAllHUDsForView:ws.view animated:YES];
-        if(rspStatusAndMessage.status == kCode100){
+        if(rspStatusAndMessage.status == YYReqStatusCode100){
             ws.ShowroomBrandListModel = brandListModel;
             [ws updateData];
             [ws CreateOrMoveNoDataView];
             [ws CreateOrUpdateCollectionView];
             
-            _NavView.navTitle = ws.ShowroomBrandListModel.name;
+            _navView.navTitle = ws.ShowroomBrandListModel.name;
 
-            if(_currentUser.userType == 5){
+            if(_currentUser.userType == YYUserTypeShowroom){
                 //showroom权限
                 [MBProgressHUD hideAllHUDsForView:ws.view animated:YES];
                 //获取红星
@@ -603,7 +603,7 @@
 //showroom切换到品牌角色
 -(void)showroomToBrandWithBrandID:(NSNumber *)brandId WithScanModel:(YYScanFunctionModel *)scanModel code:(YYQRCodeController *)code{
     [YYShowroomApi showroomToBrandWithBrandID:brandId andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYUserModel *userModel, NSError *error) {
-        if (rspStatusAndMessage.status == kCode100) {
+        if (rspStatusAndMessage.status == YYReqStatusCode100) {
             //表示切换角色成功,并进行扫码款式类型处理
             [self sweepYardStyleTypeAction:scanModel code:code];
         }else{
@@ -617,7 +617,7 @@
     [YYOpusApi getStyleInfoByStyleId:[scanModel.id longLongValue] orderCode:nil andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYStyleInfoModel *styleInfoModel, NSError *error) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         if(rspStatusAndMessage){
-            if (rspStatusAndMessage.status == kCode100) {
+            if (rspStatusAndMessage.status == YYReqStatusCode100) {
                 [code dismissController];
                 //表示有权限访问，跳转款式详情页
                 if(styleInfoModel){
@@ -691,10 +691,10 @@
                 _searchView=nil;
                 if(_alpha<1.0f){
                     _barImageView.alpha = 0;
-                    _NavView.alpha = 0;
+                    _navView.alpha = 0;
                 }else{
                     _barImageView.alpha = 1;
-                    _NavView.alpha = 1;
+                    _navView.alpha = 1;
                 }
             }else if([type isEqualToString:@"didselect"])
             {
@@ -704,7 +704,7 @@
         [self.navigationController setNavigationBarHidden:YES animated:NO];
     }
     _barImageView.alpha = 0;
-    _NavView.alpha = 0;
+    _navView.alpha = 0;
     _searchView.ShowroomBrandListModel = _ShowroomBrandListModel;
     [self.view addSubview:_searchView];
 }

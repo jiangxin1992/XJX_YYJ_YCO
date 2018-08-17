@@ -15,7 +15,6 @@
 #import "YYShowroomOrderingCheckViewController.h"
 
 // 自定义视图
-#import "YYNavView.h"
 #import "MBProgressHUD.h"
 #import "YYShowroomNotificationListCell.h"
 #import "YYNoDataView.h"
@@ -37,7 +36,6 @@
 @property (nonatomic, strong) YYPageInfoModel *currentPageInfo;
 @property (nonatomic, strong) NSMutableArray *dataArray;
 
-@property (nonatomic, strong) YYNavView *navView;
 @property (nonatomic, strong) YYNoDataView *noDataView;
 @property (nonatomic, strong) UIView *containerView;
 
@@ -216,7 +214,7 @@
 
     __block BOOL blockEndrefreshing = endrefreshing;
     [YYShowroomApi getOrderingListWithPageIndex:pageIndex pageSize:kPageSize andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYShowroomOrderingListModel *showroomOrderingListModel, NSError *error) {
-        if (rspStatusAndMessage.status == kCode100) {
+        if (rspStatusAndMessage.status == YYReqStatusCode100) {
             if (pageIndex == 1) {
                 [ws.dataArray removeAllObjects];
             }

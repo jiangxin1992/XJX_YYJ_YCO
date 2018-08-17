@@ -18,7 +18,7 @@
 @property(nonatomic,strong)YYOpusStyleModel *currentOpusStyleModel;
 @property(nonatomic,strong)YYOpusSeriesModel *opusSeriesModel;
 
-@property(nonatomic,assign)DataReadType currentDataReadType;
+@property(nonatomic,assign) EDataReadType currentDataReadType;
 
 @property(nonatomic,strong)StyleSummary *currentStyleSummary;
 @property(nonatomic,strong)Series *series;

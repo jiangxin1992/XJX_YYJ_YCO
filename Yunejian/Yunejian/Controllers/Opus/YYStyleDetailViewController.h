@@ -21,7 +21,7 @@
 @property (nonatomic,assign) NSInteger selectTaxType;
 
 
-@property(nonatomic,assign)DataReadType currentDataReadType;
+@property (nonatomic,assign) EDataReadType currentDataReadType;
 @property (nonatomic,assign) NSInteger totalPages; //总页码
 
 @property (nonatomic , assign) BOOL isModityCart;

@@ -87,15 +87,15 @@
     _currentColorIndexToShow = 0;
     
     switch (_currentDataReadType) {
-        case DataReadTypeOffline:{
+        case EDataReadTypeOffline:{
             [self loadOfflineStyleDetail];
         }
             break;
-        case DataReadTypeOnline:{
+        case EDataReadTypeOnline:{
             [self loadStyleInfo];
         }
             break;
-        case DataReadTypeCached:{
+        case EDataReadTypeCached:{
             [self fetchEntitys];
         }
             break;
@@ -123,15 +123,15 @@
 
 -(void)laodData{
     switch (_currentDataReadType) {
-        case DataReadTypeOffline:{
+        case EDataReadTypeOffline:{
             [self loadOfflineStyleDetail];
         }
             break;
-        case DataReadTypeOnline:{
+        case EDataReadTypeOnline:{
             [self loadStyleInfo];
         }
             break;
-        case DataReadTypeCached:{
+        case EDataReadTypeCached:{
             [self fetchEntitys];
         }
             break;
@@ -144,12 +144,12 @@
 - (void)updateScrollViewContentView{
     NSArray *imageArray = nil;
     switch (_currentDataReadType) {
-        case DataReadTypeOffline:
-        case DataReadTypeOnline:{
+        case EDataReadTypeOffline:
+        case EDataReadTypeOnline:{
             imageArray = _styleInfoModel.colorImages;
         }
             break;
-        case DataReadTypeCached:{
+        case EDataReadTypeCached:{
             imageArray = [_styleDetail.colors allObjects];
         }
             break;
@@ -294,7 +294,7 @@
     WeakSelf(ws);
     self.loadingView.hidden = NO;
    [YYOpusApi getStyleInfoByStyleId:[_currentOpusStyleModel.id longValue]orderCode:nil andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYStyleInfoModel *styleInfoModel, NSError *error) {
-       if (rspStatusAndMessage.status == kCode100) {
+       if (rspStatusAndMessage.status == YYReqStatusCode100) {
            ws.styleInfoModel = styleInfoModel;
            [ws updateUIAtColorIndex:0];
            [ws insertObjectToDb:styleInfoModel];
@@ -612,8 +612,8 @@
     NSArray *colorArray = nil;
     NSComparisonResult compareResult = NSOrderedDescending;
     switch (_currentDataReadType) {
-        case DataReadTypeOffline:
-        case DataReadTypeOnline:{
+        case EDataReadTypeOffline:
+        case EDataReadTypeOnline:{
             YYColorModel *colorModel = self.styleInfoModel.colorImages[colorIndex];
             name = _styleInfoModel.style.name;
             category = _styleInfoModel.style.category;
@@ -640,7 +640,7 @@
             }
         }
             break;
-        case DataReadTypeCached:{
+        case EDataReadTypeCached:{
             StyleDetailColors *color = [self.styleDetail.colors allObjects][colorIndex];
             name = _styleDetail.name;
             category = _styleDetail.category;
@@ -709,10 +709,10 @@
     paraStyle.lineSpacing =10;
     NSDictionary *attrDict = @{ NSParagraphStyleAttributeName: paraStyle,
                                 NSFontAttributeName: [UIFont systemFontOfSize: 13] };
-    
+
     if ([desString isKindOfClass:[NSNull class]]) {
         desString = @"";
-    }else if([desString isNilOrEmpty]){
+    }else if([NSString isNilOrEmpty:desString]){
         desString = @"";
     }
     _descriptionTextView.attributedText = [[NSAttributedString alloc] initWithString: desString attributes: attrDict];
@@ -741,7 +741,7 @@
 #pragma mark -- 购物车弹框
 - (IBAction)addShoppingCarAction:(id)sender {
     if(_opusSeriesModel){
-        if([_opusSeriesModel.status integerValue] == kOpusDraft){
+        if([_opusSeriesModel.status integerValue] == YYOpusCheckAuthDraft){
             if(_isToScan){
                 [YYToast showToastWithView:self.view title:NSLocalizedString(@"该款式为草稿不能加入购物车",nil) andDuration:kAlertToastDuration];
             }else{
@@ -750,7 +750,7 @@
             return;
         }
     }else if(_series){
-        if([_opusSeriesModel.status integerValue] == kOpusDraft){
+        if([_opusSeriesModel.status integerValue] == YYOpusCheckAuthDraft){
             if(_isToScan){
                 [YYToast showToastWithView:self.view title:NSLocalizedString(@"该款式为草稿不能加入购物车",nil) andDuration:kAlertToastDuration];
             }else{

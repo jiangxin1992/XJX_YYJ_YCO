@@ -7,27 +7,65 @@
 //
 
 #import "YYUserApi.h"
-#import "YYRequestHelp.h"
+
+// c文件 —> 系统文件（c文件在前）
+
+// 控制器
+
+// 自定义视图
+
+// 接口
+
+// 分类
+
+// 自定义类和三方类（ cocoapods类 > model > 工具类 > 其他）
 #import "RequestMacro.h"
-#import "UserDefaultsMacro.h"
+#import "YYRequestHelp.h"
 #import "YYHttpHeaderManager.h"
 
 #import "YYUser.h"
+#import "YYAddress.h"
 #import "YYUserModel.h"
-#import "YYRspStatusAndMessage.h"
 #import "YYDesignerModel.h"
-#import "YYBrandInfoModel.h"
-#import "YYBuyerStoreModel.h"
-#import "YYSalesManListModel.h"
 #import "YYLookBookModel.h"
-#import "YYBrandIntroductionModel.h"
-#import "YYLookBookListModel.h"
+#import "YYBrandInfoModel.h"
+#import "YYBuyerListModel.h"
+#import "YYIndexPicsModel.h"
+#import "YYBuyerStoreModel.h"
+#import "YYBuyerDetailModel.h"
+#import "YYCountryListModel.h"
+#import "YYAddressListModel.h"
 #import "YYUserHomePageModel.h"
-#import "MJExtension.h"
 #import "YYShowroomInfoModel.h"
+#import "YYSalesManListModel.h"
+#import "YYBuyerBaseInfoModel.h"
+#import "YYBuyerAddressListModel.h"
+#import "YYBrandIntroductionModel.h"
 
 @implementation YYUserApi
+/**
+ *
+ * 获取买手基础信息
+ *
+ */
++ (void)getBuyerInfo:(NSNumber *)userId andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,YYBuyerBaseInfoModel *buyerBaseInfoModel,NSError *error))block{
 
+    NSString *url = [[NSString alloc] initWithFormat:@"%@?userId=%@",kGetBuyerInfo,[userId stringValue]];
+
+    NSString *requestURL = [[[NSUserDefaults standardUserDefaults] objectForKey:kLastYYServerURL] stringByAppendingString:url];
+    NSDictionary *dic = [YYHttpHeaderManager buildHeadderWithAction:url params:nil];
+
+    [YYRequestHelp executeRequest:NO headers:dic requestUrl:requestURL requestCount:0 requestBody:nil andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage,id responseObject, NSError *error, id httpResponse) {
+        if (!error
+            && responseObject) {
+            YYBuyerBaseInfoModel *buyerBaseInfoModel = [[YYBuyerBaseInfoModel alloc] initWithDictionary:responseObject error:nil];
+            block(rspStatusAndMessage,buyerBaseInfoModel,error);
+
+        }else{
+            block(rspStatusAndMessage,nil,error);
+        }
+    }];
+}
 /**
  *
  * 用户登录
@@ -242,7 +280,7 @@
 
 /**
  *
- * 获取收货地址列表
+ * 获取收件地址列表
  *
  */
 + (void)getAddressListWithBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,YYAddressListModel *addressListModel,NSError *error))block{
@@ -290,7 +328,7 @@
 
 /**
  *
- * 修改买家用户名或电话
+ * 修改买手用户名或电话
  *
  */
 + (void)updateBuyerUsername:(NSString *)username phone:(NSString *)phone province:(NSString *)province city:(NSString *)city andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,NSError *error))block{
@@ -378,7 +416,7 @@
 
 /**
  *
- * 修改买家店铺信息
+ * 修改买手店铺信息
  *
  */
 + (void)storeUpdateByBuyerStoreModel:(YYBuyerStoreModel *)BuyerStoreModel andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,NSError *error))block{
@@ -399,7 +437,7 @@
 
 /**
  *
- * 添加或修改收货地址
+ * 添加或修改收件地址
  *
  */
 + (void)createOrModifyAddress:(YYAddress *)address andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,NSError *error))block{
@@ -551,7 +589,7 @@
     NSString *string = @"";
     NSString *urlstr = @"";
     YYUser *user = [YYUser currentUser];
-    if(user.userType == 5||user.userType == 6)
+    if(user.userType == YYUserTypeShowroom||user.userType == YYUserTypeShowroomSub)
     {
         string = [NSString stringWithFormat:@"logo=%@",url];
         urlstr = kShowroomModifyLogoInfo;
@@ -737,13 +775,13 @@
     NSData *body = [string dataUsingEncoding:NSUTF8StringEncoding];
     [YYRequestHelp executeRequest:YES headers:dic requestUrl:requestURL requestCount:0 requestBody:body andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage,id responseObject, NSError *error, id httpResponse) {
         if (!error) {
-            NSInteger errorCode = kCode100;
+            NSInteger errorCode = YYReqStatusCode100;
             if([responseObject objectForKey:@"data"] != nil){
                 errorCode =[[responseObject objectForKey:@"data"] integerValue];
             }
             block(rspStatusAndMessage,errorCode,error);
         }else{
-            block(rspStatusAndMessage,kCode203,error);
+            block(rspStatusAndMessage,YYReqStatusCode203,error);
         }
         
     }];
@@ -777,7 +815,7 @@
 
 /**
  *
- * 获取收货地址列表
+ * 获取收件地址列表
  *
  */
 + (void)getAddressListWithID:(NSInteger)buyerId pageIndex:(int)pageIndex pageSize:(int)pageSize andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,YYBuyerAddressListModel *addressListModel,NSError *error))block{
@@ -924,17 +962,11 @@
  *
  */
 +(void)updateBrandWithData:(NSDictionary *)params andBlock:(void(^)(YYRspStatusAndMessage *rspStatusAndMessage,NSError *error))block{
+    
     NSString *requestURL = [[[NSUserDefaults standardUserDefaults] objectForKey:kLastYYServerURL] stringByAppendingString:kHomeUpdateBrandInfoNew];
-    
     NSDictionary *headParams = [YYHttpHeaderManager buildHeadderWithAction:kHomeUpdateBrandInfoNew params:nil];
-    
-    //    NSString *string = [data componentsJoinedByString:@"&"];
-    
-    //    NSData *body = [string dataUsingEncoding:NSUTF8StringEncoding];
     NSData *body = [params mj_JSONData];
-    
-    //    NSData *body = [[string stringByRepdeslacingOccurrencesOfString:@"\r\n" withString:@"\\r\\n"] dataUsingEncoding:NSUTF8StringEncoding];
-    //    NSData *body = [data mj_JSONData];
+
     [YYRequestHelp executeRequest:YES headers:headParams requestUrl:requestURL requestCount:0 requestBody:body andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage,id responseObject, NSError *error, id httpResponse) {
         if (!error
             && responseObject) {

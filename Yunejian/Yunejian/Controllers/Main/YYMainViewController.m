@@ -34,6 +34,8 @@
 
 #import "YYUser.h"
 #import "YYAddress.h"
+#import "YYOrderInfoModel.h"
+#import "YYBuyerAddressModel.h"
 #import "YYStylesAndTotalPriceModel.h"
 
 #import "AppDelegate.h"
@@ -128,7 +130,7 @@
                 NSLog(@"手机流量上网");
                 [self uploadLocalOrder];
                 YYUser *user = [YYUser currentUser];
-                if([YYUser isShowroomToBrand]||user.userType==0||user.userType==2){
+                if([YYUser isShowroomToBrand]||user.userType == YYUserTypeDesigner||user.userType == YYUserTypeSales){
                     [self.orderListViewController reachabilityChanged];
                 }
             }
@@ -137,7 +139,7 @@
                 NSLog(@"WIFI上网");
                 [self uploadLocalOrder];
                 YYUser *user = [YYUser currentUser];
-                if([YYUser isShowroomToBrand]||user.userType==0||user.userType==2){
+                if([YYUser isShowroomToBrand]||user.userType == YYUserTypeDesigner||user.userType == YYUserTypeSales){
                     [self.orderListViewController reachabilityChanged];
                 }
             }
@@ -145,7 +147,7 @@
             default:{
                 NSLog(@"没网");
                 YYUser *user = [YYUser currentUser];
-                if([YYUser isShowroomToBrand]||user.userType==0||user.userType==2){
+                if([YYUser isShowroomToBrand]||user.userType == YYUserTypeDesigner||user.userType == YYUserTypeSales){
                     [self.orderListViewController reachabilityChanged];
                 }
             }
@@ -242,7 +244,7 @@
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [YYShowroomApi brandToShowroomBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYUserModel *userModel, NSError *error) {
             [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-            if(rspStatusAndMessage.status == kCode100){
+            if(rspStatusAndMessage.status == YYReqStatusCode100){
                 //清除购物车
                 AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
                 [appDelegate clearBuyCar];
@@ -434,7 +436,7 @@
                                     inRunLoop = YES;
                                     __block YYAddress *blockAddress = nowAddress;
                                     [YYOrderApi createOrModifyAddress:nowAddress andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYBuyerAddressModel *addressModel, NSError *error) {
-                                        if (rspStatusAndMessage.status == kCode100
+                                        if (rspStatusAndMessage.status == YYReqStatusCode100
                                             && addressModel
                                             && addressModel.addressId){
 
@@ -467,7 +469,7 @@
 
                                 inRunLoop = YES;
                                 [YYOrderApi createOrModifyOrderByJsonString:jsonString actionRefer:actionRefer realBuyerId:realBuyerId andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSString *orderCode, NSError *error) {
-                                    if (rspStatusAndMessage.status == kCode100) {
+                                    if (rspStatusAndMessage.status == YYReqStatusCode100) {
                                         NSLog(@"离线订单提交成功!");
                                         [upLoadSuccessArray addObject:nowKey];
                                     }

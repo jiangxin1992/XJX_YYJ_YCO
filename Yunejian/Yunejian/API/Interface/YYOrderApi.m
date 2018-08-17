@@ -7,13 +7,261 @@
 //
 
 #import "YYOrderApi.h"
+
+// c文件 —> 系统文件（c文件在前）
+
+// 控制器
+
+// 自定义视图
+
+// 接口
+
+// 分类
+
+// 自定义类和三方类（ cocoapods类 > model > 工具类 > 其他）
+#import "RequestMacro.h"
 #import "YYRequestHelp.h"
 #import "YYHttpHeaderManager.h"
-#import "RequestMacro.h"
-#import "YYOrderStatusMarksModel.h"
-#import "YYUser.h"
-@implementation YYOrderApi
 
+#import "YYOrderListModel.h"
+#import "YYOrderInfoModel.h"
+#import "YYPackageListModel.h"
+#import "YYOrderListItemModel.h"
+#import "YYOrderConnStatusModel.h"
+#import "YYOrderSimpleStyleList.h"
+#import "YYOrderAppendParamModel.h"
+#import "YYOrderTransStatusModel.h"
+#import "YYOrderStatusMarksModel.h"
+#import "YYOrderSettingInfoModel.h"
+#import "YYPackingListDetailModel.h"
+#import "YYOrderOperateLogListModel.h"
+#import "YYOrderMessageInfoListModel.h"
+#import "YYOrderStyleModifyReslutModel.h"
+
+#import "YYUser.h"
+#import "YYAddress.h"
+#import "YYWarehouseListModel.h"
+#import "YYBuyerAddressModel.h"
+#import "YYExpressCompanyModel.h"
+#import "YYPaymentNoteListModel.h"
+#import "YYParcelExceptionDetailModel.h"
+
+@implementation YYOrderApi
+/**
+ *
+ * 包裹异常详情
+ *
+ */
++ (void)getExceptionDetailByPackageId:(NSNumber *)packageId andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,YYParcelExceptionDetailModel *parcelExceptionDetailModel,NSError *error))block{
+
+    NSString *url = [[NSString alloc] initWithFormat:@"%@?packageId=%@",kParcelExceptionDetail,[packageId stringValue]];
+
+    NSString *requestURL = [[[NSUserDefaults standardUserDefaults] objectForKey:kLastYYServerURL] stringByAppendingString:url];
+    NSDictionary *dic = [YYHttpHeaderManager buildHeadderWithAction:url params:nil];
+
+    [YYRequestHelp executeRequest:NO headers:dic requestUrl:requestURL requestCount:0 requestBody:nil andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage,id responseObject, NSError *error, id httpResponse) {
+        if (!error
+            && responseObject) {
+            YYParcelExceptionDetailModel *parcelExceptionDetailModel = [[YYParcelExceptionDetailModel alloc] initWithDictionary:responseObject error:nil];
+            block(rspStatusAndMessage,parcelExceptionDetailModel,error);
+
+        }else{
+            block(rspStatusAndMessage,nil,error);
+        }
+    }];
+
+}
+/**
+ *
+ * 包裹单列表
+ *
+ */
++ (void)getPackagesListByOrderCode:(NSString *)orderCode andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,YYPackageListModel *packageListModel,NSError *error))block{
+
+    NSString *url = [[NSString alloc] initWithFormat:@"%@?pageIndex=1&pageSize=1000&orderCode=%@",kPackagesList,orderCode];
+
+    NSString *requestURL = [[[NSUserDefaults standardUserDefaults] objectForKey:kLastYYServerURL] stringByAppendingString:url];
+    NSDictionary *dic = [YYHttpHeaderManager buildHeadderWithAction:url params:nil];
+
+    [YYRequestHelp executeRequest:NO headers:dic requestUrl:requestURL requestCount:0 requestBody:nil andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage,id responseObject, NSError *error, id httpResponse) {
+        if (!error
+            && responseObject) {
+            YYPackageListModel *packageListModel = [[YYPackageListModel alloc] initWithDictionary:responseObject error:nil];
+            block(rspStatusAndMessage,packageListModel,error);
+
+        }else{
+            block(rspStatusAndMessage,nil,error);
+        }
+    }];
+}
+/**
+ *
+ * 分页查询仓库列表
+ *
+ */
++ (void)getWarehouseListWithBuyerID:(NSNumber *)buyerId andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,YYWarehouseListModel *warehouseListModel,NSError *error))block{
+    // get URL
+
+    NSString *url = [[NSString alloc] initWithFormat:@"%@?pageIndex=1&pageSize=1000&buyerId=%@",kWarehouseListWhenDelivery,[buyerId stringValue]];
+
+    NSString *requestURL = [[[NSUserDefaults standardUserDefaults] objectForKey:kLastYYServerURL] stringByAppendingString:url];
+    NSDictionary *dic = [YYHttpHeaderManager buildHeadderWithAction:url params:nil];
+
+    [YYRequestHelp executeRequest:NO headers:dic requestUrl:requestURL requestCount:0 requestBody:nil andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage,id responseObject, NSError *error, id httpResponse) {
+        if (!error
+            && responseObject) {
+            YYWarehouseListModel *warehouseListModel = [[YYWarehouseListModel alloc] initWithDictionary:responseObject error:nil];
+            block(rspStatusAndMessage,warehouseListModel,error);
+
+        }else{
+            block(rspStatusAndMessage,nil,error);
+        }
+    }];
+}
+/**
+ *
+ * 快递列表
+ *
+ */
++ (void)getExpressCompanyWithBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,NSArray *expressCompanyArray,NSError *error))block{
+
+    NSString *requestURL = [[[NSUserDefaults standardUserDefaults] objectForKey:kLastYYServerURL] stringByAppendingString:kExpressCompany];
+    NSDictionary *dic = [YYHttpHeaderManager buildHeadderWithAction:kExpressCompany params:nil];
+
+    [YYRequestHelp executeRequest:NO headers:dic requestUrl:requestURL requestCount:0 requestBody:nil andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage,id responseObject, NSError *error, id httpResponse) {
+        if (!error
+            && responseObject) {
+
+            NSMutableArray *tmpArray = [[NSMutableArray alloc] init];
+            NSArray *dataArray = (NSArray *)responseObject;
+            if(![NSArray isNilOrEmpty:dataArray]){
+                for (NSDictionary *obj in dataArray) {
+                    YYExpressCompanyModel *expressCompanyModel = [[YYExpressCompanyModel alloc] initWithDictionary:obj error:nil];
+                    [tmpArray addObject:expressCompanyModel];
+                }
+            }
+
+            block(rspStatusAndMessage,[tmpArray copy],error);
+
+        }else{
+            block(rspStatusAndMessage,nil,error);
+        }
+
+    }];
+}
+/**
+ *
+ * 绑定物流信息并发货
+ *
+ */
++ (void)saveDeliverPackageByJsonData:(NSData *)jsonData andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,NSError *error))block{
+
+    NSString *requestURL = [[[NSUserDefaults standardUserDefaults] objectForKey:kLastYYServerURL] stringByAppendingString:kSaveDeliverPackage];
+    NSDictionary *dic = [YYHttpHeaderManager buildHeadderWithAction:kSaveDeliverPackage params:nil];
+
+    NSDictionary *parameters = [jsonData mj_JSONObject];
+    NSData *body = [parameters mj_JSONData];
+
+    [YYRequestHelp executeRequest:YES headers:dic requestUrl:requestURL requestCount:0 requestBody:body andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage,id responseObject, NSError *error, id httpResponse) {
+        if (!error
+            && responseObject) {
+            block(rspStatusAndMessage,error);
+        }else{
+            block(rspStatusAndMessage,error);
+        }
+    }];
+}
+/**
+ *
+ * 保存装箱单
+ *
+ */
++ (void)savePackingListByDetailModel:(YYPackingListDetailModel *)packingListDetailModel andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,NSNumber *packageId,NSError *error))block{
+
+    NSString *requestURL = [[[NSUserDefaults standardUserDefaults] objectForKey:kLastYYServerURL] stringByAppendingString:kSaveParcel];
+    NSDictionary *dic = [YYHttpHeaderManager buildHeadderWithAction:kSaveParcel params:nil];
+
+    YYPackingListDetailModel *tmpPackingListDetailModel = [packingListDetailModel copy];
+    NSMutableArray *tmpStyleColors = [[NSMutableArray alloc] init];
+    for (YYPackingListStyleModel *packingListStyleModel in tmpPackingListDetailModel.styleColors) {
+        NSMutableArray *tmpSizes = [[NSMutableArray alloc] init];
+        BOOL hasSendAmout = NO;
+        for (YYPackingListSizeModel *packingListSizeModel in packingListStyleModel.color.sizes) {
+            if([packingListSizeModel.sentAmount integerValue] > 0){
+                [tmpSizes addObject:packingListSizeModel];
+                hasSendAmout = YES;
+            }
+        }
+        packingListStyleModel.color.sizes = [tmpSizes copy];
+
+        if(hasSendAmout){
+            [tmpStyleColors addObject:packingListStyleModel];
+        }
+    }
+    tmpPackingListDetailModel.styleColors = [tmpStyleColors copy];
+
+    NSData *jsonData = [[tmpPackingListDetailModel toDictionary] mj_JSONData];
+
+    [YYRequestHelp executeRequest:YES headers:dic requestUrl:requestURL requestCount:0 requestBody:jsonData andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage,id responseObject, NSError *error, id httpResponse) {
+        if (!error
+            && responseObject) {
+            block(rspStatusAndMessage,responseObject,error);
+        }else{
+            block(rspStatusAndMessage,responseObject,error);
+        }
+    }];
+
+}
+/**
+ *
+ * 单个包裹单详情
+ *
+ */
++ (void)getParcelDetailByPackageId:(NSNumber *)packageId andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,YYPackingListDetailModel *packingListDetailModel,NSError *error))block{
+
+    NSString *url = [[NSString alloc] initWithFormat:@"%@?packageId=%@",kParcelDetail,[packageId stringValue]];
+
+    NSString *requestURL = [[[NSUserDefaults standardUserDefaults] objectForKey:kLastYYServerURL] stringByAppendingString:url];
+    NSDictionary *dic = [YYHttpHeaderManager buildHeadderWithAction:url params:nil];
+
+    [YYRequestHelp executeRequest:NO headers:dic requestUrl:requestURL requestCount:0 requestBody:nil andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage,id responseObject, NSError *error, id httpResponse) {
+        if (!error
+            && responseObject) {
+            YYPackingListDetailModel *packingListDetailModel = [[YYPackingListDetailModel alloc] initWithDictionary:responseObject error:nil];
+            block(rspStatusAndMessage,packingListDetailModel,error);
+
+        }else{
+            block(rspStatusAndMessage,nil,error);
+        }
+
+    }];
+
+}
+/**
+ *
+ * 装箱单详情页
+ *
+ */
++ (void)getPackingListDetailByOrderCode:(NSString *)orderCode andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,YYPackingListDetailModel *packingListDetailModel,NSError *error))block{
+
+    NSString *url = [[NSString alloc] initWithFormat:@"%@?orderCode=%@",kPackingListDetail,orderCode];
+
+    NSString *requestURL = [[[NSUserDefaults standardUserDefaults] objectForKey:kLastYYServerURL] stringByAppendingString:url];
+    NSDictionary *dic = [YYHttpHeaderManager buildHeadderWithAction:url params:nil];
+
+    [YYRequestHelp executeRequest:NO headers:dic requestUrl:requestURL requestCount:0 requestBody:nil andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage,id responseObject, NSError *error, id httpResponse) {
+        if (!error
+            && responseObject) {
+            YYPackingListDetailModel *packingListDetailModel = [[YYPackingListDetailModel alloc] initWithDictionary:responseObject error:nil];
+            block(rspStatusAndMessage,packingListDetailModel,error);
+
+        }else{
+            block(rspStatusAndMessage,nil,error);
+        }
+
+    }];
+
+}
 /**
  *
  * 拒绝订单
@@ -214,33 +462,31 @@
         }else{
             actionName = [NSString stringWithFormat:@"%@?realBuyerId=0&reassociate=true",actionName];
         }
-    }else{
-        actionName = kOrderCreateOrModify;
     }
 
-    
-    NSString *requestURL = [[[NSUserDefaults standardUserDefaults] objectForKey:kLastYYServerURL] stringByAppendingString:actionName];
-    
-    NSDictionary *dic = [YYHttpHeaderManager buildHeadderWithAction:actionName params:nil];
-    NSString *string = [NSString stringWithFormat:kOrderCreateOrModifyParams_yco,jsonString];
-    
-    NSData *body = [string dataUsingEncoding:NSUTF8StringEncoding];
-    
-    [YYRequestHelp executeRequest:YES headers:dic requestUrl:requestURL requestCount:0 requestBody:body andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage,id responseObject, NSError *error, id httpResponse) {
-        if (!error
-            && responseObject) {
-            block(rspStatusAndMessage,responseObject,error);
-            
-        }else{
-            block(rspStatusAndMessage,nil,error);
-        }
-        
-    }];
+    if(![NSString isNilOrEmpty:actionName]){
+        NSString *requestURL = [[[NSUserDefaults standardUserDefaults] objectForKey:kLastYYServerURL] stringByAppendingString:actionName];
+
+        NSDictionary *dic = [YYHttpHeaderManager buildHeadderWithAction:actionName params:nil];
+        NSString *string = [NSString stringWithFormat:kOrderCreateOrModifyParams_yco,jsonString];
+
+        NSData *body = [string dataUsingEncoding:NSUTF8StringEncoding];
+
+        [YYRequestHelp executeRequest:YES headers:dic requestUrl:requestURL requestCount:0 requestBody:body andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage,id responseObject, NSError *error, id httpResponse) {
+            if (!error
+                && responseObject) {
+                block(rspStatusAndMessage,responseObject,error);
+
+            }else{
+                block(rspStatusAndMessage,nil,error);
+            }
+        }];
+    }
 }
 
 /**
  *
- * 创建或修改买家地址
+ * 创建或修改买手地址
  *
  */
 + (void)createOrModifyAddress:(YYAddress *)address andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,YYBuyerAddressModel *addressModel, NSError *error))block{
@@ -344,7 +590,7 @@
     NSString *actionName = nil;
     if (opType == 1) {
         YYUser *user = [YYUser currentUser];
-        if(user.userType == kBuyerStorUserType){
+        if(user.userType == YYUserTypeRetailer){
             actionName = kBuyerCancelOrder;
         }else{
             actionName = kCancelOrder;
@@ -511,7 +757,7 @@
             
         }else{
             YYOrderConnStatusModel *statusModel = [[YYOrderConnStatusModel alloc] init];
-            statusModel.status = [[NSNumber alloc] initWithInteger:kOrderStatus];//;
+            statusModel.status = [[NSNumber alloc] initWithInteger:YYOrderConnStatusNotFound];//;
             statusModel.orderCode = blockOrderCode;
             block(rspStatusAndMessage,statusModel,error);
         }
@@ -524,13 +770,13 @@
  *更新订单流转状态
  *
  */
-+ (void)updateTransStatus:(NSString *)orderCode  statusCode:(NSInteger)statusCode andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,NSError *error))block{
++ (void)updateTransStatus:(NSString *)orderCode statusCode:(NSInteger)statusCode force:(BOOL)isforce andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,NSError *error))block{
     // get URL
     NSString *actionName = nil;
     NSString *string = nil;
-    if(statusCode == kOrderCode_DELIVERY){
+    if(statusCode == YYOrderCode_DELIVERY){
         actionName = kDesignerSendOut;
-        string = [NSString stringWithFormat:@"orderCode=%@",orderCode];
+        string = [NSString stringWithFormat:@"orderCode=%@&force=%d",orderCode,isforce];
     }else{
         actionName = kUpdateTransStatus;
         string = [NSString stringWithFormat:@"orderCode=%@&statusCode=%ld",orderCode,(long)statusCode];
@@ -594,40 +840,18 @@
     }];
 }
 
-/**
- *
- *修改付款记录
- *
- */
-+ (void)editPaymentNote:(NSString *)noteid orderCode:(NSString *)orderCode  percent:(NSInteger)percent amount:(float)amount andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,NSError *error))block{
-    // get URL
-    NSString *requestURL = [[[NSUserDefaults standardUserDefaults] objectForKey:kLastYYServerURL] stringByAppendingString:kEditPaymentNote];
-    
-    NSDictionary *dic = [YYHttpHeaderManager buildHeadderWithAction:kEditPaymentNote params:nil];
-    NSString *string = [NSString stringWithFormat:@"id=%@&orderCode=%@&percent=%ld&amount=%f",noteid,orderCode,(long)percent,amount];
-    NSData *body = [string dataUsingEncoding:NSUTF8StringEncoding];
-    [YYRequestHelp executeRequest:YES headers:dic requestUrl:requestURL requestCount:0 requestBody:body andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage,id responseObject, NSError *error, id httpResponse) {
-        if (!error) {
-            block(rspStatusAndMessage,error);
-        }else{
-            block(rspStatusAndMessage,error);
-        }
-    }];
-}
-
-
 
 /**
  *
  *添加付款（收款）记录
  *
  */
-+ (void)addPaymentNote:(NSString *)orderCode  percent:(NSInteger)percent amount:(float)amount andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,NSError *error))block{
++ (void)addPaymentNote:(NSString *)orderCode amount:(float)amount andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,NSError *error))block{
     // get URL
     NSString *requestURL = [[[NSUserDefaults standardUserDefaults] objectForKey:kLastYYServerURL] stringByAppendingString:kAddPaymentNote];
     
     NSDictionary *dic = [YYHttpHeaderManager buildHeadderWithAction:kAddPaymentNote params:nil];
-    NSString *string = [NSString stringWithFormat:@"orderCode=%@&percent=%ld&amount=%f",orderCode,(long)percent,amount];
+    NSString *string = [NSString stringWithFormat:@"orderCode=%@&amount=%f",orderCode,amount];
     NSData *body = [string dataUsingEncoding:NSUTF8StringEncoding];
     [YYRequestHelp executeRequest:YES headers:dic requestUrl:requestURL requestCount:0 requestBody:body andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage,id responseObject, NSError *error, id httpResponse) {
         if (!error) {
@@ -643,7 +867,7 @@
  *订单收款记录
  *
  */
-+ (void)getPaymentNoteList:(NSString *)orderCode andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,YYPaymentNoteListModel *noteList,NSError *error))block{
++ (void)getPaymentNoteList:(NSString *)orderCode finalTotalPrice:(CGFloat)finalTotalPrice andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,YYPaymentNoteListModel *noteList,NSError *error))block{
     // get URL
     NSString *requestURL = [[[NSUserDefaults standardUserDefaults] objectForKey:kLastYYServerURL] stringByAppendingString:kPaymentNoteList];
     NSDictionary *dic = [YYHttpHeaderManager buildHeadderWithAction:kPaymentNoteList params:nil];
@@ -653,6 +877,7 @@
     [YYRequestHelp executeRequest:YES headers:dic requestUrl:requestURL requestCount:0 requestBody:body andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage,id responseObject, NSError *error, id httpResponse) {
         if (!error) {
             YYPaymentNoteListModel *noteListModel = [[YYPaymentNoteListModel alloc] initWithDictionary:responseObject error:nil];
+            [noteListModel setTotalPercent:finalTotalPrice];
             block(rspStatusAndMessage,noteListModel,error);
             
         }else{
@@ -709,7 +934,7 @@
  *撤销关闭订单请求(买手,设计师)
  *
  */
-+ (void)revokeOrderCloseRequest:(NSString *)orderCode  andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,NSError *error))block{
++ (void)revokeOrderCloseRequest:(NSString *)orderCode andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,NSError *error))block{
     // get URL
     NSString *requestURL = [[[NSUserDefaults standardUserDefaults] objectForKey:kLastYYServerURL] stringByAppendingString:kRevokeOrderCloseRequest];
     
@@ -730,14 +955,15 @@
  *款式是否过期
  *
  */
-+ (void)isStyleModify:(NSString *)styleMap  andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,YYOrderStyleModifyReslutModel *styleModifyReslut,NSError *error))block{
++ (void)isStyleModifyWithData:(NSDictionary *)params andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,YYOrderStyleModifyReslutModel *styleModifyReslut,NSError *error))block{
     // get URL
     NSString *requestURL = [[[NSUserDefaults standardUserDefaults] objectForKey:kLastYYServerURL] stringByAppendingString:kIsStyleModify];
-    
-    NSDictionary *dic = [YYHttpHeaderManager buildHeadderWithAction:kIsStyleModify params:nil];
-    NSString *string = [NSString stringWithFormat:@"styleMap=%@",styleMap];
+    NSDictionary *headParams = [YYHttpHeaderManager buildHeadderWithAction:kIsStyleModify params:nil];
+    NSString *paramsStr = [params mj_JSONString];
+    NSString *string = [[NSString alloc] initWithFormat:@"styleMap=%@",paramsStr];
     NSData *body = [string dataUsingEncoding:NSUTF8StringEncoding];
-    [YYRequestHelp executeRequest:YES headers:dic requestUrl:requestURL requestCount:0 requestBody:body andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage,id responseObject, NSError *error, id httpResponse) {
+
+    [YYRequestHelp executeRequest:YES headers:headParams requestUrl:requestURL requestCount:0 requestBody:body andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage,id responseObject, NSError *error, id httpResponse) {
         if (!error) {
             YYOrderStyleModifyReslutModel *styleModifyReslutModel = [[YYOrderStyleModifyReslutModel alloc] initWithDictionary:responseObject error:nil];
             block(rspStatusAndMessage,styleModifyReslutModel,error);
@@ -752,7 +978,7 @@
  *查看对方是否订单关闭
  *
  */
-+ (void)getOrderCloseStatus:(NSString *)orderCode  andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,NSInteger isclose,NSError *error))block{
++ (void)getOrderCloseStatus:(NSString *)orderCode andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,NSInteger isclose,NSError *error))block{
     NSString *requestURL = [[[NSUserDefaults standardUserDefaults] objectForKey:kLastYYServerURL] stringByAppendingString:kOrderCloseStatus];
     
     NSDictionary *dic = [YYHttpHeaderManager buildHeadderWithAction:kOrderCloseStatus params:nil];
@@ -772,7 +998,7 @@
  *关闭订单
  *
  */
-+ (void)closeOrder:(NSString *)orderCode  andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,NSError *error))block{
++ (void)closeOrder:(NSString *)orderCode andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,NSError *error))block{
     NSString *requestURL = [[[NSUserDefaults standardUserDefaults] objectForKey:kLastYYServerURL] stringByAppendingString:kCloseOrder];
     
     NSDictionary *dic = [YYHttpHeaderManager buildHeadderWithAction:kCloseOrder params:nil];
@@ -822,7 +1048,7 @@
  *开启或关闭补货
  *
  */
-+ (void)getOrderSimpleStyleList:(NSString *)orderCode  andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,YYOrderSimpleStyleList *styleList,NSError *error))block{
++ (void)getOrderSimpleStyleList:(NSString *)orderCode andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,YYOrderSimpleStyleList *styleList,NSError *error))block{
     NSString *requestURL = [[[NSUserDefaults standardUserDefaults] objectForKey:kLastYYServerURL] stringByAppendingString:kOrderSimpleStyleList];
     
     NSDictionary *dic = [YYHttpHeaderManager buildHeadderWithAction:kOrderSimpleStyleList params:nil];
@@ -843,7 +1069,7 @@
  *追单初始化创建
  *
  */
-+ (void)appendOrder:(YYOrderAppendParamModel *)model  andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,NSString *orderCode,NSError *error))block{
++ (void)appendOrder:(YYOrderAppendParamModel *)model andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,NSString *orderCode,NSError *error))block{
     NSString *requestURL = [[[NSUserDefaults standardUserDefaults] objectForKey:kLastYYServerURL] stringByAppendingString:kOrderPreAppend_yco];
     
     NSDictionary *dic = [YYHttpHeaderManager buildHeadderWithAction:kOrderPreAppend_yco params:nil];
@@ -864,7 +1090,7 @@
  *废弃付款记录
  *
  */
-+ (void)discardPayment:(NSInteger )payId  andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,NSError *error))block{
++ (void)discardPayment:(NSInteger )payId andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,NSError *error))block{
     NSString *requestURL = [[[NSUserDefaults standardUserDefaults] objectForKey:kLastYYServerURL] stringByAppendingString:kPaymentDiscard];
     
     NSDictionary *dic = [YYHttpHeaderManager buildHeadderWithAction:kPaymentDiscard params:nil];
@@ -884,7 +1110,7 @@
  *确认付款记录
  *
  */
-+ (void)confirmPayment:(NSInteger )payId  andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,NSError *error))block{
++ (void)confirmPayment:(NSInteger )payId andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,NSError *error))block{
     NSString *requestURL = [[[NSUserDefaults standardUserDefaults] objectForKey:kLastYYServerURL] stringByAppendingString:kPaymentConfirm];
     
     NSDictionary *dic = [YYHttpHeaderManager buildHeadderWithAction:kPaymentConfirm params:nil];
@@ -904,7 +1130,7 @@
  *删除付款记录
  *
  */
-+ (void)deletePayment:(NSInteger )payId  andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,NSError *error))block{
++ (void)deletePayment:(NSInteger )payId andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,NSError *error))block{
     NSString *requestURL = [[[NSUserDefaults standardUserDefaults] objectForKey:kLastYYServerURL] stringByAppendingString:kPaymentDelete];
     
     NSDictionary *dic = [YYHttpHeaderManager buildHeadderWithAction:kPaymentDelete params:nil];

@@ -35,6 +35,9 @@
 #import "YYOrderInfoModel.h"
 #import "YYSeriesInfoModel.h"
 #import "YYOrderOneInfoModel.h"
+#import "YYOpusStyleListModel.h"
+#import "YYOpusSeriesListModel.h"
+#import "YYSeriesInfoDetailModel.h"
 
 #import "AppDelegate.h"
 
@@ -181,12 +184,12 @@ static NSInteger headViewHeight = 44;
 -(void)loadSeriesInfo{
     WeakSelf(ws);
     [YYOpusApi getConnSeriesInfoWithId:_designerId seriesId:_seriesId andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYSeriesInfoDetailModel *infoDetailModel, NSError *error) {
-        if (rspStatusAndMessage.status == kCode100){
+        if (rspStatusAndMessage.status == YYReqStatusCode100){
             ws.seriesInfoDetailModel = infoDetailModel;
             [ws updateMenuUI];
         }
         [MBProgressHUD hideAllHUDsForView:ws.view animated:YES];
-        if (rspStatusAndMessage.status != kCode100) {
+        if (rspStatusAndMessage.status != YYReqStatusCode100) {
             [YYToast showToastWithTitle:rspStatusAndMessage.message  andDuration:kAlertToastDuration];
         }
         [ws reloadCollectionViewData];
@@ -196,7 +199,7 @@ static NSInteger headViewHeight = 44;
 - (void)loadAllSeries{
     WeakSelf(ws);
     [YYOpusApi getConnSeriesListWithId:_designerId pageIndex:1 pageSize:20 andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYOpusSeriesListModel *opusSeriesListModel, NSError *error) {
-        if (rspStatusAndMessage.status == kCode100
+        if (rspStatusAndMessage.status == YYReqStatusCode100
             && opusSeriesListModel.result
             && [opusSeriesListModel.result count] > 0) {
             ws.seriesArray = [[NSMutableArray alloc] init];
@@ -210,7 +213,7 @@ static NSInteger headViewHeight = 44;
 - (void)loadDataByPageIndex:(int)pageIndex queryStr:(NSString*)queryStr{
     WeakSelf(ws);
     [YYOpusApi getConnStyleListWithDesignerId:_designerId seriesId:_seriesId orderBy:nil queryStr:queryStr pageIndex:pageIndex pageSize:8 andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYOpusStyleListModel *opusStyleListModel, NSError *error) {
-        if (rspStatusAndMessage.status == kCode100 && opusStyleListModel.result
+        if (rspStatusAndMessage.status == YYReqStatusCode100 && opusStyleListModel.result
             && [opusStyleListModel.result count] > 0) {
             if(ws.searchResultArray == nil){
                 ws.currentPageInfo = opusStyleListModel.pageInfo;
@@ -228,7 +231,7 @@ static NSInteger headViewHeight = 44;
         }
 
         [MBProgressHUD hideAllHUDsForView:ws.view animated:YES];
-        if (rspStatusAndMessage.status != kCode100) {
+        if (rspStatusAndMessage.status != YYReqStatusCode100) {
             [YYToast showToastWithTitle:rspStatusAndMessage.message  andDuration:kAlertToastDuration];
         }
         [ws reloadCollectionViewData];

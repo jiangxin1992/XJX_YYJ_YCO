@@ -1,5 +1,5 @@
 //
-//  YYInventoryTableStepCell.m
+//  YYForgetPasswordTableStepCell.m
 //  YunejianBuyer
 //
 //  Created by Apple on 16/9/1.

@@ -14,7 +14,8 @@
 @property (strong, nonatomic) NSString<Optional> *brandName;
 @property (strong, nonatomic) NSString<Optional> *showroomName;
 @property (strong, nonatomic) NSString<Optional> *contactStartTime;
-@property (strong, nonatomic) NSString<Optional> *agentContent;
+@property (strong, nonatomic) NSString<Optional> *content;
+@property (strong, nonatomic) NSString<Optional> *contentEn;
 @property (strong, nonatomic) NSString<Optional> *designerName;
 
 @end

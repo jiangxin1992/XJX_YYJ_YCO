@@ -25,6 +25,7 @@
 
 #import "YYUserApi.h"
 #import "YYConnApi.h"
+#import "YYBuyerDetailModel.h"
 
 @interface YYConnBuyerInfoViewController ()
 @property (weak, nonatomic) IBOutlet UIView *containerView;
@@ -351,7 +352,7 @@
 - (void)loadInfoData{
     WeakSelf(ws);
     [YYUserApi getBuyerDetailInfoWithID:_buyerId andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYBuyerDetailModel *buyerModel, NSError *error) {
-        if(rspStatusAndMessage.status == kCode100){
+        if(rspStatusAndMessage.status == YYReqStatusCode100){
             ws.buyerModel = buyerModel;
             dispatch_async(dispatch_get_main_queue(), ^{
                 [ws updateUI];
@@ -560,25 +561,25 @@
         _pageControl.currentPage = index;
     }];
     
-    if([_buyerModel.connectStatus integerValue] == kConnStatus){
+    if([_buyerModel.connectStatus integerValue] == YYUserConnStatusNone){
         _oprateBtn.backgroundColor =[UIColor blackColor];
         _oprateBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
         [_oprateBtn setImage:[UIImage imageNamed:@"conn_invite_icon"] forState:UIControlStateNormal];
         [_oprateBtn setTitle:NSLocalizedString(@"建立合作",nil) forState:UIControlStateNormal];
         [_oprateBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    }else if([_buyerModel.connectStatus integerValue] == kConnStatus0){
+    }else if([_buyerModel.connectStatus integerValue] == YYUserConnStatusInvite){
         _oprateBtn.backgroundColor =[UIColor clearColor];
         _oprateBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
         [_oprateBtn setImage:[UIImage imageNamed:@"conn_refuse_icon"] forState:UIControlStateNormal];
         [_oprateBtn setTitle:NSLocalizedString(@"取消邀请",nil) forState:UIControlStateNormal];
         [_oprateBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    }else if([_buyerModel.connectStatus integerValue] == kConnStatus1){
+    }else if([_buyerModel.connectStatus integerValue] == YYUserConnStatusConnected){
         _oprateBtn.backgroundColor =[UIColor clearColor];
         _oprateBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
         [_oprateBtn setImage:[UIImage imageNamed:@"conn_cancel_icon"] forState:UIControlStateNormal];
         [_oprateBtn setTitle:NSLocalizedString(@"解除合作",nil) forState:UIControlStateNormal];
         [_oprateBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    }else if([_buyerModel.connectStatus integerValue] == kConnStatus2){
+    }else if([_buyerModel.connectStatus integerValue] == YYUserConnStatusBeInvited){
         _oprateBtn.backgroundColor =[UIColor clearColor];
         _oprateBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
         [_oprateBtn setImage:[UIImage imageNamed:@"conn_refuse_icon"] forState:UIControlStateNormal];
@@ -595,7 +596,7 @@
     if(_buyerModel == nil){
         return;
     }
-    if([_buyerModel.connectStatus integerValue] == kConnStatus1){
+    if([_buyerModel.connectStatus integerValue] == YYUserConnStatusConnected){
         CMAlertView *alertView = [[CMAlertView alloc] initWithTitle:NSLocalizedString(@"解除合作吗？",nil) message:NSLocalizedString(@"解除合作后，买手店将不能浏览本品牌作品。确认解除合作吗？",nil) needwarn:NO delegate:nil cancelButtonTitle:NSLocalizedString(@"继续合作_no",nil) otherButtonTitles:@[NSLocalizedString(@"解除合作_yes",nil)]];
         alertView.specialParentView = self.view;
         [alertView setAlertViewBlock:^(NSInteger selectedIndex){
@@ -605,7 +606,7 @@
         }];
         
         [alertView show];
-    }else if([_buyerModel.connectStatus integerValue] == kConnStatus0){
+    }else if([_buyerModel.connectStatus integerValue] == YYUserConnStatusInvite){
         CMAlertView *alertView = [[CMAlertView alloc] initWithTitle:NSLocalizedString(@"取消邀请吗？",nil) message:nil needwarn:NO delegate:nil cancelButtonTitle:NSLocalizedString(@"继续邀请_no",nil) otherButtonTitles:@[NSLocalizedString(@"取消邀请_yes",nil)]];
         alertView.specialParentView = self.view;
         [alertView setAlertViewBlock:^(NSInteger selectedIndex){
@@ -615,7 +616,7 @@
         }];
         
         [alertView show];
-    }else if([_buyerModel.connectStatus integerValue] == kConnStatus2){
+    }else if([_buyerModel.connectStatus integerValue] == YYUserConnStatusBeInvited){
         CMAlertView *alertView = [[CMAlertView alloc] initWithTitle:NSLocalizedString(@"确定拒绝邀请吗？",nil) message:nil needwarn:NO delegate:nil cancelButtonTitle:NSLocalizedString(@"继续邀请",nil) otherButtonTitles:@[NSLocalizedString(@"拒绝邀请",nil)]];
         alertView.specialParentView = self.view;
         [alertView setAlertViewBlock:^(NSInteger selectedIndex){
@@ -625,7 +626,7 @@
         }];
         
         [alertView show];
-    }else if([_buyerModel.connectStatus integerValue] == kConnStatus){//
+    }else if([_buyerModel.connectStatus integerValue] == YYUserConnStatusNone){//
         CMAlertView *alertView = [[CMAlertView alloc] initWithTitle:NSLocalizedString(@"确定邀请吗？",nil) message:nil needwarn:NO delegate:nil cancelButtonTitle:NSLocalizedString(@"取消邀请",nil) otherButtonTitles:@[[NSString stringWithFormat:@"%@|000000",NSLocalizedString(@"继续邀请",nil)]]];
         alertView.specialParentView = self.view;
         __block YYBuyerDetailModel *blockBuyerModel = _buyerModel;
@@ -633,7 +634,7 @@
         [alertView setAlertViewBlock:^(NSInteger selectedIndex){
             if (selectedIndex == 1) {
                 [YYConnApi invite:[blockBuyerModel.buyerId integerValue] andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSError *error) {
-                    if(rspStatusAndMessage.status == kCode100){
+                    if(rspStatusAndMessage.status == YYReqStatusCode100){
                         blockBuyerModel.connectStatus = 0;
                         [YYTopAlertView showWithType:YYTopAlertTypeSuccess text:NSLocalizedString(@"邀请买手店成功", nil) parentView:nil];
                         //[ws updateUI];
@@ -659,7 +660,7 @@
 - (void)oprateConnWithBuyer:(NSInteger)buyerId status:(NSInteger)status{
     WeakSelf(ws);
     [YYConnApi OprateConnWithBuyer:buyerId status:status andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSError *error) {
-        if(rspStatusAndMessage.status == kCode100){
+        if(rspStatusAndMessage.status == YYReqStatusCode100){
             [YYTopAlertView showWithType:YYTopAlertTypeSuccess text:NSLocalizedString(@"操作成功！", nil) parentView:nil];
             if(ws.modifySuccess2){
                 ws.modifySuccess2();

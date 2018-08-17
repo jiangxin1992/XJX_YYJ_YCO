@@ -266,7 +266,7 @@
 
     [YYShowroomApi subShowroomPowerUserId:self.userId authList:self.selectRow andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSError *error) {
 
-        if (rspStatusAndMessage.status == kCode100) {
+        if (rspStatusAndMessage.status == YYReqStatusCode100) {
             [YYToast showToastWithTitle:NSLocalizedString(@"操作成功！",nil) andDuration:kAlertToastDuration];
             // 退出
             [self dismissViewControllerAnimated:YES completion:nil];

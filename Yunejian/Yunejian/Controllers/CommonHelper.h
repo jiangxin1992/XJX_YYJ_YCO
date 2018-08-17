@@ -52,9 +52,6 @@ CGFloat getWidthWithHeight(CGFloat height,NSString *content, UIFont *font);
 //获取文本高度
 NSInteger getTxtHeight(float txtWidth,NSString *text,NSDictionary *txtDict);
 
-//获取导航栏
-//UIView *setNavView(NSString *title,UIView *supview);
-
 //将时间戳转换成时间
 NSDate *getDate(long time);
 
@@ -74,8 +71,6 @@ NSString *trimWhitespaceOfStr(NSString *string);
 NSString *getUsersStorePath();
 //历史订单搜索数据
 NSString *getOrderSearchNoteStorePath();
-//历史库存存放路径
-NSString *getInventorySearchNoteStorePath();
 //弹出窗口添加白色，60%透明背影层
 void popWindowAddBgView(UIView *superView);
 
@@ -101,7 +96,7 @@ YYStylesAndTotalPriceModel *getLocalShoppingCartStyleCount(NSArray *cartbarndInf
 
 //创建订单的分享码
 NSString *createOrderSharecode();
-//买家地址格式
+//买手地址格式
 NSString *getBuyerAddressStr_phone(YYOrderBuyerAddress *buyerAddress);
 NSString *getBuyerAddressStr_pad(YYOrderBuyerAddress *buyerAddress);
 //设置menuUI
@@ -123,17 +118,15 @@ NSInteger getOrderTransStatus(NSNumber *designerTransStatus,NSNumber *buyerTrans
 NSString *getOrderStatusName_detail(NSInteger transStatus,BOOL needNum);
 NSString *getOrderStatusName_short(NSInteger status);
 //订单状态按钮名称
-NSString *getOrderStatusBtnName_brand(NSInteger status);
+NSString *getOrderStatusBtnName(NSInteger status,NSInteger connectStatus);
 NSString *getOrderStatusBtnName_buyer(NSInteger status);
-NSString *getOrderStatusBtnName_pad(NSInteger status);
 
 NSString *getOrderStatusAlertTip(NSInteger status);
 //订单状态按钮名称
-NSInteger getOrderNextStatus(NSInteger status);
+NSInteger getOrderNextStatus(NSInteger status,NSInteger connectStatus);
 //订单状态按钮提示
 NSString *getOrderStatusDesignerTip_phone(NSInteger status);
 NSString *getOrderStatusDesignerTip_pad(NSInteger status);
-//订单状态按钮提示
 NSString *getOrderStatusBuyerTip(NSInteger status);
 
 NSLayoutConstraint *getUIViewLayoutConstraint(UIView *ui ,NSLayoutAttribute layoutAttribute);
@@ -254,7 +247,7 @@ NSString *getPayTaxType(NSInteger type,BOOL isTxt);
 
 
 /**
- * 获取税率初始化数据 不加税/17%税/自定义税率
+ * 获取税率初始化数据 不加税/16%税/自定义税率
  */
 NSMutableArray *getPayTaxInitData();
 
@@ -267,7 +260,7 @@ void updateCustomTaxValue(NSMutableArray *taxData,NSNumber *value,BOOL shouldCle
 
 /**
  * 获取对应的描述
- *   %17 VAT | 1 ------> 17%税
+ *   %16 VAT | 1 ------> 16%税
  *  Tax Free | 0 ------> Tax
  *   taxData | 2 ------> 0.22
  */
@@ -277,7 +270,7 @@ NSString *getPayTaxValue(NSMutableArray *taxData,NSInteger type,BOOL isTxt);
 /**
  * 获取对应的描述
  *   taxData | 0 ------> 0
- *   taxData | 1 ------> 17
+ *   taxData | 1 ------> 16
  *   taxData | 2 ------> 22
  */
 NSInteger getPayTaxTypeToServiceNew(NSMutableArray *taxData,NSInteger value);
@@ -285,7 +278,7 @@ NSInteger getPayTaxTypeToServiceNew(NSMutableArray *taxData,NSInteger value);
 /**
  * 获取整数形式税率对应的index
  *   taxData | 0 ------> 0
- *   taxData | 17 ------> 1
+ *   taxData | 16 ------> 1
  *   taxData | 30 ------> 2
  */
 NSInteger getPayTaxTypeFormServiceNew(NSMutableArray *taxData,NSInteger value);

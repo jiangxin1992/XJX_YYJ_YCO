@@ -10,7 +10,6 @@
 
 typedef NS_ENUM(NSInteger, RoleButtonType) {
     RoleButtonTypeDesigner = 60000,
-    RoleButtonTypeBuyer = 60001,
     RoleButtonTypeCancel = 60002
 };
 

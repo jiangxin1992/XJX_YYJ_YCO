@@ -50,6 +50,10 @@
 #import "StyleDetailColorImages.h"
 #import "StyleDateRange.h"
 #import "YYUserHomePageModel.h"
+#import "YYPageInfoModel.h"
+#import "YYSeriesInfoDetailModel.h"
+#import "YYOpusSeriesListModel.h"
+#import "YYOpusStyleListModel.h"
 #import "YYStylesAndTotalPriceModel.h"
 
 #import "AppDelegate.h"
@@ -381,7 +385,7 @@ static CGFloat searchFieldWidthMaxConstraint = 200;
     if ([YYNetworkReachability connectedToNetwork]) {
         WeakSelf(ws);
         [YYUserApi getHomePageBrandInfoWithBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYUserHomePageModel *homePageModel, NSError *error) {
-            if(rspStatusAndMessage.status == kCode100){
+            if(rspStatusAndMessage.status == YYReqStatusCode100){
                 ws.homePageMode = homePageModel;
             }
         }];
@@ -393,7 +397,7 @@ static CGFloat searchFieldWidthMaxConstraint = 200;
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     YYUser *user = [YYUser currentUser];
     [YYOpusApi getSeriesListWithId:[user.userId intValue] pageIndex:1 pageSize:20 withDraft:@"false" andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYOpusSeriesListModel *opusSeriesListModel, NSError *error) {
-        if (rspStatusAndMessage.status == kCode100
+        if (rspStatusAndMessage.status == YYReqStatusCode100
             && opusSeriesListModel.result
             && [opusSeriesListModel.result count] > 0) {
 
@@ -412,7 +416,7 @@ static CGFloat searchFieldWidthMaxConstraint = 200;
 -(void)loadSeriesDetailInfo{
     WeakSelf(ws);
     [YYOpusApi getSeriesInfo:_seriesId andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYSeriesInfoDetailModel *infoDetailModel, NSError *error) {
-        if (rspStatusAndMessage.status == kCode100){
+        if (rspStatusAndMessage.status == YYReqStatusCode100){
             ws.seriesInfoDetailModel = infoDetailModel;
             [ws insertObjectToDbFromSeriesModel:infoDetailModel];
             [ws insertDateRangToDbFromArray:infoDetailModel.dateRanges];
@@ -423,7 +427,7 @@ static CGFloat searchFieldWidthMaxConstraint = 200;
 - (void)loadStyleListByPageIndex:(int)pageIndex queryStr:(NSString*)str{
     WeakSelf(ws);
     [YYOpusApi getStyleListWithDesignerId:_designerId seriesId:_seriesId orderBy:_sortType queryStr:str pageIndex:pageIndex pageSize:kPageSize andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYOpusStyleListModel *opusStyleListModel, NSError *error) {
-        if (rspStatusAndMessage.status == kCode100
+        if (rspStatusAndMessage.status == YYReqStatusCode100
             && opusStyleListModel.result
             && [opusStyleListModel.result count] > 0) {
             if(ws.searchResultArray == nil){
@@ -450,7 +454,7 @@ static CGFloat searchFieldWidthMaxConstraint = 200;
 
         [MBProgressHUD hideAllHUDsForView:ws.view animated:YES];
 
-        if (rspStatusAndMessage.status != kCode100) {
+        if (rspStatusAndMessage.status != YYReqStatusCode100) {
             [YYToast showToastWithTitle:rspStatusAndMessage.message  andDuration:kAlertToastDuration];
         }
 
@@ -462,8 +466,8 @@ static CGFloat searchFieldWidthMaxConstraint = 200;
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     WeakSelf(ws);
     [YYOpusApi getStyleInfoByStyleId:styleId orderCode:nil andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYStyleInfoModel *styleInfoModel, NSError *error) {
-        [MBProgressHUD hideHUDForView:ws.view animated:YES];
-        if (!error && rspStatusAndMessage.status == kCode100) {
+        [MBProgressHUD hideAllHUDsForView:ws.view animated:YES];
+        if (!error && rspStatusAndMessage.status == YYReqStatusCode100) {
             if (successBlock) {
                 successBlock(styleInfoModel);
             }
@@ -696,13 +700,13 @@ static CGFloat searchFieldWidthMaxConstraint = 200;
             styleDetailViewController.opusSeriesModel = self.opusSeriesModel;
             if ([_offlineOpusStyleArray count] > 0) {
                 styleDetailViewController.onlineOrOfflineOpusStyleArray = self.searchResultArray;
-                styleDetailViewController.currentDataReadType = DataReadTypeOffline;
+                styleDetailViewController.currentDataReadType = EDataReadTypeOffline;
             }else if([self.cachedOpusStyleArray count]>0){
                 styleDetailViewController.cachedOpusStyleArray = self.searchResultArray;
-                styleDetailViewController.currentDataReadType = DataReadTypeCached;
+                styleDetailViewController.currentDataReadType = EDataReadTypeCached;
             }else{
                 styleDetailViewController.onlineOrOfflineOpusStyleArray = self.searchResultArray;
-                styleDetailViewController.currentDataReadType = DataReadTypeOnline;
+                styleDetailViewController.currentDataReadType = EDataReadTypeOnline;
             }
         }else if(_filterResultArray != nil){
 
@@ -710,31 +714,31 @@ static CGFloat searchFieldWidthMaxConstraint = 200;
             styleDetailViewController.opusSeriesModel = self.opusSeriesModel;
             if ([_offlineOpusStyleArray count] > 0) {
                 styleDetailViewController.onlineOrOfflineOpusStyleArray = self.filterResultArray;
-                styleDetailViewController.currentDataReadType = DataReadTypeOffline;
+                styleDetailViewController.currentDataReadType = EDataReadTypeOffline;
             }else if([self.cachedOpusStyleArray count]>0){
                 styleDetailViewController.cachedOpusStyleArray = self.filterResultArray;
-                styleDetailViewController.currentDataReadType = DataReadTypeCached;
+                styleDetailViewController.currentDataReadType = EDataReadTypeCached;
             }else{
                 styleDetailViewController.onlineOrOfflineOpusStyleArray = self.filterResultArray;
-                styleDetailViewController.currentDataReadType = DataReadTypeOnline;
+                styleDetailViewController.currentDataReadType = EDataReadTypeOnline;
             }
         }else if ([_offlineOpusStyleArray count] > 0) {
             styleDetailViewController.onlineOrOfflineOpusStyleArray = self.offlineOpusStyleArray;
             styleDetailViewController.totalPages = [self.offlineOpusStyleArray count];
             styleDetailViewController.opusSeriesModel = self.opusSeriesModel;
-            styleDetailViewController.currentDataReadType = DataReadTypeOffline;
+            styleDetailViewController.currentDataReadType = EDataReadTypeOffline;
 
         }else if([_onlineOpusStyleArray count] > 0){
             styleDetailViewController.onlineOrOfflineOpusStyleArray = self.onlineOpusStyleArray;
             styleDetailViewController.totalPages = [self.currentPageInfo.recordTotalAmount integerValue];
             styleDetailViewController.opusSeriesModel = self.opusSeriesModel;
-            styleDetailViewController.currentDataReadType = DataReadTypeOnline;
+            styleDetailViewController.currentDataReadType = EDataReadTypeOnline;
 
         }else if ([_cachedOpusStyleArray count] > 0){
             styleDetailViewController.cachedOpusStyleArray = self.cachedOpusStyleArray;
             styleDetailViewController.totalPages = [self.cachedOpusStyleArray count];
             styleDetailViewController.series = self.series;
-            styleDetailViewController.currentDataReadType = DataReadTypeCached;
+            styleDetailViewController.currentDataReadType = EDataReadTypeCached;
 
         }
         styleDetailViewController.selectTaxType = _selectTaxType;
@@ -1191,12 +1195,12 @@ static CGFloat searchFieldWidthMaxConstraint = 200;
 - (void)addShoppingCarAction:(YYOpusStyleModel *)opusStyleModel{
     WeakSelf(ws);
     if(_opusSeriesModel){
-        if([_opusSeriesModel.status integerValue] == kOpusDraft){
+        if([_opusSeriesModel.status integerValue] == YYOpusCheckAuthDraft){
             [YYTopAlertView showWithType:YYTopAlertTypeError text:NSLocalizedString(@"请先发布作品！",nil) parentView:self.view];
             return;
         }
     }else if(_series){
-        if([_opusSeriesModel.status integerValue] == kOpusDraft){
+        if([_opusSeriesModel.status integerValue] == YYOpusCheckAuthDraft){
             [YYTopAlertView showWithType:YYTopAlertTypeError text:NSLocalizedString(@"请先发布作品！",nil) parentView:self.view];
             return;
         }
@@ -1421,7 +1425,7 @@ static CGFloat searchFieldWidthMaxConstraint = 200;
     }else{
         //获取是否存在多币种
         [YYOpusApi hasMultiCurrencyWithSeriesId:_seriesId andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, BOOL hasMultiCurrency, NSError *error) {
-            if((rspStatusAndMessage.status = kCode100)){
+            if((rspStatusAndMessage.status = YYReqStatusCode100)){
                 _haveGetMuCurrency = YES;
                 _isMuCurrency = hasMultiCurrency;
                 //有获取过
@@ -1459,7 +1463,7 @@ static CGFloat searchFieldWidthMaxConstraint = 200;
                 _shareSeriesView.hidden = YES;
                 _shareSeriesView.emailTextField.text = @"";
                 _shareSeriesView.emailTipButton.hidden = YES;
-                if((rspStatusAndMessage.status = kCode100)){
+                if((rspStatusAndMessage.status = YYReqStatusCode100)){
                     [YYToast showToastWithTitle:NSLocalizedString(@"发送成功！", @"") andDuration:kAlertToastDuration];
                 }else{
                     [YYToast showToastWithTitle:rspStatusAndMessage.message andDuration:kAlertToastDuration];

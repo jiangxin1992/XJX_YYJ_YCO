@@ -273,7 +273,7 @@ static CGFloat yellowView_default_constant = 233;
         phone = textFiedlValue;
     }
     
-    if (_userInfo.userType == kDesignerType) {
+    if (_userInfo.userType == YYUserTypeDesigner) {
         
         if (_currentShowType == ShowTypeUsername) {
             NSArray *phoneArr = [phone componentsSeparatedByString:@" "];
@@ -292,7 +292,7 @@ static CGFloat yellowView_default_constant = 233;
         }
         
         [YYUserApi updateDesignerUsername:username phone:phone andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSError *error) {
-            if (rspStatusAndMessage.status == kCode100) {
+            if (rspStatusAndMessage.status == YYReqStatusCode100) {
                 [YYTopAlertView showWithType:YYTopAlertTypeSuccess text:NSLocalizedString(@"修改成功",nil) parentView:nil];
                 if (_modifySuccess) {
                     _modifySuccess();
@@ -302,11 +302,11 @@ static CGFloat yellowView_default_constant = 233;
             }
             
         }];
-    }else if (_userInfo.userType == kBuyerStorUserType){
+    }else if (_userInfo.userType == YYUserTypeRetailer){
         NSString *province = [LanguageManager isEnglishLanguage]?self.userInfo.provinceEn:self.userInfo.province;
         NSString *city = [LanguageManager isEnglishLanguage]?self.userInfo.cityEn:self.userInfo.city;
         [YYUserApi updateBuyerUsername:username phone:phone  province:province city:city andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSError *error) {
-            if (rspStatusAndMessage.status == kCode100) {
+            if (rspStatusAndMessage.status == YYReqStatusCode100) {
                 [YYTopAlertView showWithType:YYTopAlertTypeSuccess text:NSLocalizedString(@"修改成功",nil) parentView:nil];
 
                 if (_modifySuccess) {

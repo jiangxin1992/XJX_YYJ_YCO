@@ -18,7 +18,7 @@
 /* Class = "UILabel"; text = "到账时间"; ObjectID = "GMn-On-aLJ"; */
 "GMn-On-aLJ.text" = "Accounting Time";
 
-/* Class = "UILabel"; text = "尚未支付"; ObjectID = "JXa-8B-SVn"; */
+/* Class = "UILabel"; text = "尚未收款"; ObjectID = "JXa-8B-SVn"; */
 "JXa-8B-SVn.text" = "Unpaid";
 
 /* Class = "UIButton"; normalTitle = "删除此条记录"; ObjectID = "XBw-qH-cKZ"; */
@@ -27,8 +27,11 @@
 /* Class = "UILabel"; text = "付款时间"; ObjectID = "YLq-lH-LVn"; */
 "YLq-lH-LVn.text" = "Payment Time";
 
-/* Class = "UILabel"; text = "已付"; ObjectID = "ZeY-eK-aym"; */
+/* Class = "UILabel"; text = "已经收款"; ObjectID = "ZeY-eK-aym"; */
 "ZeY-eK-aym.text" = "Paid";
+
+/* Class = "UILabel"; text = "待审核"; ObjectID = "NNo-cl-26I"; */
+"NNo-cl-26I.text" = "Pending";
 
 /* Class = "UIButton"; normalTitle = "作废此条记录"; ObjectID = "ae5-0g-Rci"; */
 "ae5-0g-Rci.normalTitle" = "Invalid Payment";
@@ -182,7 +185,7 @@
 /* Class = "UIButton"; normalTitle = "7"; ObjectID = "wGg-Sp-htp"; */
 "wGg-Sp-htp.normalTitle" = "7";
 
-/* Class = "UIButton"; normalTitle = "填写的比例需小于余款的比例"; ObjectID = "wIt-w3-RHt"; */
+/* Class = "UIButton"; normalTitle = "填写金额不能大于尚未收款金额"; ObjectID = "wIt-w3-RHt"; */
 "wIt-w3-RHt.normalTitle" = "The payment should be less than residual payment.";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "xwo-sb-wM1"; */

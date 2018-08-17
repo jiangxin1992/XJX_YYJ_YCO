@@ -49,7 +49,7 @@
     }
     
     [YYUserApi userFeedBack:feedbackString andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSError *error) {
-        if (rspStatusAndMessage.status == kCode100) {
+        if (rspStatusAndMessage.status == YYReqStatusCode100) {
             [YYToast showToastWithTitle:NSLocalizedString(@"反馈成功!",nil) andDuration:kAlertToastDuration];
             if (_modifySuccess) {
                 _modifySuccess();

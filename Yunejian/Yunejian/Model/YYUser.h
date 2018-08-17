@@ -18,7 +18,7 @@
 @property (nonatomic, copy) NSString *logo;
 @property (nonatomic, copy) NSString *status;//300 //审核中301 //审核被 303 //需要审核
 @property (nonatomic, assign) NSInteger userStatus;//service/account/status
-@property (nonatomic,assign) NSInteger userType;//用户类型 0:设计师 1:买手店 2:销售代表 5:Showroom 6:Showroom子账号
+@property (nonatomic, assign) YYUserType userType;//用户类型 0:设计师 1:买手店 2:销售代表 5:Showroom 6:Showroom子账号
 @property (copy, nonatomic) NSString *brandId;
 
 //获取当前用户

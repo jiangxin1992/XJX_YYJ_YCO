@@ -14,7 +14,6 @@
 #import "YYNavigationBarViewController.h"
 
 // 自定义视图
-#import "YYNavView.h"
 #import "MBProgressHUD.h"
 #import "YYNoDataView.h"
 //#import "YYMenuPopView.h"
@@ -40,7 +39,6 @@
 
 @property(nonatomic,strong) NSArray *menuBtnsData;
 
-@property (nonatomic, strong) YYNavView *navView;
 @property (nonatomic, strong) UIButton *pullDownMenu;
 @property (nonatomic, strong) YYNoDataView *noDataView;
 @property (nonatomic, strong) UIView *containerView;
@@ -209,15 +207,15 @@
 }
 -(void)CreateTableView
 {
-    _tableView=[[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     [self.view addSubview:_tableView];
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.mas_equalTo(0);
         make.top.mas_equalTo(_containerView.mas_bottom).with.offset(0);
     }];
-    _tableView.delegate=self;
-    _tableView.dataSource=self;
-    _tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.backgroundColor = [UIColor colorWithHex:@"f8f8f8"];
 
     [self addHeader];
@@ -263,7 +261,7 @@
 
     __block BOOL blockEndrefreshing = endrefreshing;
     [YYShowroomApi getOrderingCheckListWithAppointmentId:_appointmentId status:_status PageIndex:pageIndex pageSize:kPageSize andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYShowroomOrderingCheckListModel *showroomOrderingCheckListModel, NSError *error) {
-        if (rspStatusAndMessage.status == kCode100) {
+        if (rspStatusAndMessage.status == YYReqStatusCode100) {
             if (pageIndex == 1) {
                 [ws.dataArray removeAllObjects];
             }
@@ -379,7 +377,7 @@
     WeakSelf(ws);
     NSString *ids = [[NSString alloc] initWithFormat:@"%ld",[showroomOrderingCheckModel.id integerValue]];
     [YYShowroomApi refuseOrderingApplicationWithIds:ids andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSError *error) {
-        if(rspStatusAndMessage.status == kCode100){
+        if(rspStatusAndMessage.status == YYReqStatusCode100){
             showroomOrderingCheckModel.status = @"REJECTED";
             [ws.tableView reloadData];
             [ws userOperation];
@@ -393,7 +391,7 @@
     WeakSelf(ws);
     NSString *ids = [[NSString alloc] initWithFormat:@"%ld",[showroomOrderingCheckModel.id integerValue]];
     [YYShowroomApi agreeOrderingApplicationWithIds:ids andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSError *error) {
-        if(rspStatusAndMessage.status == kCode100){
+        if(rspStatusAndMessage.status == YYReqStatusCode100){
             showroomOrderingCheckModel.status = @"VERIFIED";
             [ws.tableView reloadData];
             [ws userOperation];

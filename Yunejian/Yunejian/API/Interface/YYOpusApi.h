@@ -7,14 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "YYRspStatusAndMessage.h"
-#import "YYOpusSeriesListModel.h"
-#import "YYOpusStyleListModel.h"
-#import "YYStyleInfoModel.h"
-#import "YYSeriesInfoDetailModel.h"
-#import "YYLookBookModel.h"
-#import "YYOpusSeriesAuthTypeBuyerListModel.h"
-#import "YYUserHomePageModel.h"
+
+@class YYOpusSeriesListModel,YYOpusStyleListModel,YYStyleInfoModel,YYSeriesInfoDetailModel,YYOpusSeriesAuthTypeBuyerListModel,YYUserHomePageModel;
 
 @interface YYOpusApi : NSObject
 
@@ -81,7 +77,7 @@
  *合作设计师系列详情
  *
  */
-+ (void)getConnSeriesInfoWithId:(NSInteger )designerId seriesId:(NSInteger )seriesId  andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,YYSeriesInfoDetailModel *infoDetailModel,NSError *error))block;
++ (void)getConnSeriesInfoWithId:(NSInteger )designerId seriesId:(NSInteger )seriesId andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,YYSeriesInfoDetailModel *infoDetailModel,NSError *error))block;
 
 /**
  *
@@ -95,7 +91,7 @@
  * 更改系列权限
  *
  */
-+ (void)updateSeriesAuthType:(long)seriesId authType:(NSInteger)authType buyerIds:(NSString*)buyerIds  andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,NSError *error))block;
++ (void)updateSeriesAuthType:(long)seriesId authType:(NSInteger)authType buyerIds:(NSString*)buyerIds andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,NSError *error))block;
 
 /**
  *

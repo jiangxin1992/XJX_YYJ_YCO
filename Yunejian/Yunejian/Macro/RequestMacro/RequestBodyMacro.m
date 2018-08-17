@@ -22,7 +22,7 @@ NSString * const kLoginHaveCaptcha_buyer = @"email=%@&password=%@&captcha=%@&typ
 NSString * const kLoginHaveCaptcha_yco = @"email=%@&password=%@&captcha=%@&type=tbPadDesignerApp";
 /** 修改密码 */
 NSString * const kUpdatePassword = @"oldPassword=%@&newPassword=%@";
-/** 修改买家用户名或电话 */
+/** 修改买手用户名或电话 */
 NSString * const kUpdateBuyerUsernameOrPhoneParams = @"name=%@&phone=%@&province=%@&city=%@";
 /** 修改设计师用户名或电话 */
 NSString * const kUpdateDesignerUsernameOrPhoneParams = @"userName=%@&phone=%@";
@@ -36,13 +36,13 @@ NSString * const kaddSubShowroomParams = @"name=%@&email=%@&passWord=%@";
 NSString * const kBrandInfoUpdateParams = @"brandName=%@&webUrl=%@&underlinePartnerCount=%i&annualSales=%f&retailerName=%@";
 /** 修改买手店品牌信息 */
 NSString * const kStoreUpdateParams = @"name=%@&foundYear=%@&businessBrands=%@&priceMin=%f&priceMax=%f";
-/** 修改收货地址 */
+/** 修改收件地址 */
 NSString * const kModifyAddressParams = @"province=%@&city=%@&receiverName=%@&receiverPhone=%@&detailAddress=%@&zipCode=%@&default=%@&addressId=%i&nation=%@&nationId=%@&provinceId=%@&cityId=%@";
-/** 修改收货地址，不是默认地址 */
+/** 修改收件地址，不是默认地址 */
 NSString * const kModifyAddressParamsNoDefault = @"province=%@&city=%@&receiverName=%@&receiverPhone=%@&detailAddress=%@&zipCode=%@&addressId=%i&nation=%@&nationId=%@&provinceId=%@&cityId=%@";
-/** 添加收货地址 */
+/** 添加收件地址 */
 NSString * const kAddAddressParams = @"province=%@&city=%@&receiverName=%@&receiverPhone=%@&detailAddress=%@&zipCode=%@&default=%@&nation=%@&nationId=%@&provinceId=%@&cityId=%@";
-/** 添加收货地址，不是默认地址 */
+/** 添加收件地址，不是默认地址 */
 NSString * const kAddAddressParamsNoDefault = @"province=%@&city=%@&receiverName=%@&receiverPhone=%@&detailAddress=%@&zipCode=%@&nation=%@&nationId=%@&provinceId=%@&cityId=%@";
 /** 用户反馈 */
 NSString * const kSubmitFeedbackParams = @"content=%@";
@@ -65,9 +65,9 @@ NSString * const kOrderInfoParams = @"orderCode=%@&stock=%@";
 NSString * const kOrderCreateOrModifyParams_brand = @"orderInfoJsonStr=%@";
 NSString * const kOrderCreateOrModifyParams_buyer = @"orderInfoJsonStr=%@";
 NSString * const kOrderCreateOrModifyParams_yco = @"%@"; //orderInfoJsonStr=
-/** 修改买家收货地址 */
+/** 修改买手收件地址 */
 NSString * const kModifyBuyerAddressParams = @"province=%@&city=%@&receiverName=%@&receiverPhone=%@&detailAddress=%@&zipCode=%@&addressId=%i&nation=%@&nationId=%@&provinceId=%@&cityId=%@";
-/** 添加买家收货地址 */
+/** 添加买手收件地址 */
 NSString * const kAddBuyerAddressParams = @"province=%@&city=%@&receiverName=%@&receiverPhone=%@&detailAddress=%@&zipCode=%@&nation=%@&nationId=%@&provinceId=%@&cityId=%@";
 /** 修改订单标记状态 */
 NSString * const kUpdateOrderStatusMarkParams = @"orderCode=%@&statusType=%i&opType=%i";

@@ -8,17 +8,30 @@
 
 #import "YYShowroomApi.h"
 
-#import "YYShowroomBrandListModel.h"
-#import "YYShowroomHomePageModel.h"
-#import "YYShowroomOrderingListModel.h"
-#import "YYShowroomOrderingCheckListModel.h"
-#import "YYHttpHeaderManager.h"
-#import "YYRequestHelp.h"
+// c文件 —> 系统文件（c文件在前）
+
+// 控制器
+
+// 自定义视图
+
+// 接口
+
+// 分类
+
+// 自定义类和三方类（ cocoapods类 > model > 工具类 > 其他）
 #import "RequestMacro.h"
+#import "YYRequestHelp.h"
 #import "UserDefaultsMacro.h"
+#import "YYHttpHeaderManager.h"
+
 #import "YYUser.h"
+#import "YYUserModel.h"
 #import "YYShowroomAgentModel.h"
+#import "YYShowroomHomePageModel.h"
+#import "YYShowroomBrandListModel.h"
+#import "YYShowroomOrderingListModel.h"
 #import "YYShowroomInfoByDesignerModel.h"
+#import "YYShowroomOrderingCheckListModel.h"
 
 @implementation YYShowroomApi
 /**
@@ -262,7 +275,7 @@
 /**
  * 获取代理协议
  */
-+ (void)getAgentContentWebWithBrandID:(NSNumber *)brandID WithShowroomID:(NSNumber *)showroomID andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,YYShowroomAgentModel *agentModel,NSError *error))block{
++ (void)getAgentContentWithBrandID:(NSNumber *)brandID WithShowroomID:(NSNumber *)showroomID andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,YYShowroomAgentModel *agentModel,NSError *error))block{
     
     NSString *url = [[NSString alloc] initWithFormat:@"%@?brandId=%ld&showroomId=%ld",KGetShowroomAgentContentWeb,(long)[brandID integerValue],(long)[showroomID integerValue]];
     
@@ -478,7 +491,7 @@
 {
     
     YYUser *user = [YYUser currentUser];
-    if(user.userType == 0||user.userType == 2||[YYUser isShowroomToBrand])
+    if(user.userType == YYUserTypeDesigner||user.userType == YYUserTypeSales||[YYUser isShowroomToBrand])
     {
         
         NSString *url = [[NSString alloc] initWithFormat:@"%@?designerId=%@",kGetShowroomInfoByDesigner,user.userId];

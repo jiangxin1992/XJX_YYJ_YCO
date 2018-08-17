@@ -7,11 +7,28 @@
 //
 
 #import "YYConnApi.h"
-#import "YYRequestHelp.h"
+
+// c文件 —> 系统文件（c文件在前）
+
+// 控制器
+
+// 自定义视图
+
+// 接口
+
+// 分类
+
+// 自定义类和三方类（ cocoapods类 > model > 工具类 > 其他）
 #import "RequestMacro.h"
-#import "UserDefaultsMacro.h"
+#import "YYRequestHelp.h"
 #import "YYHttpHeaderManager.h"
+
+#import "YYBuyerListModel.h"
+#import "YYConnBuyerListModel.h"
+#import "YYConnBrandInfoListModel.h"
+
 @implementation YYConnApi
+
 //设计师添加买手店(买手添加设计师)
 + (void)invite:(NSInteger )guestId andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,NSError *error))block{
     // get URL
@@ -80,7 +97,7 @@
 }
 
 //正在被邀请的品牌(收到的邀请<设计师品牌列表>)1 买手店的所有合作品牌2
-+ (void)getConnBrands:(NSInteger)type  andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,YYConnBrandInfoListModel *listModel,NSError *error))block{
++ (void)getConnBrands:(NSInteger)type andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,YYConnBrandInfoListModel *listModel,NSError *error))block{
     // get URL
     NSString *actionUrl = @"";
     if(type == 1){
@@ -101,35 +118,6 @@
         }
     }];
 }
-//买手店按条件查询所有设计师(带分页,)
-+ (void)queryDesignerWithQueryStr:(NSString *)queryStr pageIndex:(int)pageIndex pageSize:(int)pageSize andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,YYConnDesignerListModel *designerListModel,NSError *error))block{
-    // get URL
-    NSString *requestURL = [[[NSUserDefaults standardUserDefaults] objectForKey:kLastYYServerURL] stringByAppendingString:kConnQueryDesignerWithPage];
-    NSDictionary *dic = [YYHttpHeaderManager buildHeadderWithAction:kConnQueryDesignerWithPage params:nil];
-    
-    NSString *string = @"";
-    if(![NSString isNilOrEmpty:queryStr]){
-        string = [string stringByAppendingString:[NSString stringWithFormat:@"queryStr=%@&pageIndex=%i&pageSize=%i",queryStr,pageIndex,pageSize]];
-    }else{
-        string = [string stringByAppendingString:[NSString stringWithFormat:@"pageIndex=%i&pageSize=%i",pageIndex,pageSize]];
-    }
-    
-    NSData *body = [string dataUsingEncoding:NSUTF8StringEncoding];
-    
-    [YYRequestHelp executeRequest:YES headers:dic requestUrl:requestURL requestCount:0 requestBody:body andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage,id responseObject, NSError *error, id httpResponse) {
-        if (!error
-            && responseObject) {
-            YYConnDesignerListModel *listModel = [[YYConnDesignerListModel alloc] initWithDictionary:responseObject error:nil];
-            block(rspStatusAndMessage,listModel,error);
-            
-        }else{
-            block(rspStatusAndMessage,nil,error);
-        }
-        
-    }];
-
-}
-
 //设计师按条件查询所有买手店(带分页,目前邀请状态)
 +(void) queryConnBuyer:(NSString *)queryStr pageIndex:(int)pageIndex pageSize:(int)pageSize andBlock:(void(^)(YYRspStatusAndMessage *rspStatusAndMessage,YYBuyerListModel *buyerList,NSError *error))block{
     NSString *requestURL = [[[NSUserDefaults standardUserDefaults] objectForKey:kLastYYServerURL] stringByAppendingString:kConnQueryBuyerList];

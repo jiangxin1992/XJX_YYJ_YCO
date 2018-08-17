@@ -573,7 +573,7 @@
     [YYUserApi uploadBrandFiles:body andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSInteger errorCode, NSError *error) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
 
-        if( rspStatusAndMessage.status == kCode100 && errorCode == kCode100){
+        if( rspStatusAndMessage.status == YYReqStatusCode100 && errorCode == YYReqStatusCode100){
 
             [self showYellowAlert:NSLocalizedString(@"成功提交品牌验证信息",nil) msg:NSLocalizedString(@"感谢您提交了品牌验证信息，我们将在2-3个工作日完成验证",nil)];
         }else{
@@ -593,7 +593,7 @@
     }];
 
     YYUser *user = [YYUser currentUser];
-    user.status = [NSString stringWithFormat:@"%d",kCode300];
+    user.status = [NSString stringWithFormat:@"%d",YYReqStatusCode300];
     [user saveUserData];
 }
 

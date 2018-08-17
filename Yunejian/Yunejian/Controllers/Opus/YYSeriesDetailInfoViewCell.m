@@ -115,7 +115,7 @@
         [_sureAddToCartButton setTitle:NSLocalizedString(@"未选择", nil) forState:UIControlStateNormal];
         _sureAddToCartButton.backgroundColor = [UIColor colorWithHex:@"d3d3d3"];
     }else{
-        [_sureAddToCartButton setTitle:[[NSString alloc] initWithFormat:NSLocalizedString(@"确定加入(%ld)", nil),_selectCount] forState:UIControlStateNormal];
+        [_sureAddToCartButton setTitle:[[NSString alloc] initWithFormat:NSLocalizedString(@"确定加入（%ld）", nil),_selectCount] forState:UIControlStateNormal];
         _sureAddToCartButton.backgroundColor = _define_black_color;
     }
 
@@ -271,7 +271,7 @@
     }else{
         if(_seriesInfoDetailModel.lookBookId != nil && [_seriesInfoDetailModel.lookBookId integerValue] > 0){
             [YYUserApi getLookBookInfoWithId:[_seriesInfoDetailModel.lookBookId integerValue] andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYLookBookModel *lookBookModel, NSError *error) {
-                if(rspStatusAndMessage.status == kCode100){
+                if(rspStatusAndMessage.status == YYReqStatusCode100){
                     ws.lookBookModel = lookBookModel;
                     if(lookBookModel.coverPic != nil && ![lookBookModel.coverPic isEqualToString:@""]){
                         NSMutableArray *tmpPics = [[NSMutableArray alloc] init];

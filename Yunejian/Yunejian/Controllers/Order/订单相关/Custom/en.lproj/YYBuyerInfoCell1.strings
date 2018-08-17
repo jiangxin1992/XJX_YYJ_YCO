@@ -1,0 +1,15 @@
+
+/* Class = "UIButton"; normalTitle = "重新关联"; ObjectID = "REP-LE-MuV"; */
+"REP-LE-MuV.normalTitle" = "Relink";
+
+/* Class = "UILabel"; text = "结算"; ObjectID = "UOz-8R-uMp"; */
+"UOz-8R-uMp.text" = "Payment";
+
+/* Class = "UILabel"; text = "类型"; ObjectID = "TVe-KB-A8J"; */
+"TVe-KB-A8J.text" = "Type";
+
+/* Class = "UILabel"; text = "买手店"; ObjectID = "aeR-21-kbm"; */
+"aeR-21-kbm.text" = "Retailer";
+
+/* Class = "UILabel"; text = "发货"; ObjectID = "l8X-3Y-PTe"; */
+"l8X-3Y-PTe.text" = "Delivery";

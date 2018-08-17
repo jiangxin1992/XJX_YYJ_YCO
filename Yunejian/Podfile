@@ -11,7 +11,7 @@ target 'Yunejian' do
 
  pod 'YYToast', '~> 0.1.1' # 三端通用toast
 
- pod 'MBProgressHUD', '~> 1.0.0'
+ pod 'MBProgressHUD', '~> 1.1.0'
  pod 'AFNetworking', '~> 2.5.4'
  pod 'SDWebImage', '~> 3.8.2’
  pod 'JSONModel', '~> 1.2.0'

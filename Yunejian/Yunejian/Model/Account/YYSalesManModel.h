@@ -12,10 +12,6 @@
 
 @interface YYSalesManModel : JSONModel
 
-//@property (strong, nonatomic) NSNumber <Optional>*salesmanId;
-//@property (strong, nonatomic) NSString <Optional>*name;
-//@property (strong, nonatomic) NSString <Optional>*email;
-//@property (strong, nonatomic) NSNumber <Optional>*status;
 @property (strong, nonatomic) NSNumber <Optional>*userId;
 @property (strong, nonatomic) NSString <Optional>*username;
 @property (strong, nonatomic) NSString <Optional>*email;

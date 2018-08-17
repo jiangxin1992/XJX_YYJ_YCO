@@ -26,7 +26,7 @@ typedef void (^LeftMenuButtonClicked)(LeftMenuButtonIndex buttonIndex);
 @interface YYLeftMenuViewController : UIViewController
 
 @property (nonatomic, strong) LeftMenuButtonClicked leftMenuButtonClicked;
-@property (nonatomic,strong) CancelButtonClicked cancelButtonClicked;
+@property (nonatomic, strong) CancelButtonClicked cancelButtonClicked;
 
 - (void)setButtonSelectedByButtonIndex:(LeftMenuButtonIndex)leftMenuButtonIndex;
 

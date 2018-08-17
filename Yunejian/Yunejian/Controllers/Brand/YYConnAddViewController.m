@@ -29,6 +29,7 @@
 // 自定义类和三方类（ cocoapods类 > model > 工具类 > 其他）
 #import <MJRefresh.h>
 
+#import "YYBuyerListModel.h"
 #import "YYConnDesignerModel.h"
 
 #import "RBCollectionViewBalancedColumnLayout.h"
@@ -62,13 +63,10 @@ static CGFloat searchFieldWidthMaxConstraint = 200;
     [super viewDidLoad];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
     YYNavigationBarViewController *navigationBarViewController = [storyboard instantiateViewControllerWithIdentifier:@"YYNavigationBarViewController"];
-    if(!_isAddDesigner){
-        navigationBarViewController.previousTitle = NSLocalizedString(@"品牌",nil);
-        navigationBarViewController.nowTitle = NSLocalizedString(@"邀请合作品牌",nil);
-    }else{
-        navigationBarViewController.previousTitle = NSLocalizedString(@"账户",nil);
-        navigationBarViewController.nowTitle = NSLocalizedString(@"邀请合作买手店",nil);
-    }
+
+    navigationBarViewController.previousTitle = NSLocalizedString(@"账户",nil);
+    navigationBarViewController.nowTitle = NSLocalizedString(@"邀请合作买手店",nil);
+
     _navigationBarViewController = navigationBarViewController;
     [_containerView insertSubview:navigationBarViewController.view atIndex:0];
     __weak UIView *_weakContainerView = _containerView;
@@ -128,7 +126,6 @@ static CGFloat searchFieldWidthMaxConstraint = 200;
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    // 由于 brand功能没有了，所以isAddDesigner 只有yes一个值，所以只有邀请合作买手店的功能
     // 进入埋点
     [MobClick beginLogPageView:kYYPageConnAdd];
 }
@@ -260,143 +257,77 @@ static CGFloat searchFieldWidthMaxConstraint = 200;
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(!_isAddDesigner){
-        YYConnDesignerModel *designerModel = nil;
-        if(_searchResultArray != nil && ([_searchResultArray count] > indexPath.row)){
-            designerModel =[_searchResultArray objectAtIndex:indexPath.row];
-        }else if ([_designerListArray count] > indexPath.row) {
-            designerModel = [_designerListArray objectAtIndex:indexPath.row];
-        }
-        static NSString* reuseIdentifier = @"YYBrandInfoViewCell";
-        YYBrandInfoViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-        cell.indexPath = indexPath;
-        cell.delegate = self;
-        cell.designerModel = designerModel;
-        cell.curShowDetailRow = _curShowDetailRow;
-        [cell updateUI];
-        return cell;
-    }else{
-        YYBuyerModel *buyerModel = nil;
-        if(_searchResultArray != nil && ([_searchResultArray count] > indexPath.row)){
-            buyerModel =[_searchResultArray objectAtIndex:indexPath.row];
-        }else if ([_designerListArray count] > indexPath.row) {
-            buyerModel = [_designerListArray objectAtIndex:indexPath.row];
-        }
-        static NSString* reuseIdentifier = @"YYBuyerInfoViewCell";
-        YYBuyerInfoViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-        cell.indexPath = indexPath;
-        cell.delegate = self;
-        cell.buyerModel = buyerModel;
-        [cell updateUI];
-        return cell;
+    YYBuyerModel *buyerModel = nil;
+    if(_searchResultArray != nil && ([_searchResultArray count] > indexPath.row)){
+        buyerModel =[_searchResultArray objectAtIndex:indexPath.row];
+    }else if ([_designerListArray count] > indexPath.row) {
+        buyerModel = [_designerListArray objectAtIndex:indexPath.row];
     }
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    
+    static NSString* reuseIdentifier = @"YYBuyerInfoViewCell";
+    YYBuyerInfoViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    cell.indexPath = indexPath;
+    cell.delegate = self;
+    cell.buyerModel = buyerModel;
+    [cell updateUI];
+    return cell;
 }
 #pragma YYTableCellDelegate
 -(void)btnClick:(NSInteger)row section:(NSInteger)section andParmas:(NSArray *)parmas{
     WeakSelf(ws);
-    if(!_isAddDesigner){
-        if(parmas == nil){
-            if(_curShowDetailRow == row){
-                _curShowDetailRow = -1;
-            }else{
-                _curShowDetailRow = row;
-            }
-            [self.collectionView reloadData];
 
-        }else{
-            YYConnDesignerModel *designerModel = nil;
-            if(_searchResultArray != nil && ([_searchResultArray count] > row)){
-                designerModel =[_searchResultArray objectAtIndex:row];
-            }else if ([_designerListArray count] > row) {
-                designerModel = [_designerListArray objectAtIndex:row];
-            }
-            if(designerModel && [designerModel.connectStatus integerValue] == -1){
-                __block YYConnDesignerModel *blockDesignerModel = designerModel;
-                
-                CMAlertView *alertView = [[CMAlertView alloc] initWithTitle:NSLocalizedString(@"确定邀请吗？",nil) message:nil needwarn:NO delegate:nil cancelButtonTitle:NSLocalizedString(@"取消邀请",nil) otherButtonTitles:@[[[NSString alloc] initWithFormat:@"%@|000000",NSLocalizedString(@"继续邀请",nil)]]];
-                alertView.specialParentView = self.view;
-                
-                [alertView setAlertViewBlock:^(NSInteger selectedIndex){
-                    if (selectedIndex == 1) {
-                        [YYConnApi invite:[blockDesignerModel.id integerValue] andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSError *error) {
-                            if(rspStatusAndMessage.status == kCode100){
-                                blockDesignerModel.connectStatus = 0;
-                                //[YYToast showToastWithTitle:rspStatusAndMessage.message andDuration:kAlertToastDuration];
-                                [YYTopAlertView showWithType:YYTopAlertTypeSuccess text:rspStatusAndMessage.message parentView:nil];
-
-                                [ws.collectionView reloadData];
-                            }
-                        }];
-                    }
-                }];
-                
-                [alertView show];
-            }else{
-                [YYToast showToastWithTitle:NSLocalizedString(@"发送送邀请，未处理",nil) andDuration:kAlertToastDuration];
-            }
-        }
-    
-    }else{
-        YYBuyerModel *buyerModel = nil;
-        if(_searchResultArray != nil && ([_searchResultArray count] > row)){
-            buyerModel =[_searchResultArray objectAtIndex:row];
-        }else if ([_designerListArray count] > row) {
-            buyerModel = [_designerListArray objectAtIndex:row];
-        }
-        if(parmas == nil){
-            WeakSelf(ws);
-            [YYUserApi getUserStatus:[buyerModel.buyerId integerValue] andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSInteger status, NSError *error) {
-                if(rspStatusAndMessage.status == kCode100){
-                    if(status != kUserStatusStop && status >-1){
-                        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Account" bundle:[NSBundle mainBundle]];
-                        YYConnBuyerInfoViewController *connInfoController = [storyboard instantiateViewControllerWithIdentifier:@"YYConnBuyerInfoViewController"];
-                        connInfoController.buyerId = [buyerModel.buyerId integerValue];
-                        connInfoController.previousTitle =  _navigationBarViewController.nowTitle;
-                        __block YYBuyerModel *blockBuyerModel = buyerModel;
-                        [connInfoController setModifySuccess2:^(){
-                            blockBuyerModel.connectStatus = [[NSNumber alloc] initWithInt:kConnStatus];//;
-                            [ws.collectionView reloadData];
-                        }];
-                        [connInfoController setModifySuccess1:^(){
-                            blockBuyerModel.connectStatus = kConnStatus0;
-                            [ws.collectionView reloadData];
-                        }];
-                        [ws.navigationController pushViewController:connInfoController animated:YES];
-                    }else{
-                        [YYToast showToastWithView:ws.view title:NSLocalizedString(@"此买手店账号已停用",nil) andDuration:kAlertToastDuration];
-                    }
-                }else{
-                    [YYToast showToastWithView:ws.view title:rspStatusAndMessage.message andDuration:kAlertToastDuration];
-                }
-            }];
-
-        }else{
-            if(buyerModel && [buyerModel.connectStatus integerValue] == -1){
-                __block YYBuyerModel *blockBuyerModel = buyerModel;
-
-
-                    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-                    [YYConnApi invite:[blockBuyerModel.buyerId integerValue] andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSError *error) {
-                        if(rspStatusAndMessage.status == kCode100){
-                            blockBuyerModel.connectStatus = 0;
-                            [ws.collectionView reloadData];
-                        }
-                        [YYTopAlertView showWithType:YYTopAlertTypeSuccess text:NSLocalizedString(@"邀请买手店成功", nil) parentView:nil];
-
-                        [MBProgressHUD hideAllHUDsForView:ws.view animated:YES];
+    YYBuyerModel *buyerModel = nil;
+    if(_searchResultArray != nil && ([_searchResultArray count] > row)){
+        buyerModel =[_searchResultArray objectAtIndex:row];
+    }else if ([_designerListArray count] > row) {
+        buyerModel = [_designerListArray objectAtIndex:row];
+    }
+    if(parmas == nil){
+        WeakSelf(ws);
+        [YYUserApi getUserStatus:[buyerModel.buyerId integerValue] andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSInteger status, NSError *error) {
+            if(rspStatusAndMessage.status == YYReqStatusCode100){
+                if(status != YYUserStatusStop && status >-1){
+                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Account" bundle:[NSBundle mainBundle]];
+                    YYConnBuyerInfoViewController *connInfoController = [storyboard instantiateViewControllerWithIdentifier:@"YYConnBuyerInfoViewController"];
+                    connInfoController.buyerId = [buyerModel.buyerId integerValue];
+                    connInfoController.previousTitle =  _navigationBarViewController.nowTitle;
+                    __block YYBuyerModel *blockBuyerModel = buyerModel;
+                    [connInfoController setModifySuccess2:^(){
+                        blockBuyerModel.connectStatus = [[NSNumber alloc] initWithInt:YYUserConnStatusNone];//;
+                        [ws.collectionView reloadData];
                     }];
-
+                    [connInfoController setModifySuccess1:^(){
+                        blockBuyerModel.connectStatus = YYUserConnStatusInvite;
+                        [ws.collectionView reloadData];
+                    }];
+                    [ws.navigationController pushViewController:connInfoController animated:YES];
+                }else{
+                    [YYToast showToastWithView:ws.view title:NSLocalizedString(@"此买手店账号已停用",nil) andDuration:kAlertToastDuration];
+                }
             }else{
-                [YYToast showToastWithTitle:NSLocalizedString(@"发送送邀请，未处理",nil) andDuration:kAlertToastDuration];
+                [YYToast showToastWithView:ws.view title:rspStatusAndMessage.message andDuration:kAlertToastDuration];
             }
+        }];
+
+    }else{
+        if(buyerModel && [buyerModel.connectStatus integerValue] == -1){
+            __block YYBuyerModel *blockBuyerModel = buyerModel;
+
+
+                [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                [YYConnApi invite:[blockBuyerModel.buyerId integerValue] andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSError *error) {
+                    if(rspStatusAndMessage.status == YYReqStatusCode100){
+                        blockBuyerModel.connectStatus = 0;
+                        [ws.collectionView reloadData];
+                    }
+                    [YYTopAlertView showWithType:YYTopAlertTypeSuccess text:NSLocalizedString(@"邀请买手店成功", nil) parentView:nil];
+
+                    [MBProgressHUD hideAllHUDsForView:ws.view animated:YES];
+                }];
+
+        }else{
+            [YYToast showToastWithTitle:NSLocalizedString(@"发送送邀请，未处理",nil) andDuration:kAlertToastDuration];
         }
     }
-
 }
 #pragma mark - RBCollectionViewBalancedColumnLayoutDelegate
 
@@ -405,20 +336,7 @@ static CGFloat searchFieldWidthMaxConstraint = 200;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(RBCollectionViewBalancedColumnLayout*)collectionViewLayout heightForItemAtIndexPath:(NSIndexPath *)indexPath{
-    if(!_isAddDesigner){
-        if(indexPath.row==_curShowDetailRow){
-            YYConnDesignerModel *designerModel = nil;
-            if(_searchResultArray != nil && ([_searchResultArray count] > indexPath.row)){
-                designerModel =[_searchResultArray objectAtIndex:indexPath.row];
-            }else if ([_designerListArray count] > indexPath.row) {
-                designerModel = [_designerListArray objectAtIndex:indexPath.row];
-            }
-            return [YYBrandInfoViewCell HeightForCell:designerModel.brandDescription];
-        }
-        return 335;
-    }else{
-        return 300;
-    }
+    return 300;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(RBCollectionViewBalancedColumnLayout*)collectionViewLayout heightForFooterInSection:(NSInteger)section{
@@ -446,57 +364,30 @@ static CGFloat searchFieldWidthMaxConstraint = 200;
 //加载品牌，
 - (void)loadDataByPageIndex:(int)pageIndex queryStr:(NSString*)queryStr{
     WeakSelf(ws);
-    if(!_isAddDesigner){
-        [YYConnApi queryDesignerWithQueryStr:queryStr pageIndex:pageIndex pageSize:4 andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYConnDesignerListModel *designerListModel, NSError *error) {
-            if (rspStatusAndMessage.status == kCode100 && designerListModel.result
-                    && [designerListModel.result count] > 0) {
-                if(ws.searchResultArray == nil){
-                    ws.currentPageInfo = designerListModel.pageInfo;
-                    if (ws.currentPageInfo== nil || ws.currentPageInfo.isFirstPage) {
-                        [ws.designerListArray removeAllObjects];
-                    }
-                    [ws.designerListArray addObjectsFromArray:designerListModel.result];
-                }else{
-                    ws.currentSearchPageInfo = designerListModel.pageInfo;
-                    if (ws.currentSearchPageInfo == nil || ws.currentSearchPageInfo.isFirstPage) {
-                        [ws.searchResultArray removeAllObjects];
-                    }
-                    [ws.searchResultArray addObjectsFromArray:designerListModel.result];
+    [YYConnApi queryConnBuyer:queryStr pageIndex:pageIndex pageSize:4 andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYBuyerListModel *buyerList, NSError *error) {
+        if (rspStatusAndMessage.status == YYReqStatusCode100 && buyerList.result
+            && [buyerList.result count] > 0) {
+            if(ws.searchResultArray == nil){
+                ws.currentPageInfo = buyerList.pageInfo;
+                if (ws.currentPageInfo== nil || ws.currentPageInfo.isFirstPage) {
+                    [ws.designerListArray removeAllObjects];
                 }
-            }
-        
-            [MBProgressHUD hideAllHUDsForView:ws.view animated:YES];
-            if (rspStatusAndMessage.status != kCode100) {
-                [YYToast showToastWithTitle:rspStatusAndMessage.message  andDuration:kAlertToastDuration];
-            }
-            [ws reloadCollectionViewData];
-        }];
-    }else{
-        [YYConnApi queryConnBuyer:queryStr pageIndex:pageIndex pageSize:4 andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYBuyerListModel *buyerList, NSError *error) {
-            if (rspStatusAndMessage.status == kCode100 && buyerList.result
-                && [buyerList.result count] > 0) {
-                if(ws.searchResultArray == nil){
-                    ws.currentPageInfo = buyerList.pageInfo;
-                    if (ws.currentPageInfo== nil || ws.currentPageInfo.isFirstPage) {
-                        [ws.designerListArray removeAllObjects];
-                    }
-                    [ws.designerListArray addObjectsFromArray:buyerList.result];
-                }else{
-                    ws.currentSearchPageInfo = buyerList.pageInfo;
-                    if (ws.currentSearchPageInfo == nil || ws.currentSearchPageInfo.isFirstPage) {
-                        [ws.searchResultArray removeAllObjects];
-                    }
-                    [ws.searchResultArray addObjectsFromArray:buyerList.result];
+                [ws.designerListArray addObjectsFromArray:buyerList.result];
+            }else{
+                ws.currentSearchPageInfo = buyerList.pageInfo;
+                if (ws.currentSearchPageInfo == nil || ws.currentSearchPageInfo.isFirstPage) {
+                    [ws.searchResultArray removeAllObjects];
                 }
+                [ws.searchResultArray addObjectsFromArray:buyerList.result];
             }
-            
-            [MBProgressHUD hideAllHUDsForView:ws.view animated:YES];
-            if (rspStatusAndMessage.status != kCode100) {
-                [YYToast showToastWithTitle:rspStatusAndMessage.message  andDuration:kAlertToastDuration];
-            }
-            [ws reloadCollectionViewData];
-        }];
-    }
+        }
+
+        [MBProgressHUD hideAllHUDsForView:ws.view animated:YES];
+        if (rspStatusAndMessage.status != YYReqStatusCode100) {
+            [YYToast showToastWithTitle:rspStatusAndMessage.message  andDuration:kAlertToastDuration];
+        }
+        [ws reloadCollectionViewData];
+    }];
 }
 
 - (void)addHeader{

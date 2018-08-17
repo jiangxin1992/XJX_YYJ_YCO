@@ -15,6 +15,16 @@
 
 #define currentServerUrlRelease(monitor, placeholder) [[[NSUserDefaults standardUserDefaults] objectForKey:kLastYYServerURL] containsString:@"http://ycosystem.com"]? monitor: placeholder
 
+//发货界面
+#define kYYPageDeliver currentServerUrlRelease(@"YYDeliver", @"not-release")
+//建立和编辑装箱单界面
+#define kYYPagePackingList currentServerUrlRelease(@"YYPackingList", @"not-release")
+//强制发货（操作确认页面）
+#define kYYPageDeliveringDoneConfirm currentServerUrlRelease(@"YYDeliveringDoneConfirm", @"not-release")
+//包裹单详情
+#define kYYPagePackageDetail currentServerUrlRelease(@"YYPackageDetail", @"not-release")
+//查看异常反馈
+#define kYYPageParcelExceptionDetail currentServerUrlRelease(@"YYParcelExceptionDetail", @"not-release")
 
 // showRoom的主页
 #define kYYPageShowroomMain currentServerUrlRelease(@"YYShowroomMain", @"not-release")
@@ -45,12 +55,8 @@
 /// ---------- Register start ----------
 // 设计师入驻申请
 #define kYYPageRegisterDesignerType currentServerUrlRelease(@"YYRegister_DesignerType", @"not-release")
-// 买手店注册
-#define kYYPageRegisterBuyerStorUserType currentServerUrlRelease(@"YYRegister_BuyerStorUserType", @"not-release")
 // 品牌信息审核
 #define kYYPageRegisterBrandRegisterType currentServerUrlRelease(@"YYRegister_BrandRegisterType", @"not-release")
-// 买手店身份审核
-#define kYYPageRegisterBuyerRegisterType currentServerUrlRelease(@"YYRegister_BuyerRegisterType", @"not-release")
 // (首页) -> 编辑我的主页信息
 #define kYYPageRegisterBrandInfoType currentServerUrlRelease(@"YYRegister_BrandInfoType", @"not-release")
 // 找回密码

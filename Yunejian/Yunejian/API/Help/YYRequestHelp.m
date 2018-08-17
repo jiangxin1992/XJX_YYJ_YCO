@@ -140,7 +140,13 @@ static int requestGet402Count = 0;
             [request setHTTPBody:requestBody];
         }
 
-        if ([requestUrl rangeOfString:kOrderCreate].location != NSNotFound || [requestUrl rangeOfString:kOrderModify].location != NSNotFound || [requestUrl rangeOfString:kOrderAppend].location != NSNotFound || [requestUrl rangeOfString:kHomeUpdateBrandInfoNew].location != NSNotFound||[requestUrl rangeOfString:KGetShowroomAgentContentWeb].location != NSNotFound) {
+        if ([requestUrl rangeOfString:kOrderCreate].location != NSNotFound
+            || [requestUrl rangeOfString:kOrderModify].location != NSNotFound
+            || [requestUrl rangeOfString:kOrderAppend].location != NSNotFound
+            || [requestUrl rangeOfString:kHomeUpdateBrandInfoNew].location != NSNotFound
+            || [requestUrl rangeOfString:KGetShowroomAgentContentWeb].location != NSNotFound
+            || [requestUrl rangeOfString:kSaveParcel].location != NSNotFound
+            || [requestUrl rangeOfString:kSaveDeliverPackage].location != NSNotFound) {
             [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
             [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         }
@@ -220,7 +226,7 @@ static int requestGet402Count = 0;
 
 
                     //需要重新登录
-                    if (rspStatusAndMessage.status == kCode402
+                    if (rspStatusAndMessage.status == YYReqStatusCode402
                         && requestGet402Count == 0) {
                         [YYRequestHelp increaseOrDecreaseRequestGet402Count:YES];
 
@@ -246,7 +252,7 @@ static int requestGet402Count = 0;
                             //品牌重新登录
                             [YYShowroomApi getShowroomToBrandToken:^(YYRspStatusAndMessage *rspStatusAndMessage, YYUserModel *userModel, NSError *error) {
                                 if (rspStatusAndMessage
-                                    && (rspStatusAndMessage.status == kCode100 || rspStatusAndMessage.status == kCode1000)) {
+                                    && (rspStatusAndMessage.status == YYReqStatusCode100 || rspStatusAndMessage.status == YYReqStatusCode1000)) {
                                     [YYRequestHelp increaseOrDecreaseRequestGet402Count:NO];
                                     NSMutableDictionary *headDic = [[NSMutableDictionary alloc] initWithDictionary:headers];
 
@@ -271,7 +277,7 @@ static int requestGet402Count = 0;
                         }else if (user.email && user.password) {
                             [YYUserApi loginWithUsername:user.email password:md5(user.password) verificationCode:nil andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYUserModel *userModel, NSError *error) {
                                 if (rspStatusAndMessage
-                                    && (rspStatusAndMessage.status == kCode100 || rspStatusAndMessage.status == kCode1000)) {
+                                    && (rspStatusAndMessage.status == YYReqStatusCode100 || rspStatusAndMessage.status == YYReqStatusCode1000)) {
                                     [YYRequestHelp increaseOrDecreaseRequestGet402Count:NO];
                                     NSMutableDictionary *headDic = [[NSMutableDictionary alloc] initWithDictionary:headers];
                                     NSString *tokenValue = [userDefaults objectForKey:kUserLoginTokenKey];
@@ -290,7 +296,7 @@ static int requestGet402Count = 0;
 
 
                                     // 在登录之后, 获取subshowroom的权限列表, 首先是判断showroom子账号
-                                    if (user.userType == kShowroomSubType) {
+                                    if (user.userType == YYUserTypeShowroomSub) {
                                         [YYShowroomApi selectSubShowroomPowerUserId:[NSNumber numberWithInteger:[user.userId integerValue]] andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSArray *powerArray, NSError *error) {
                                             YYSubShowroomUserPowerModel *subShowroom = [YYSubShowroomUserPowerModel shareModel];
                                             for (NSNumber *i in powerArray) {
@@ -314,14 +320,14 @@ static int requestGet402Count = 0;
                         //审核功能 老版本(1.2)没
                         if ([requestUrl rangeOfString:kLogin].location != NSNotFound) {
                             //登录接口
-                            if(rspStatusAndMessage.status == kCode100 &&[dataDic objectForKey:@"toMainPage"] != nil){
+                            if(rspStatusAndMessage.status == YYReqStatusCode100 &&[dataDic objectForKey:@"toMainPage"] != nil){
                                 NSString *toMainPage = (NSString *)[dataDic objectForKey:@"toMainPage"];
                                 if([toMainPage intValue]>0){
                                     id expireDate = [dataDic objectForKey:@"expireDate"];
                                     if(expireDate == 0 ||(NSNull *)expireDate == [NSNull null]){
-                                        rspStatusAndMessage.status = kCode100;
+                                        rspStatusAndMessage.status = YYReqStatusCode100;
                                     }else{
-                                        rspStatusAndMessage.status = kCode1000;
+                                        rspStatusAndMessage.status = YYReqStatusCode1000;
                                         rspStatusAndMessage.message =  getShowDateByFormatAndTimeInterval(NSLocalizedString(@"请在30天内完成品牌信息，未验证的品牌账号将被锁定（yyyy/MM/dd）",nil),[NSString stringWithFormat:@"%@",expireDate]);
                                     }
                                 }
@@ -401,7 +407,13 @@ static int requestGet402Count = 0;
             [request setHTTPBody:requestBody];
         }
         
-        if ([requestUrl rangeOfString:kOrderCreate].location != NSNotFound || [requestUrl rangeOfString:kOrderModify].location != NSNotFound || [requestUrl rangeOfString:kOrderAppend].location != NSNotFound || [requestUrl rangeOfString:kHomeUpdateBrandInfoNew].location != NSNotFound||[requestUrl rangeOfString:KGetShowroomAgentContentWeb].location != NSNotFound) {
+        if ([requestUrl rangeOfString:kOrderCreate].location != NSNotFound
+            || [requestUrl rangeOfString:kOrderModify].location != NSNotFound
+            || [requestUrl rangeOfString:kOrderAppend].location != NSNotFound
+            || [requestUrl rangeOfString:kHomeUpdateBrandInfoNew].location != NSNotFound
+            || [requestUrl rangeOfString:KGetShowroomAgentContentWeb].location != NSNotFound
+            || [requestUrl rangeOfString:kSaveParcel].location != NSNotFound
+            || [requestUrl rangeOfString:kSaveDeliverPackage].location != NSNotFound) {
             [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
             [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         }
@@ -481,7 +493,7 @@ static int requestGet402Count = 0;
                     
                     
                     //需要重新登录
-                    if (rspStatusAndMessage.status == kCode402
+                    if (rspStatusAndMessage.status == YYReqStatusCode402
                         && requestGet402Count == 0) {
                         [YYRequestHelp increaseOrDecreaseRequestGet402Count:YES];
                         
@@ -507,7 +519,7 @@ static int requestGet402Count = 0;
                             //品牌重新登录
                             [YYShowroomApi getShowroomToBrandToken:^(YYRspStatusAndMessage *rspStatusAndMessage, YYUserModel *userModel, NSError *error) {
                                 if (rspStatusAndMessage
-                                    && (rspStatusAndMessage.status == kCode100 || rspStatusAndMessage.status == kCode1000)) {
+                                    && (rspStatusAndMessage.status == YYReqStatusCode100 || rspStatusAndMessage.status == YYReqStatusCode1000)) {
                                     [YYRequestHelp increaseOrDecreaseRequestGet402Count:NO];
                                     NSMutableDictionary *headDic = [[NSMutableDictionary alloc] initWithDictionary:headers];
                                     
@@ -532,7 +544,7 @@ static int requestGet402Count = 0;
                         }else if (user.email && user.password) {
                             [YYUserApi loginWithUsername:user.email password:md5(user.password) verificationCode:nil andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYUserModel *userModel, NSError *error) {
                                 if (rspStatusAndMessage
-                                    && (rspStatusAndMessage.status == kCode100 || rspStatusAndMessage.status == kCode1000)) {
+                                    && (rspStatusAndMessage.status == YYReqStatusCode100 || rspStatusAndMessage.status == YYReqStatusCode1000)) {
                                     [YYRequestHelp increaseOrDecreaseRequestGet402Count:NO];
                                     NSMutableDictionary *headDic = [[NSMutableDictionary alloc] initWithDictionary:headers];
                                     NSString *tokenValue = [userDefaults objectForKey:kUserLoginTokenKey];
@@ -551,7 +563,7 @@ static int requestGet402Count = 0;
 
 
                                     // 在登录之后, 获取subshowroom的权限列表, 首先是判断showroom子账号
-                                    if (user.userType == kShowroomSubType) {
+                                    if (user.userType == YYUserTypeShowroomSub) {
                                         [YYShowroomApi selectSubShowroomPowerUserId:[NSNumber numberWithInteger:[user.userId integerValue]] andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSArray *powerArray, NSError *error) {
                                             YYSubShowroomUserPowerModel *subShowroom = [YYSubShowroomUserPowerModel shareModel];
                                             for (NSNumber *i in powerArray) {
@@ -575,14 +587,14 @@ static int requestGet402Count = 0;
                         //审核功能 老版本(1.2)没
                         if ([requestUrl rangeOfString:kLogin].location != NSNotFound) {
                             //登录接口
-                            if(rspStatusAndMessage.status == kCode100 &&[dataDic objectForKey:@"toMainPage"] != nil){
+                            if(rspStatusAndMessage.status == YYReqStatusCode100 &&[dataDic objectForKey:@"toMainPage"] != nil){
                                 NSString *toMainPage = (NSString *)[dataDic objectForKey:@"toMainPage"];
                                 if([toMainPage intValue]>0){
                                     id expireDate = [dataDic objectForKey:@"expireDate"];
                                     if(expireDate == 0 ||(NSNull *)expireDate == [NSNull null]){
-                                       rspStatusAndMessage.status = kCode100;
+                                       rspStatusAndMessage.status = YYReqStatusCode100;
                                     }else{
-                                        rspStatusAndMessage.status = kCode1000;
+                                        rspStatusAndMessage.status = YYReqStatusCode1000;
                                         rspStatusAndMessage.message =  getShowDateByFormatAndTimeInterval(NSLocalizedString(@"请在30天内完成品牌信息，未验证的品牌账号将被锁定（yyyy/MM/dd）",nil),[NSString stringWithFormat:@"%@",expireDate]);
                                     }
                                 }

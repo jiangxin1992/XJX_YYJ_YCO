@@ -81,7 +81,6 @@
         for (int i =0 ; i<desrow; i++) {
             descStr = [descStr stringByAppendingString:@"\n"];
         }
-        //_buyerDescLabel.backgroundColor = [UIColor redColor];
         _buyerDescLabel.attributedText = [[NSAttributedString alloc] initWithString: descStr attributes: attrDict];
         
     }else{
