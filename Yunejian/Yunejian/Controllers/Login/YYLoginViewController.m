@@ -55,6 +55,7 @@ static CGFloat viewMargin = 10;
 
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet UIButton *registerButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *registerButtonWidthLayout;
 @property (weak, nonatomic) IBOutlet UIButton *forgetPasswordButton;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *loginButtonTopLayoutConstraint;
@@ -80,6 +81,8 @@ static CGFloat viewMargin = 10;
     [super viewDidLoad];
 
     [self changeLanguageButtonUpdate];
+
+    _registerButtonWidthLayout.constant = getWidthWithHeight(20, NSLocalizedString(@"注册 YCO BRAND 账户", nil), [UIFont systemFontOfSize:16.f]);
 
     _verificationCodeViewShouldHidden = YES;
     _verificationCodeView.hidden = _verificationCodeViewShouldHidden;
@@ -247,8 +250,8 @@ static CGFloat viewMargin = 10;
 
         //   NSLog(@"test login %@, %@",rspStatusAndMessage.status,rspStatusAndMessage.message);
         [MBProgressHUD hideAllHUDsForView:ws.view animated:YES];
-        //rspStatusAndMessage.status = YYReqStatusCode305;
-        if (rspStatusAndMessage.status == YYReqStatusCode406) {
+        //rspStatusAndMessage.status = kCode305;
+        if (rspStatusAndMessage.status == kCode406) {
             //需要输验证码
             [ws updateVerificationCode];
             _verificationCodeViewShouldHidden = NO;
@@ -269,8 +272,8 @@ static CGFloat viewMargin = 10;
 
             }
 
-        }else if (rspStatusAndMessage.status == YYReqStatusCode100 || rspStatusAndMessage.status == YYReqStatusCode1000){
-            if([userModel.type integerValue]== YYUserTypeRetailer){
+        }else if (rspStatusAndMessage.status == kCode100 || rspStatusAndMessage.status == kCode1000){
+            if([userModel.type integerValue]== kBuyerStorUserType){
                 [YYToast showToastWithTitle:NSLocalizedString(@"当前账户是买手店身份,不能登录",nil)  andDuration:kAlertToastDuration];
                 return ;
             }
@@ -298,7 +301,7 @@ static CGFloat viewMargin = 10;
             }
 
             // 获取subshowroom的权限列表, 首先是判断showroom子账号
-            if (user.userType == YYUserTypeShowroomSub) {
+            if (user.userType == kShowroomSubType) {
                 [YYShowroomApi selectSubShowroomPowerUserId:[NSNumber numberWithInteger:[user.userId integerValue]] andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSArray *powerArray, NSError *error) {
                     YYSubShowroomUserPowerModel *subShowroom = [YYSubShowroomUserPowerModel shareModel];
                     for (NSNumber *i in powerArray) {
@@ -317,7 +320,7 @@ static CGFloat viewMargin = 10;
 
             //进入首页
             [ws enterMainIndexPage];
-            if([user.status integerValue] == YYReqStatusCode305){//rspStatusAndMessage.status == YYReqStatusCode1000 ||
+            if([user.status integerValue] == kCode305){//rspStatusAndMessage.status == kCode1000 ||
 
                 NSString *expireDate = getShowDateByFormatAndTimeInterval(@"yyyy/MM/dd HH:mm",userModel.expireDate);
                 NSString *msg =[NSString stringWithFormat:NSLocalizedString(@"请在 %@ 前完成品牌验证，未验证的账号将被锁定|%@",nil),expireDate,expireDate];
@@ -330,21 +333,20 @@ static CGFloat viewMargin = 10;
 
         }else{
             [self tabPiece:nil];
-            if(rspStatusAndMessage.status == YYReqStatusCode305){
+            if(rspStatusAndMessage.status == kCode305){
 
                 [self showYellowAlert:NSLocalizedString(@"品牌验证失败",nil) msg:NSLocalizedString(@"抱歉，您未通过品牌信息验证",nil) btn:NSLocalizedString(@"验证品牌信息",nil) align:NSTextAlignmentLeft needVerify:1 userModel:userModel iconStr:@"identity_refuse_icon"];
-            }else if(rspStatusAndMessage.status == YYReqStatusCode301 || rspStatusAndMessage.status == YYReqStatusCode306){
+            }else if(rspStatusAndMessage.status == kCode301 || rspStatusAndMessage.status == kCode306){
                 [self showYellowAlert:NSLocalizedString(@"品牌验证失败",nil) msg:NSLocalizedString(@"抱歉，您未通过品牌信息验证",nil) btn:NSLocalizedString(@"验证品牌信息",nil) align:NSTextAlignmentLeft needVerify:1 userModel:userModel iconStr:@"identity_refuse_icon"];
-            }else if(rspStatusAndMessage.status == YYReqStatusCode300){
+            }else if(rspStatusAndMessage.status == kCode300){
                 [self showYellowAlert:NSLocalizedString(@"账号还在审核中",nil) msg:@"" btn:NSLocalizedString(@"我知道了",nil) align:NSTextAlignmentCenter needVerify:0 userModel:userModel iconStr:@"identity_check_icon"];
-            }else if(rspStatusAndMessage.status ==YYReqStatusCode304){
+            }else if(rspStatusAndMessage.status ==kCode304){
                 CMAlertView *alertView = [[CMAlertView alloc] initWithTitle:NSLocalizedString(@"您的邮箱还没有激活",nil) message:[NSString stringWithFormat:NSLocalizedString(@"我们已向邮箱 %@ 再次发送了确认邮件",nil),email] needwarn:NO delegate:nil cancelButtonTitle:NSLocalizedString(@"取消", nil) otherButtonTitles:@[[NSString stringWithFormat:@"%@|000000",NSLocalizedString(@"没收到，再发一封",nil)]]];
                 //alertView.noLongerRemindKey = NoLongerRemindBrand;
-                alertView.specialParentView = self.view;
                 [alertView setAlertViewBlock:^(NSInteger selectedIndex){
                     if (selectedIndex == 1) {
                         [YYUserApi reSendMailConfirmMail:userModel.email andUserType:[userModel.type stringValue] andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSError *error) {
-                            if(rspStatusAndMessage.status == YYReqStatusCode100){
+                            if(rspStatusAndMessage.status == kCode100){
                                 [YYToast showToastWithTitle:NSLocalizedString(@"发送成功！",nil) andDuration:kAlertToastDuration];
                             }else{
                                 [YYToast showToastWithTitle:rspStatusAndMessage.message andDuration:kAlertToastDuration];
@@ -446,7 +448,15 @@ static CGFloat viewMargin = 10;
                 case RoleButtonTypeDesigner:{
 
                     YYDesignerRegisterViewController *designerRegister = [[YYDesignerRegisterViewController alloc] init];
-                    [self.navigationController pushViewController:designerRegister animated:YES]; removeFromSuperviewUseUseAnimateAndDeallocViewController(_weakSelectRoleView,strongSelf.selectRoleViewController);
+                    [self.navigationController pushViewController:designerRegister animated:YES];
+
+
+
+                    removeFromSuperviewUseUseAnimateAndDeallocViewController(_weakSelectRoleView,strongSelf.selectRoleViewController);
+                }
+                    break;
+                case RoleButtonTypeBuyer:{
+                    // 买手店已经没有了
                 }
                     break;
                 case RoleButtonTypeCancel:{
@@ -640,7 +650,7 @@ static CGFloat viewMargin = 10;
         }else if(weakNeedVerify == 2){
             // 已经不存在了
             [YYUserApi reSendMailConfirmMail:userModel.email andUserType:[userModel.type stringValue] andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSError *error) {
-                if(rspStatusAndMessage.status == YYReqStatusCode100){
+                if(rspStatusAndMessage.status == kCode100){
                     [YYToast showToastWithTitle:NSLocalizedString(@"发送成功！",nil) andDuration:kAlertToastDuration];
                 }else{
                     [YYToast showToastWithTitle:rspStatusAndMessage.message andDuration:kAlertToastDuration];

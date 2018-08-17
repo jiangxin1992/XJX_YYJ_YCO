@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 
 #import "YYRspStatusAndMessage.h"
+#import "YYUserModel.h"
 
-@class YYShowroomBrandListModel,YYShowroomHomePageModel,YYShowroomInfoByDesignerModel,YYShowroomAgentModel,YYShowroomOrderingListModel,YYShowroomOrderingCheckListModel,YYUserModel;
+@class YYShowroomBrandListModel,YYShowroomHomePageModel,YYShowroomInfoByDesignerModel,YYShowroomAgentModel,YYShowroomOrderingListModel,YYShowroomOrderingCheckListModel;
 
 @interface YYShowroomApi : NSObject
 
@@ -68,7 +69,7 @@
 /**
  * 获取代理协议
  */
-+ (void)getAgentContentWithBrandID:(NSNumber *)brandID WithShowroomID:(NSNumber *)showroomID andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,YYShowroomAgentModel *agentModel,NSError *error))block;
++ (void)getAgentContentWebWithBrandID:(NSNumber *)brandID WithShowroomID:(NSNumber *)showroomID andBlock:(void (^)(YYRspStatusAndMessage *rspStatusAndMessage,YYShowroomAgentModel *agentModel,NSError *error))block;
 /**
  * 获取Showroom首页信息
  */

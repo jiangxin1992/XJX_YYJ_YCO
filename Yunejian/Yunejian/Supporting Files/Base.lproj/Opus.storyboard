@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -322,7 +322,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YjM-RC-es9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-967" y="188"/>
+            <point key="canvasLocation" x="-830" y="-162"/>
         </scene>
         <!--Style Detail List View Controller-->
         <scene sceneID="SXj-RY-sTh">
@@ -923,7 +923,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lzr-TJ-Tes" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="383" y="188"/>
+            <point key="canvasLocation" x="165" y="-146"/>
         </scene>
         <!--Style Detail View Controller-->
         <scene sceneID="MVq-oc-wBW">
@@ -980,7 +980,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lWi-yb-hWL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1712" y="188"/>
+            <point key="canvasLocation" x="1069" y="-132"/>
         </scene>
         <!--Detail Content View Controller-->
         <scene sceneID="VDl-j7-9Mf">
@@ -1316,7 +1316,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Qg-VU-qeA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3168" y="188"/>
+            <point key="canvasLocation" x="1828" y="-132"/>
         </scene>
         <!--Opus Setting View Controller-->
         <scene sceneID="K2v-4Z-6Bt">
@@ -1506,7 +1506,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2G9-C9-JCp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-967" y="1390"/>
+            <point key="canvasLocation" x="-49" y="1389"/>
         </scene>
         <!--Series Info Detail View Controller-->
         <scene sceneID="nAF-Pq-exH">
@@ -1640,7 +1640,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ky3-Kt-ggI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1712" y="1390"/>
+            <point key="canvasLocation" x="978" y="952"/>
         </scene>
         <!--Opus Setting Defined View Controller-->
         <scene sceneID="3Y0-5H-urq">
@@ -1931,7 +1931,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ryI-Ha-3bY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="383" y="1390"/>
+            <point key="canvasLocation" x="21" y="283"/>
         </scene>
     </scenes>
     <resources>

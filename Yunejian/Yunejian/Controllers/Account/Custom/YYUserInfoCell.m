@@ -54,10 +54,10 @@
     UISwitch *tempSwitch = (UISwitch *)sender;
     BOOL isOn = tempSwitch.isOn;
     if (_switchClicked) {
-        if(user.userType == YYUserTypeShowroom)
+        if(user.userType == 5)
         {
             _switchClicked(_subModel.showroomUserId,isOn);
-        }else if(user.userType == YYUserTypeDesigner)
+        }else if(user.userType == 0)
         {
             _switchClicked(@(_seller.salesmanId),isOn);
         }
@@ -169,7 +169,7 @@
             NSString *btnWaitingStr = NSLocalizedString(@"品牌审核中",nil);
             NSString *tipStr = NSLocalizedString(@"请在30天内完成品牌信息验证，未验证的品牌账号将被锁定",nil);
             NSString *rufuseTipStr = NSLocalizedString(@"审核被拒,请重新验证品牌信息",nil);
-            if(_userInfo.userType == YYUserTypeRetailer){
+            if(_userInfo.userType == kBuyerStorUserType){
                 titleStr = NSLocalizedString(@"买手店",nil);
                 btnStr = NSLocalizedString(@"买手店身份审核",nil);
                 btnWaitingStr = NSLocalizedString(@"身份审核中",nil);
@@ -179,23 +179,23 @@
             _keyLabel.text = titleStr;
             _valueLabel.text = _userInfo.brandName;
             //_userInfo.status = @"305";
-            if([_userInfo.status integerValue] == YYReqStatusCode305){
+            if([_userInfo.status integerValue] == kCode305){
                 _modifyButton.enabled = YES;
             }else{
                 _modifyButton.enabled = NO;
             }
             _modifyButton.hidden = YES;
             _tipLabel.hidden = YES;
-            if([_userInfo.status integerValue] == YYReqStatusCode305){
+            if([_userInfo.status integerValue] == kCode305){
                 _modifyButton.hidden = NO;
                 [_modifyButton setTitle:btnStr forState:UIControlStateNormal];
                 [_tipLabel setAdjustsFontSizeToFitWidth:YES];
                 _tipLabel.text = tipStr;
                 _tipLabel.hidden = NO;
-            }else if([_userInfo.status integerValue] == YYReqStatusCode300){
+            }else if([_userInfo.status integerValue] == kCode300){
                 _modifyButton.hidden = NO;
                 [_modifyButton setTitle:btnWaitingStr forState:UIControlStateNormal];
-            }else if([_userInfo.status integerValue] == YYReqStatusCode301){
+            }else if([_userInfo.status integerValue] == kCode301){
                 _modifyButton.hidden = NO;
                 [_modifyButton setTitle:btnStr forState:UIControlStateNormal];
                 [_tipLabel setAdjustsFontSizeToFitWidth:YES];

@@ -80,7 +80,6 @@
 - (IBAction)logout:(id)sender{
 
     CMAlertView *alertView = [[CMAlertView alloc] initWithTitle:NSLocalizedString(@"退出登录此账户？",nil) message:nil needwarn:NO delegate:nil cancelButtonTitle:NSLocalizedString(@"再逛会儿",nil) otherButtonTitles:@[NSLocalizedString(@"退出登录",nil)]];
-    alertView.specialParentView = self.view;
     [alertView setAlertViewBlock:^(NSInteger selectedIndex){
         if (selectedIndex == 1) {
             
@@ -308,7 +307,6 @@
     }else if (indexPath.row == 1){
         CMAlertView *alertView = [[CMAlertView alloc] initWithTitle:NSLocalizedString(@"确定清理？",nil) message:nil needwarn:NO delegate:nil cancelButtonTitle:NSLocalizedString(@"否",nil)
  otherButtonTitles:@[[NSString stringWithFormat:@"%@",NSLocalizedString(@"是",nil)]]];
-        alertView.specialParentView = self.view;
         [alertView setAlertViewBlock:^(NSInteger selectedIndex){
             if (selectedIndex == 1) {
                 

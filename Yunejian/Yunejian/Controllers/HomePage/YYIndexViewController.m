@@ -288,7 +288,7 @@ NSString *const MJTableViewCellIdentifier = @"Cell";
 -(void)getHomePageBrandInfo{
     WeakSelf(ws);
     [YYUserApi getHomePageBrandInfoWithBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYUserHomePageModel *homePageModel, NSError *error) {
-        if(rspStatusAndMessage.status == YYReqStatusCode100){
+        if(rspStatusAndMessage.status == kCode100){
             ws.homePageMode = homePageModel;
             //            [ws getHomePagePics];
             if(ws.homePageMode.indexPics == nil){
@@ -709,7 +709,7 @@ NSString *const MJTableViewCellIdentifier = @"Cell";
 //    }
 //    WeakSelf(weakSelf);
 //    [YYUserApi getHomePagePics:[_homePageMode.brandIntroduction.designerId integerValue] andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYIndexPicsModel *picsModel, NSError *error) {
-//        if(rspStatusAndMessage.status == YYReqStatusCode100){
+//        if(rspStatusAndMessage.status == kCode100){
 //            weakSelf.picsModel = picsModel;
 //            if(picsModel == nil){
 //                weakSelf.noPicsDataView.hidden = NO;

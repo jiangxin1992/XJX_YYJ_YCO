@@ -17,7 +17,6 @@
 #import "YYConnBuyerInfoListCell.h"
 #import "UIImage+Tint.h"
 #import "YYNoDataView.h"
-#import "YYConnBuyerListModel.h"
 
 @interface YYConnBuyerListController ()<YYTableCellDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *containerView;
@@ -155,11 +154,11 @@
     }];
 }
 
-//请求买手地址列表
+//请求买家地址列表
 -(void)loadMsgListWithpageIndex:(NSInteger)pageIndex{
     WeakSelf(ws);
     [YYConnApi getConnBuyers:_currentListType pageIndex:pageIndex pageSize:8 andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYConnBuyerListModel *listModel, NSError *error) {
-        if(rspStatusAndMessage.status == YYReqStatusCode100){
+        if(rspStatusAndMessage.status == kCode100){
             ws.currentPageInfo = listModel.pageInfo;
             if( !ws.currentPageInfo || ws.currentPageInfo.isFirstPage){
                 ws.msgListArray =  [[NSMutableArray alloc] init];//;
@@ -249,7 +248,7 @@
 -(void)btnClick:(NSInteger)row section:(NSInteger)section andParmas:(NSArray *)parmas{
    WeakSelf(ws);
     YYConnBuyerModel * infoModel = [self.currentListTypeArray objectAtIndex:row];
-    if([infoModel.status integerValue] == YYUserConnStatusConnected){
+    if([infoModel.status integerValue] == kConnStatus1){
         CMAlertView *alertView = [[CMAlertView alloc] initWithTitle:NSLocalizedString(@"解除合作吗？",nil) message:NSLocalizedString(@"解除合作后，买手店将不能浏览本品牌作品。确认解除合作吗？",nil) needwarn:NO delegate:nil cancelButtonTitle:NSLocalizedString(@"继续合作_no",nil) otherButtonTitles:@[NSLocalizedString(@"解除合作_yes",nil)]];
         alertView.specialParentView = self.view;
         [alertView setAlertViewBlock:^(NSInteger selectedIndex){
@@ -259,7 +258,7 @@
         }];
         
         [alertView show];
-    }else if([infoModel.status integerValue] == YYUserConnStatusInvite){
+    }else if([infoModel.status integerValue] == kConnStatus0){
         CMAlertView *alertView = [[CMAlertView alloc] initWithTitle:NSLocalizedString(@"取消邀请吗？",nil) message:nil needwarn:NO delegate:nil cancelButtonTitle:NSLocalizedString(@"继续邀请_no",nil) otherButtonTitles:@[NSLocalizedString(@"取消邀请_yes",nil)]];
         alertView.specialParentView = self.view;
         [alertView setAlertViewBlock:^(NSInteger selectedIndex){
@@ -275,7 +274,7 @@
 - (void)oprateConnWithBuyer:(NSInteger)buyerId status:(NSInteger)status{
     WeakSelf(ws);
     [YYConnApi OprateConnWithBuyer:buyerId status:status andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSError *error) {
-        if(rspStatusAndMessage.status == YYReqStatusCode100){
+        if(rspStatusAndMessage.status == kCode100){
             [YYToast showToastWithTitle:rspStatusAndMessage.message andDuration:kAlertToastDuration];
             [ws loadMsgListWithpageIndex:1];
         }
@@ -319,8 +318,8 @@
     WeakSelf(ws);
     YYConnBuyerModel * infoModel = [self.currentListTypeArray objectAtIndex:indexPath.row];
     [YYUserApi getUserStatus:[infoModel.buyerId integerValue] andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSInteger status, NSError *error) {
-        if(rspStatusAndMessage.status == YYReqStatusCode100){
-            if(status != YYUserStatusStop && status >-1){
+        if(rspStatusAndMessage.status == kCode100){
+            if(status != kUserStatusStop && status >-1){
                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Account" bundle:[NSBundle mainBundle]];
                 YYConnBuyerInfoViewController *connInfoController = [storyboard instantiateViewControllerWithIdentifier:@"YYConnBuyerInfoViewController"];
                 connInfoController.buyerId = [infoModel.buyerId integerValue];
@@ -329,7 +328,7 @@
                 //    __block YYConnBuyerModel *blockBuyerModel = infoModel;
                 
                 [connInfoController setCancelButtonClicked:^(){
-                    //        blockBuyerModel.status = [[NSNumber alloc] initWithInt:YYUserConnStatusNone];//;
+                    //        blockBuyerModel.status = [[NSNumber alloc] initWithInt:kConnStatus];//;
                     //        [weakself.collectionView reloadData];
                     [ws.navigationController popViewControllerAnimated:YES];
                     [ws loadMsgListWithpageIndex:1];

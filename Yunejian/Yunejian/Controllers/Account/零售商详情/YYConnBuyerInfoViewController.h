@@ -8,12 +8,10 @@
 
 #import <UIKit/UIKit.h>
 @interface YYConnBuyerInfoViewController : UIViewController
+@property (nonatomic,assign) NSInteger buyerId;
+@property (nonatomic,strong) NSString *previousTitle;
+@property (nonatomic,strong) ModifySuccess modifySuccess1;
+@property (nonatomic,strong) ModifySuccess modifySuccess2;
 
-@property (nonatomic, assign) NSInteger buyerId;
-@property (nonatomic, strong) NSString *previousTitle;
-@property (nonatomic, strong) ModifySuccess modifySuccess1;
-@property (nonatomic, strong) ModifySuccess modifySuccess2;
-
-@property (nonatomic, strong) CancelButtonClicked cancelButtonClicked;
-
+@property (nonatomic,strong) CancelButtonClicked cancelButtonClicked;
 @end

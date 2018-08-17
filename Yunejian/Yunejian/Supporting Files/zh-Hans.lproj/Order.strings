@@ -47,8 +47,8 @@
 /* Class = "UIButton"; normalTitle = "0"; ObjectID = "Id0-5H-3bj"; */
 "Id0-5H-3bj.normalTitle" = "0";
 
-/* Class = "UILabel"; text = "尚未收款"; ObjectID = "JXa-8B-SVn"; */
-"JXa-8B-SVn.text" = "尚未收款";
+/* Class = "UILabel"; text = "尚未支付"; ObjectID = "JXa-8B-SVn"; */
+"JXa-8B-SVn.text" = "尚未支付";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "JpE-BQ-XmC"; */
 "JpE-BQ-XmC.text" = "Label";
@@ -101,11 +101,8 @@
 /* Class = "UIButton"; normalTitle = "确定"; ObjectID = "YUb-pf-lvc"; */
 "YUb-pf-lvc.normalTitle" = "确定";
 
-/* Class = "UILabel"; text = "已经收款"; ObjectID = "ZeY-eK-aym"; */
-"ZeY-eK-aym.text" = "已经收款";
-
-/* Class = "UILabel"; text = "待审核"; ObjectID = "NNo-cl-26I"; */
-"NNo-cl-26I.text" = "待审核";
+/* Class = "UILabel"; text = "已付"; ObjectID = "ZeY-eK-aym"; */
+"ZeY-eK-aym.text" = "已付";
 
 /* Class = "UIButton"; normalTitle = "5"; ObjectID = "aAL-AJ-nGP"; */
 "aAL-AJ-nGP.normalTitle" = "5";
@@ -176,8 +173,8 @@
 /* Class = "UIButton"; normalTitle = "7"; ObjectID = "wGg-Sp-htp"; */
 "wGg-Sp-htp.normalTitle" = "7";
 
-/* Class = "UIButton"; normalTitle = "填写金额不能大于尚未收款金额"; ObjectID = "wIt-w3-RHt"; */
-"wIt-w3-RHt.normalTitle" = "填写金额不能大于尚未收款金额";
+/* Class = "UIButton"; normalTitle = "填写的比例需小于余款的比例"; ObjectID = "wIt-w3-RHt"; */
+"wIt-w3-RHt.normalTitle" = "填写的比例需小于余款的比例";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "xwo-sb-wM1"; */
 "xwo-sb-wM1.text" = "Label";

@@ -58,9 +58,9 @@
     _view1.hidden = YES;
     _view2.hidden = YES;
     _view3.hidden = YES;
-    if(_registerType == YYUserTypeDesigner){
+    if(_registerType == kDesignerType){
         _titleLabel.text = NSLocalizedString(@"设计师入驻申请",nil);
-    }else if(_registerType == YYUserTypeRetailer){
+    }else if(_registerType == kBuyerStorUserType){
         _titleLabel.text = NSLocalizedString(@"买手店入驻申请",nil);
     }
     if (_status == 0) {
@@ -87,7 +87,7 @@
 - (IBAction)reSendEmailHandler:(id)sender {
     //用户类型0，desinger;1,buyer;2,salesman
     [YYUserApi reSendMailConfirmMail:_email andUserType:[NSString stringWithFormat:@"%ld",(long)_registerType] andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSError *error) {
-        if(rspStatusAndMessage.status == YYReqStatusCode100){
+        if(rspStatusAndMessage.status == kCode100){
             [YYToast showToastWithTitle:NSLocalizedString(@"发送成功！",nil) andDuration:kAlertToastDuration];
         }else{
             [YYToast showToastWithTitle:rspStatusAndMessage.message andDuration:kAlertToastDuration];

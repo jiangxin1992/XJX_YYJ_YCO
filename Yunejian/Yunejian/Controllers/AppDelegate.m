@@ -352,6 +352,9 @@ didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    //[NSThread detachNewThreadSelector:@selector(setTimerSheduleToRunloop) toTarget:self withObject:nil];
+    //    _myThread = [[NSThread alloc] initWithTarget:self  selector:@selector(setTimerSheduleToRunloop) object:nil];
+    //    [_myThread start];
 
     [[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
     [self checkNoticeCount];
@@ -426,14 +429,14 @@ didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     [YYUserApi loginWithUsername:email password:md5(password) verificationCode:verificationCode andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYUserModel *userModel, NSError *error) {
         ws.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] ;
 
-        if (rspStatusAndMessage.status == YYReqStatusCode100 || rspStatusAndMessage.status == YYReqStatusCode1000){
+        if (rspStatusAndMessage.status == kCode100 || rspStatusAndMessage.status == kCode1000){
 
             YYUser *user = [YYUser currentUser];
             [user saveUserWithEmail:email username:userModel.name password:password userType:[userModel.type integerValue] userId:userModel.id logo:userModel.logo status:[userModel.authStatus stringValue] brandId:[[NSString alloc] initWithFormat:@"%ld",(long)[userModel.brandId integerValue]]];
 
             //进入首页
             [ws enterMainIndexPage];
-            if( [user.status integerValue] == YYReqStatusCode305){
+            if( [user.status integerValue] == kCode305){
                 NSString *expireDate = getShowDateByFormatAndTimeInterval(@"yyyy/MM/dd HH:mm",userModel.expireDate);
 
                 NSString *msg =[NSString stringWithFormat:NSLocalizedString(@"请在 %@ 前完成品牌验证，未验证的账号将被锁定|%@",nil),expireDate,expireDate];
@@ -445,7 +448,7 @@ didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
             [LanguageManager setLanguageToServer];
 
             // 获取subshowroom的权限列表, 首先是判断showroom子账号
-            if (user.userType == YYUserTypeShowroomSub) {
+            if (user.userType == kShowroomSubType) {
                 [YYShowroomApi selectSubShowroomPowerUserId:[NSNumber numberWithInteger:[user.userId integerValue]] andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSArray *powerArray, NSError *error) {
                     YYSubShowroomUserPowerModel *subShowroom = [YYSubShowroomUserPowerModel shareModel];
                     for (NSNumber *i in powerArray) {
@@ -463,10 +466,29 @@ didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
         _inRunLoop = NO;
     }];
 }
-
+- (void)timerAction:(NSTimer *)theTimer {
+    // Show the HUD only if the task is still running
+    NSThread * thread = [NSThread currentThread];
+    if ([thread isCancelled]){
+        [NSThread exit];//执行exit，后边的语句不再执行。所以不用写retur
+    }
+    YYUser *user = [YYUser currentUser];
+    if (![YYNetworkReachability connectedToNetwork] || self.mainViewController == nil || !user.email ) {
+        return;
+    }
+    NSString *type = @"";
+    [YYOrderApi getUnreadNotifyMsgAmount:type andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSInteger orderMsgCount,NSInteger connMsgCount, NSError *error) {
+        self.unreadOrderNotifyMsgAmount = orderMsgCount;
+        self.unreadConnNotifyMsgAmount = connMsgCount;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:UnreadConnNotifyMsgAmount object:nil userInfo:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:UnreadOrderNotifyMsgAmount object:nil userInfo:nil];
+        });
+    }];
+}
 -(void)checkNoticeCount{
     YYUser *user = [YYUser currentUser];
-    if(user.userType == YYUserTypeDesigner || user.userType == YYUserTypeSales || [YYUser isShowroomToBrand]){
+    if(user.userType==0 || user.userType==2 || [YYUser isShowroomToBrand]){
         if (![YYNetworkReachability connectedToNetwork] || self.mainViewController == nil || !user.email) {
             return;
         }
@@ -488,7 +510,7 @@ didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
         return;
     }
     [YYUserApi getUserStatus:-1 andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSInteger status, NSError *error) {
-        if(rspStatusAndMessage.status == YYReqStatusCode100){
+        if(rspStatusAndMessage.status == kCode100){
             if(status >-1){
                 user.userStatus = status;
                 [user saveUserData];
@@ -522,7 +544,7 @@ didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
 //进入首页
 - (void)enterMainIndexPage{
     YYUser *user = [YYUser currentUser];
-    if(user.userType == YYUserTypeShowroom||user.userType == YYUserTypeShowroomSub)
+    if(user.userType == 5||user.userType == 6)
     {
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         _mainViewController = [[UINavigationController alloc] initWithRootViewController:[[YYShowroomMainViewController alloc] init]];
@@ -595,12 +617,12 @@ didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
     NSString *styleListJsonPath = [offlineFilePath stringByAppendingPathComponent:@"styleList.json"];
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if ([fileManager fileExistsAtPath:styleListJsonPath]){
-        styleDetailViewController.currentDataReadType = EDataReadTypeOffline;
+        styleDetailViewController.currentDataReadType = DataReadTypeOffline;
     }else{
         if ([YYNetworkReachability connectedToNetwork]) {
-            styleDetailViewController.currentDataReadType = EDataReadTypeOnline;
+            styleDetailViewController.currentDataReadType = DataReadTypeOnline;
         }else{
-            styleDetailViewController.currentDataReadType = EDataReadTypeCached;
+            styleDetailViewController.currentDataReadType = DataReadTypeCached;
             styleDetailViewController.cachedOpusStyleArray = onlineOpusStyleArray;
         }
     }
@@ -850,7 +872,7 @@ didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
 }
 - (void)reloadRootViewController:(NSInteger)index{
     YYUser *user = [YYUser currentUser];
-    if(user.userType == YYUserTypeShowroom||user.userType == YYUserTypeShowroomSub)
+    if(user.userType == 5||user.userType == 6)
     {
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         _mainViewController = [[UINavigationController alloc] initWithRootViewController:[[YYShowroomMainViewController alloc] init]];
@@ -934,6 +956,21 @@ didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
                                                  name:kNeedLoginNotification
                                                object:nil];
 }
+
+// 测试把timer加到不运行的runloop上的情况
+- (void)setTimerSheduleToRunloop
+{
+    //NSLog(@"Test timer shedult to a non-running runloop");
+    NSTimer *timer = [[NSTimer alloc] initWithFireDate:[NSDate dateWithTimeIntervalSinceNow:1] interval:60*1 target:self selector:@selector(timerAction:) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+    // 打开下面一行输出runloop的内容就可以看出，timer却是已经被添加进去
+    //NSLog(@"the thread's runloop: %@", [NSRunLoop currentRunLoop]);
+
+    // 打开下面一行, 该线程的runloop就会运行起来，timer才会起作用
+    // [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:3]];
+    [[NSRunLoop currentRunLoop] run];
+}
+
 
 
 - (void)needLogin:(NSNotification *)note{

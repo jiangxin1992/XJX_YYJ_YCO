@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 @interface YYConnBuyerListController : UIViewController
-
-@property (nonatomic, assign) NSInteger connedNum;
-@property (nonatomic, assign) NSInteger conningNum;
-@property (nonatomic, strong) CancelButtonClicked cancelButtonClicked;
+@property(nonatomic,assign) NSInteger connedNum;
+@property(nonatomic,assign) NSInteger conningNum;
+@property (nonatomic,strong)CancelButtonClicked cancelButtonClicked;
 
 @end

@@ -18,7 +18,6 @@
 #import "YYConnApi.h"
 #import "YYUser.h"
 #import "RequestMacro.h"
-#import "YYConnBuyerListModel.h"
 #import "SDWebImageManager.h"
 
 #import "YYUser.h"
@@ -129,13 +128,13 @@ static NSMutableDictionary *downLoadCountList;
         if(_indexPath != nil){
             NSInteger tmpType;
             if(type == 1){
-                tmpType = YYOpusAuthBuyer;
+                tmpType = kAuthTypeBuyer;
             }else if(type == 2){
-                tmpType = YYOpusAuthMe;
+                tmpType = kAuthTypeMe;
             }else if(type == 3){
-                tmpType = YYOpusAuthAll;
+                tmpType = kAuthTypeAll;
             }else if(type == 4){
-                tmpType = YYOpusAuthDefined;
+                tmpType = kAuthTypeDefined;
             }
             [self.delegate operateHandler:tmpType androw:_indexPath.row type:@"updateAuthType"];
         }
@@ -534,18 +533,18 @@ static NSMutableDictionary *downLoadCountList;
     _totalImageCount = 0;
     _loadImageCount = 0;
     _statusLabel.textColor = [UIColor colorWithHex:@"919191"];
-    if(_status == YYOpusCheckAuthDraft){
+    if(_status == kOpusDraft){
         _statusDraftImage.hidden = NO;
         [_startBtn setImage:[UIImage imageNamed:@"opuspublish_icon"] forState:UIControlStateNormal];
     }else{
         _statusDraftImage.hidden = YES;
-        if(_authType == YYOpusAuthBuyer){
+        if(_authType == kAuthTypeBuyer){
             [_startBtn setImage:[UIImage imageNamed:@"pub_status_buyer1"] forState:UIControlStateNormal];
-        }else if (_authType == YYOpusAuthMe){
+        }else if (_authType == kAuthTypeMe){
             [_startBtn setImage:[UIImage imageNamed:@"pub_status_me1"] forState:UIControlStateNormal];
-        }else if(_authType == YYOpusAuthAll){
+        }else if(_authType == kAuthTypeAll){
             [_startBtn setImage:[UIImage imageNamed:@"pub_status_all1"] forState:UIControlStateNormal];
-        }else if(_authType >= YYOpusAuthDefined){
+        }else if(_authType >= kAuthTypeDefined){
             [_startBtn setImage:[UIImage imageNamed:@"pub_status_defined1"] forState:UIControlStateNormal];
         }
     }
@@ -629,7 +628,7 @@ static NSMutableDictionary *downLoadCountList;
 
     YYUser *user = [YYUser currentUser];
     // 获取subshowroom的权限列表, 首先是判断showroom子账号
-    if (user.userType == YYUserTypeShowroomSub) {
+    if (user.userType == kShowroomSubType) {
         // 如果没有品牌操作权限，就不能操作
         YYSubShowroomUserPowerModel *subShowroom = [YYSubShowroomUserPowerModel shareModel];
         if (!subShowroom.isBrandAction) {
@@ -639,7 +638,7 @@ static NSMutableDictionary *downLoadCountList;
     }
 
     NSLog(@"_status = %ld",(long)_status);
-    if(_status == YYOpusCheckAuthPublish){
+    if(_status == kOpusPublish){
         NSInteger menuUIWidth = 170;
         NSInteger menuUIHeight = 183;
         UIViewController *controller = [[UIViewController alloc] init];
@@ -655,7 +654,7 @@ static NSMutableDictionary *downLoadCountList;
         [definedBtn setTitleColor:[UIColor colorWithHex:@"919191"] forState:UIControlStateNormal];
 
         [YYConnApi getConnBuyers:1 pageIndex:1 pageSize:1 andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYConnBuyerListModel *listModel, NSError *error) {
-            if(rspStatusAndMessage.status == YYReqStatusCode100){
+            if(rspStatusAndMessage.status == kCode100){
                 if(listModel && [listModel.result count] > 0){
                     blockdefinedBtnl.userInteractionEnabled = YES;
                     //blockdefinedBtnl.alpha = 1;

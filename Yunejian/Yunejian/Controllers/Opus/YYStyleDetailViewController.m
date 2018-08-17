@@ -61,12 +61,12 @@ static NSInteger tagOffset = 90000;
     self.view.backgroundColor = [UIColor clearColor];
     self.currentPage = self.currentIndex;
     switch (_currentDataReadType) {
-        case EDataReadTypeOffline:
-        case EDataReadTypeOnline:{
+        case DataReadTypeOffline:
+        case DataReadTypeOnline:{
             self.totalPages = [self.onlineOrOfflineOpusStyleArray count];
         }
             break;
-        case EDataReadTypeCached:{
+        case DataReadTypeCached:{
             self.totalPages = [self.cachedOpusStyleArray count];
         }
             break;
@@ -175,7 +175,7 @@ static NSInteger tagOffset = 90000;
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [YYShowroomApi brandToShowroomBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYUserModel *userModel, NSError *error) {
             [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-            if(rspStatusAndMessage.status == YYReqStatusCode100){
+            if(rspStatusAndMessage.status == kCode100){
                 //清除购物车
                 AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
                 [appDelegate clearBuyCar];
@@ -277,10 +277,10 @@ static NSInteger tagOffset = 90000;
             StyleSummary *tempStyleSummary = nil;
             if (![_localCacheDic objectForKey:key]) {
                 
-                if (_currentDataReadType == EDataReadTypeOffline
-                    || _currentDataReadType == EDataReadTypeOnline) {
+                if (_currentDataReadType == DataReadTypeOffline
+                    || _currentDataReadType == DataReadTypeOnline) {
                     tempStyleModel = [_onlineOrOfflineOpusStyleArray objectAtIndex:nowIndex];
-                }else if (_currentDataReadType == EDataReadTypeCached){
+                }else if (_currentDataReadType == DataReadTypeCached){
                     tempStyleSummary = [_cachedOpusStyleArray objectAtIndex:nowIndex];
                 }
                 

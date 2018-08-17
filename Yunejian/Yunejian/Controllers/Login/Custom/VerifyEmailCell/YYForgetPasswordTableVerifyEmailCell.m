@@ -62,15 +62,25 @@
 }
 
 - (IBAction)reSendEmailHandler:(id)sender {
-    
-    [YYUserApi forgetPassword:[NSString stringWithFormat:@"email=%@",_email] andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSError *error) {
-
-        if( rspStatusAndMessage.status == YYReqStatusCode100){
-            [YYToast showToastWithTitle:NSLocalizedString(@"发送成功！",nil) andDuration:kAlertToastDuration];
-        }else{
-            [YYToast showToastWithTitle:rspStatusAndMessage.message andDuration:kAlertToastDuration];
-        }
-    }];
+//    if(false){
+//        [YYUserApi reSendMailConfirmMail:_email andUserType:[NSString stringWithFormat:@"%ld",(long)kBuyerStorUserType] andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSError *error) {
+//            if(rspStatusAndMessage.status == kCode100){
+//                [YYToast showToastWithTitle:NSLocalizedString(@"发送成功！",nil) andDuration:kAlertToastDuration];
+//            }else{
+//                [YYToast showToastWithTitle:rspStatusAndMessage.message andDuration:kAlertToastDuration];
+//            }
+//            
+//        }];
+//    }else if (_emailType == kEmailPasswordType){
+        [YYUserApi forgetPassword:[NSString stringWithFormat:@"email=%@",_email] andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSError *error) {
+            
+            if( rspStatusAndMessage.status == kCode100){
+                [YYToast showToastWithTitle:NSLocalizedString(@"发送成功！",nil) andDuration:kAlertToastDuration];
+            }else{
+                [YYToast showToastWithTitle:rspStatusAndMessage.message andDuration:kAlertToastDuration];
+            }
+        }];
+//    }
     
     _sendBtn.enabled = NO;
     [_sendBtn setTitleColor:[UIColor colorWithHex:@"919191"] forState:UIControlStateNormal];

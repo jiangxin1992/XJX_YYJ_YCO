@@ -13,8 +13,6 @@
 #import "YYOpusApi.h"
 #import "YYConnApi.h"
 #import "MBProgressHUD.h"
-#import "YYOpusSeriesAuthTypeBuyerListModel.h"
-#import "YYOpusSeriesAuthTypeBuyerModel.h"
 
 @interface YYOpusSettingDefinedViewController ()<UITableViewDataSource,UITableViewDelegate,YYTableCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -320,7 +318,7 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [YYOpusApi getSeriesAuthTypeBuyerList:_seriesId authType:tmpAuthType andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYOpusSeriesAuthTypeBuyerListModel *buyerList, NSError *error) {
         [MBProgressHUD hideAllHUDsForView:ws.view animated:YES];
-        if(rspStatusAndMessage.status == YYReqStatusCode100){
+        if(rspStatusAndMessage.status == kCode100){
             ws.buyerList = buyerList.result;
             if(blockIsSelect){
             NSInteger len = [ws.buyerList  count];

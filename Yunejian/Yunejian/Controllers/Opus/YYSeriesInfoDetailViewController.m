@@ -39,20 +39,20 @@
 
     // Do any additional setup after loading the view.
     NSInteger seriesStatus = [_seriesInfoDetailModel.series.status integerValue];
-    if(seriesStatus == YYOpusCheckAuthDraft){
+    if(seriesStatus == kOpusDraft){
         [_authtypeBtn setImage:nil forState:UIControlStateNormal];
         
         [_authtypeBtn setTitle:NSLocalizedString(@"系列为草稿，尚未发布",nil) forState:UIControlStateNormal];
         [_authtypeBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
     }else{
     NSInteger _authType = [_seriesInfoDetailModel.series.authType integerValue];
-    if(_authType == YYOpusAuthBuyer){
+    if(_authType == kAuthTypeBuyer){
         [_authtypeBtn setImage:[UIImage imageNamed:@"menu_pub_status_buyer1"] forState:UIControlStateNormal];
         [_authtypeBtn setTitle:NSLocalizedString(@"合作买手店可见",nil) forState:UIControlStateNormal];
-    }else if (_authType == YYOpusAuthMe){
+    }else if (_authType == kAuthTypeMe){
         [_authtypeBtn setImage:[UIImage imageNamed:@"menu_pub_status_me1"] forState:UIControlStateNormal];
         [_authtypeBtn setTitle:NSLocalizedString(@"仅自己可见",nil) forState:UIControlStateNormal];
-    }else if(_authType == YYOpusAuthAll){
+    }else if(_authType == kAuthTypeAll){
         [_authtypeBtn setImage:[UIImage imageNamed:@"menu_pub_status_all1"] forState:UIControlStateNormal];
         [_authtypeBtn setTitle:NSLocalizedString(@"公开",nil) forState:UIControlStateNormal];
     }

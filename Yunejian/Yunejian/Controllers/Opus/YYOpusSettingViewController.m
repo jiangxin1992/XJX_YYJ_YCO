@@ -12,7 +12,6 @@
 #import "UIImage+Tint.h"
 #import "YYYellowPanelManage.h"
 #import "AppDelegate.h"
-#import "YYConnBuyerListModel.h"
 #import "YYConnApi.h"
 
 @interface YYOpusSettingViewController ()
@@ -189,7 +188,7 @@
 -(void)updateOpusStatusTypeView{
     WeakSelf(ws);
     [YYConnApi getConnBuyers:1 pageIndex:1 pageSize:1 andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYConnBuyerListModel *listModel, NSError *error) {
-        if(rspStatusAndMessage.status == YYReqStatusCode100){
+        if(rspStatusAndMessage.status == kCode100){
             if(listModel && [listModel.result count] > 0){
                 //weakself.opusStatusType4.alpha = 1.0;
                 

@@ -10,7 +10,7 @@
 
 @interface YYMainViewController : UIViewController
 
-@property (nonatomic, strong) CancelButtonClicked cancelButtonClicked;
-@property (nonatomic, strong) NSNumber *brandId;
+@property (nonatomic,strong)CancelButtonClicked cancelButtonClicked;
+@property (strong, nonatomic) NSNumber *brandId;
 
 @end

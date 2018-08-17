@@ -69,7 +69,7 @@
 
 -(void)PrepareData{
     YYUser *user = [YYUser currentUser];
-    if(user.userType == YYUserTypeShowroom){
+    if(user.userType == 5){
         _isShowroom = YES;
     }else{
         _isShowroom = NO;
@@ -350,7 +350,7 @@
     if(_isShowroom){
         // showroom
         [YYShowroomApi createSubShowroomWithUsername:name email:email password:password andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSNumber *userId, NSError *error) {
-            if (rspStatusAndMessage.status == YYReqStatusCode100) {
+            if (rspStatusAndMessage.status == kCode100) {
                 [YYToast showToastWithTitle:NSLocalizedString(@"创建成功！",nil) andDuration:kAlertToastDuration];
                 // 退出
                 [self dismissViewControllerAnimated:YES completion:nil];
@@ -364,7 +364,7 @@
         }];
     }else{
         [YYUserApi createSellerWithUsername:name email:email password:password andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSError *error) {
-            if (rspStatusAndMessage.status == YYReqStatusCode100) {
+            if (rspStatusAndMessage.status == kCode100) {
                 [YYToast showToastWithTitle:NSLocalizedString(@"创建成功！",nil) andDuration:kAlertToastDuration];
                 // 退出
                 [self dismissViewControllerAnimated:YES completion:nil];

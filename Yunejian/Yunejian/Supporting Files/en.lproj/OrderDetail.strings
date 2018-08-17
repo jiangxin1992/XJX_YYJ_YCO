@@ -167,14 +167,8 @@
 /* Class = "UILabel"; text = "选择需要追单的款式"; ObjectID = "szo-kH-LTh"; */
 "szo-kH-LTh.text" = "Select Style";
 
-/* Class = "UILabel"; text = "操作确认"; ObjectID = "cqn-dK-58x"; */
-"cqn-dK-58x.text" = "Order confirmation";
-
 /* Class = "UILabel"; text = "买手店*【必须】"; ObjectID = "tqZ-Na-Mlg"; */
 "tqZ-Na-Mlg.text" = "Retailer*【Needed】";
-
-/* Class = "UILabel"; text = "订单类型*【必须】"; ObjectID = "OsC-ja-Sf6"; */
-"OsC-ja-Sf6.text" = "Order Type*【Needed】";
 
 /* Class = "UILabel"; text = "取消订单"; ObjectID = "un7-7d-NTw"; */
 "un7-7d-NTw.text" = "Apply to cancel";
@@ -187,9 +181,6 @@
 
 /* Class = "UIButton"; normalTitle = "取消"; ObjectID = "wCb-Ut-6Ai"; */
 "wCb-Ut-6Ai.normalTitle" = "Cancel";
-
-/* Class = "UIButton"; normalTitle = "确认"; ObjectID = "95R-sj-9FU"; */
-"95R-sj-9FU.normalTitle" = "OK";
 
 /* Class = "UILabel"; text = "对方处理中"; ObjectID = "wSF-ej-aaT"; */
 "wSF-ej-aaT.text" = "Pending";

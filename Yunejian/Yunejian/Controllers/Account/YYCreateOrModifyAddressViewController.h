@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@class YYAddress,YYOrderInfoModel;
+#import "YYAddress.h"
+#import "YYOrderInfoModel.h"
 
 typedef NS_ENUM(NSInteger, OperationType) {
-    OperationTypeCreate     = 80000,
-    OperationTypeModify     = 80001,
+    OperationTypeCreate = 80000,
+    OperationTypeModify = 80001,
     OperationTypeHelpCreate = 80002
 };
 
@@ -20,12 +20,15 @@ typedef void (^AddressForBuyerButtonClicked)(YYAddress *address);
 
 @interface YYCreateOrModifyAddressViewController : UIViewController
 
-@property (nonatomic, assign) OperationType currentOperationType;
-@property (nonatomic, strong) YYOrderInfoModel *currentYYOrderInfoModel;//给订单添加地址时用，如果是离线创建，根据临时订单号先保存地址
-@property (nonatomic, strong) YYAddress *address;
+@property(nonatomic,strong) AddressForBuyerButtonClicked addressForBuyerButtonClicked;
 
-@property (nonatomic, strong) ModifySuccess modifySuccess;
-@property (nonatomic, strong) CancelButtonClicked cancelButtonClicked;
-@property (nonatomic, strong) AddressForBuyerButtonClicked addressForBuyerButtonClicked;
+@property(nonatomic,strong) ModifySuccess modifySuccess;
+@property(nonatomic,strong) CancelButtonClicked cancelButtonClicked;
+
+@property(nonatomic,assign) OperationType currentOperationType;
+//给订单添加地址时用，如果是离线创建，根据临时订单号先保存地址
+@property (strong, nonatomic) YYOrderInfoModel *currentYYOrderInfoModel;
+
+@property(nonatomic,strong) YYAddress *address;
 
 @end

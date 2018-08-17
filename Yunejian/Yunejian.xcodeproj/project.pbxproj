@@ -58,6 +58,7 @@
 		186926DF1B870531003BB46B /* YYOrderAmountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 186926D81B870531003BB46B /* YYOrderAmountModel.m */; };
 		186926E01B870531003BB46B /* YYOrderSettingInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 186926DA1B870531003BB46B /* YYOrderSettingInfoModel.m */; };
 		1877E0B61DA4919900D8BEC0 /* JKCountDownButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1877E0B51DA4919900D8BEC0 /* JKCountDownButton.m */; };
+		187ECBCC1C0ED6A400EA1B0D /* YYBrandViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 187ECBCB1C0ED6A400EA1B0D /* YYBrandViewController.m */; };
 		187ECBD11C0EE60D00EA1B0D /* YYBrandViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 187ECBD01C0EE60D00EA1B0D /* YYBrandViewCell.m */; };
 		187ECBD41C0EF5F300EA1B0D /* YYConnBrandInfoListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 187ECBD31C0EF5F300EA1B0D /* YYConnBrandInfoListModel.m */; };
 		187ECBD71C0EF60C00EA1B0D /* YYConnBrandInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 187ECBD61C0EF60C00EA1B0D /* YYConnBrandInfoModel.m */; };
@@ -176,41 +177,12 @@
 		3F0E54681FDF6F3F00114D88 /* OrderDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F0E545F1FDF6F3E00114D88 /* OrderDetail.storyboard */; };
 		3F0E54691FDF6F3F00114D88 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F0E54611FDF6F3E00114D88 /* Account.storyboard */; };
 		3F0E546A1FDF6F3F00114D88 /* Brand.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F0E54631FDF6F3E00114D88 /* Brand.storyboard */; };
-		3F10C5E82112DCE5008BEA6A /* YYSelectOrderTypeMethodTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F10C5E72112DCE5008BEA6A /* YYSelectOrderTypeMethodTableViewController.m */; };
-		3F10C5EB211458BE008BEA6A /* YYDeliverModifyAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F10C5EA211458BE008BEA6A /* YYDeliverModifyAddressViewController.m */; };
 		3F1451AE1E1BBB7600748919 /* YYConnBuyerInfoAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1451AD1E1BBB7600748919 /* YYConnBuyerInfoAboutViewController.m */; };
 		3F1451B11E1BBB9500748919 /* YYConnBuyerInfoContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1451B01E1BBB9500748919 /* YYConnBuyerInfoContactViewController.m */; };
 		3F187D871F27299200D0E356 /* YYShoppingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F187D861F27299200D0E356 /* YYShoppingView.m */; };
-		3F1FF1322105C04200003997 /* YYPackingListColorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1FF1272105C04000003997 /* YYPackingListColorModel.m */; };
-		3F1FF1332105C04200003997 /* YYPackingListStyleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1FF1282105C04000003997 /* YYPackingListStyleModel.m */; };
-		3F1FF1342105C04200003997 /* YYPackingListSizeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1FF12A2105C04100003997 /* YYPackingListSizeModel.m */; };
-		3F1FF1352105C04200003997 /* YYExpressItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1FF12B2105C04100003997 /* YYExpressItemModel.m */; };
-		3F1FF1362105C04200003997 /* YYPackingListDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1FF12F2105C04200003997 /* YYPackingListDetailModel.m */; };
-		3F1FF1372105C04200003997 /* YYExpressInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1FF1312105C04200003997 /* YYExpressInfoModel.m */; };
-		3F1FF1402105C05900003997 /* YYWarehouseListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1FF13B2105C05800003997 /* YYWarehouseListModel.m */; };
-		3F1FF1412105C05900003997 /* YYWarehouseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1FF13C2105C05900003997 /* YYWarehouseModel.m */; };
-		3F1FF1422105C05900003997 /* YYExpressCompanyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1FF13D2105C05900003997 /* YYExpressCompanyModel.m */; };
-		3F1FF1432105C05900003997 /* YYDeliverModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1FF13E2105C05900003997 /* YYDeliverModel.m */; };
-		3F1FF14E2105C06D00003997 /* YYParcelExceptionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1FF1462105C06B00003997 /* YYParcelExceptionModel.m */; };
-		3F1FF14F2105C06D00003997 /* YYOrderPackageStatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1FF1482105C06C00003997 /* YYOrderPackageStatModel.m */; };
-		3F1FF1502105C06D00003997 /* YYParcelExceptionDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1FF1492105C06C00003997 /* YYParcelExceptionDetailModel.m */; };
-		3F1FF1512105C06D00003997 /* YYPackageListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1FF14A2105C06C00003997 /* YYPackageListModel.m */; };
-		3F1FF1522105C06D00003997 /* YYPackageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1FF14B2105C06D00003997 /* YYPackageModel.m */; };
-		3F1FF1602107275D00003997 /* YYPackingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1FF1552107275D00003997 /* YYPackingListViewController.m */; };
-		3F1FF1612107275D00003997 /* YYPickingListStyleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1FF1582107275D00003997 /* YYPickingListStyleCell.m */; };
-		3F1FF1622107275D00003997 /* YYPickingListInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1FF15A2107275D00003997 /* YYPickingListInfoCell.m */; };
-		3F1FF1642107275D00003997 /* YYPickingListStyleEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1FF15F2107275D00003997 /* YYPickingListStyleEditCell.m */; };
 		3F27A16D1E26AF0B00D92EF5 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3F27A16C1E26AF0B00D92EF5 /* loading.gif */; };
 		3F29C38E1F906D05003F9758 /* NSMutableArray+extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F29C38C1F906D04003F9758 /* NSMutableArray+extra.m */; };
 		3F2E4CAE1E1A3617008FBEF1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F2E4CAD1E1A3616008FBEF1 /* CoreLocation.framework */; };
-		3F2E59D7210DC0D0004D2816 /* YYDeliverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E59D3210DC0D0004D2816 /* YYDeliverViewController.m */; };
-		3F2E59DC210DC319004D2816 /* YYDeliverCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E59D8210DC317004D2816 /* YYDeliverCustomCell.m */; };
-		3F2E59E0210EFFA5004D2816 /* YYDeliverSubmitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E59DF210EFFA5004D2816 /* YYDeliverSubmitCell.m */; };
-		3F2E59E3210FF108004D2816 /* YYChooseLogisticsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E59E2210FF108004D2816 /* YYChooseLogisticsView.m */; };
-		3F2E59E6210FF535004D2816 /* YYChooseLogisticsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E59E4210FF534004D2816 /* YYChooseLogisticsCell.m */; };
-		3F2E59EA210FF572004D2816 /* ChineseToPinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E59E8210FF572004D2816 /* ChineseToPinyin.m */; };
-		3F2E59ED211059DB004D2816 /* YYChooseWarehouseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E59EC211059DB004D2816 /* YYChooseWarehouseView.m */; };
-		3F2E59F0211066DA004D2816 /* YYChooseWarehouseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2E59EF211066D9004D2816 /* YYChooseWarehouseCell.m */; };
 		3F3161DB1E18DC6E00830787 /* YYTypeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F3161DA1E18DC6E00830787 /* YYTypeButton.m */; };
 		3F36DCEC1E0FFC64003839C0 /* UIImageView+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F36DCEB1E0FFC64003839C0 /* UIImageView+Custom.m */; };
 		3F36DCF01E0FFD6D003839C0 /* UIButton+EnlargeEdge.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F36DCEF1E0FFD6D003839C0 /* UIButton+EnlargeEdge.m */; };
@@ -384,22 +356,6 @@
 		3FAA24211E7F75DC00E7550E /* YYShowroomMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA24201E7F75DC00E7550E /* YYShowroomMainViewController.m */; };
 		3FAA24271E7FBF2600E7550E /* YYShowroomMainCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FAA24261E7FBF2600E7550E /* YYShowroomMainCollectionView.m */; };
 		3FC8CE071F6786BC004324A8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3FC8CE091F6786BC004324A8 /* InfoPlist.strings */; };
-		3FD350D7211932EB006A0210 /* YYDeliveringDoneConfirmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD350D6211932EB006A0210 /* YYDeliveringDoneConfirmViewController.m */; };
-		3FD350DC21197DD1006A0210 /* YYDeliverDoneTotalPriceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD350DA21197DD0006A0210 /* YYDeliverDoneTotalPriceCell.m */; };
-		3FD350DD21197DD1006A0210 /* YYDeliverDoneConfirmStyleInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD350DB21197DD0006A0210 /* YYDeliverDoneConfirmStyleInfoCell.m */; };
-		3FD350E5211A808D006A0210 /* YYOrderPackageInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD350E4211A808D006A0210 /* YYOrderPackageInfoCell.m */; };
-		3FD350E8211A9B1F006A0210 /* YYPackageListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD350E7211A9B1F006A0210 /* YYPackageListView.m */; };
-		3FD350EB211AC405006A0210 /* YYPackageListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD350EA211AC405006A0210 /* YYPackageListCell.m */; };
-		3FD350EE211AC684006A0210 /* YYPackageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD350EC211AC683006A0210 /* YYPackageDetailViewController.m */; };
-		3FD350F3211AC84A006A0210 /* YYPackageLogisticsInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD350F1211AC849006A0210 /* YYPackageLogisticsInfoCell.m */; };
-		3FD350F4211AC84A006A0210 /* YYPackageAddressInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD350F2211AC84A006A0210 /* YYPackageAddressInfoCell.m */; };
-		3FD350FD211C38C3006A0210 /* YYLogisticsDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD350FC211C38C3006A0210 /* YYLogisticsDetailCell.m */; };
-		3FD35100211C3F23006A0210 /* YYLogisticsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD350FF211C3F23006A0210 /* YYLogisticsDetailViewController.m */; };
-		3FD35103211D3C87006A0210 /* YYPackageDetailInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD35102211D3C87006A0210 /* YYPackageDetailInfoCell.m */; };
-		3FD35106211D7FE6006A0210 /* YYParcelExceptionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD35105211D7FE5006A0210 /* YYParcelExceptionDetailViewController.m */; };
-		3FD3510B211D7FFD006A0210 /* YYParcelExceptionInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD35107211D7FFC006A0210 /* YYParcelExceptionInfoCell.m */; };
-		3FD3510C211D7FFD006A0210 /* YYParcelExceptionStyleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD3510A211D7FFD006A0210 /* YYParcelExceptionStyleCell.m */; };
-		3FD35111211D8179006A0210 /* YYBuyerBaseInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD35110211D8179006A0210 /* YYBuyerBaseInfoModel.m */; };
 		3FDB3FE11F6A89C3006636CF /* YYWebImageHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDB3FE01F6A89C3006636CF /* YYWebImageHelper.m */; };
 		3FDF7C061E02B57F008E9E88 /* NSString+extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDF7C051E02B57F008E9E88 /* NSString+extra.m */; };
 		3FE006961B661BBB007F9BC7 /* YYOpusStyleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE006951B661BBB007F9BC7 /* YYOpusStyleModel.m */; };
@@ -413,7 +369,7 @@
 		3FE9FE8F1E03923C0099BA4B /* YYUserHomePageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FE9FE8E1E03923C0099BA4B /* YYUserHomePageModel.m */; };
 		3FEA62031B8349A900D3D54F /* YYStylesAndTotalPriceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FEA62021B8349A900D3D54F /* YYStylesAndTotalPriceModel.m */; };
 		3FF73D931F5EAA1B001FDA7A /* YYScanFunctionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF73D921F5EAA1B001FDA7A /* YYScanFunctionModel.m */; };
-		3FF73D961F5EAA9E001FDA7A /* YYStyleOneColorModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF73D951F5EAA9E001FDA7A /* YYStyleOneColorModel.m */; };
+		3FF73D961F5EAA9E001FDA7A /* YYInventoryBoardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF73D951F5EAA9E001FDA7A /* YYInventoryBoardModel.m */; };
 		3FF8EAB21B5CBECD005DEBD2 /* CMAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF8EAB11B5CBECD005DEBD2 /* CMAlertView.m */; };
 		3FF8EAB91B5CC0FB005DEBD2 /* FXBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF8EAB81B5CC0FB005DEBD2 /* FXBlurView.m */; };
 		3FF8EABC1B5CC9FF005DEBD2 /* YYModifyBuyerStoreBrandInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF8EABB1B5CC9FF005DEBD2 /* YYModifyBuyerStoreBrandInfoViewController.m */; };
@@ -577,6 +533,8 @@
 		186926DA1B870531003BB46B /* YYOrderSettingInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYOrderSettingInfoModel.m; sourceTree = "<group>"; };
 		1877E0B41DA4919900D8BEC0 /* JKCountDownButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JKCountDownButton.h; sourceTree = "<group>"; };
 		1877E0B51DA4919900D8BEC0 /* JKCountDownButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JKCountDownButton.m; sourceTree = "<group>"; };
+		187ECBCA1C0ED6A400EA1B0D /* YYBrandViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYBrandViewController.h; sourceTree = "<group>"; };
+		187ECBCB1C0ED6A400EA1B0D /* YYBrandViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYBrandViewController.m; sourceTree = "<group>"; };
 		187ECBCF1C0EE60D00EA1B0D /* YYBrandViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYBrandViewCell.h; sourceTree = "<group>"; };
 		187ECBD01C0EE60D00EA1B0D /* YYBrandViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYBrandViewCell.m; sourceTree = "<group>"; };
 		187ECBD21C0EF5F300EA1B0D /* YYConnBrandInfoListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYConnBrandInfoListModel.h; sourceTree = "<group>"; };
@@ -820,10 +778,6 @@
 		3F0E547A1FDF6FE800114D88 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/OrderDetail.strings; sourceTree = "<group>"; };
 		3F0E547B1FDF6FEA00114D88 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/OrderDetail.strings"; sourceTree = "<group>"; };
 		3F0E547C1FDF6FEC00114D88 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/OrderDetail.strings"; sourceTree = "<group>"; };
-		3F10C5E62112DCE5008BEA6A /* YYSelectOrderTypeMethodTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYSelectOrderTypeMethodTableViewController.h; sourceTree = "<group>"; };
-		3F10C5E72112DCE5008BEA6A /* YYSelectOrderTypeMethodTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYSelectOrderTypeMethodTableViewController.m; sourceTree = "<group>"; };
-		3F10C5E9211458BE008BEA6A /* YYDeliverModifyAddressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYDeliverModifyAddressViewController.h; sourceTree = "<group>"; };
-		3F10C5EA211458BE008BEA6A /* YYDeliverModifyAddressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYDeliverModifyAddressViewController.m; sourceTree = "<group>"; };
 		3F1451AC1E1BBB7600748919 /* YYConnBuyerInfoAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYConnBuyerInfoAboutViewController.h; sourceTree = "<group>"; };
 		3F1451AD1E1BBB7600748919 /* YYConnBuyerInfoAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYConnBuyerInfoAboutViewController.m; sourceTree = "<group>"; };
 		3F1451AF1E1BBB9500748919 /* YYConnBuyerInfoContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYConnBuyerInfoContactViewController.h; sourceTree = "<group>"; };
@@ -831,66 +785,12 @@
 		3F187D851F27299200D0E356 /* YYShoppingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYShoppingView.h; sourceTree = "<group>"; };
 		3F187D861F27299200D0E356 /* YYShoppingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYShoppingView.m; sourceTree = "<group>"; };
 		3F1971C6201B68AE00140C5E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3F1FF1262105C03F00003997 /* YYPackingListStyleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYPackingListStyleModel.h; sourceTree = "<group>"; };
-		3F1FF1272105C04000003997 /* YYPackingListColorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYPackingListColorModel.m; sourceTree = "<group>"; };
-		3F1FF1282105C04000003997 /* YYPackingListStyleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYPackingListStyleModel.m; sourceTree = "<group>"; };
-		3F1FF1292105C04100003997 /* YYPackingListColorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYPackingListColorModel.h; sourceTree = "<group>"; };
-		3F1FF12A2105C04100003997 /* YYPackingListSizeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYPackingListSizeModel.m; sourceTree = "<group>"; };
-		3F1FF12B2105C04100003997 /* YYExpressItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYExpressItemModel.m; sourceTree = "<group>"; };
-		3F1FF12C2105C04100003997 /* YYExpressInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYExpressInfoModel.h; sourceTree = "<group>"; };
-		3F1FF12D2105C04100003997 /* YYPackingListDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYPackingListDetailModel.h; sourceTree = "<group>"; };
-		3F1FF12E2105C04100003997 /* YYExpressItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYExpressItemModel.h; sourceTree = "<group>"; };
-		3F1FF12F2105C04200003997 /* YYPackingListDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYPackingListDetailModel.m; sourceTree = "<group>"; };
-		3F1FF1302105C04200003997 /* YYPackingListSizeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYPackingListSizeModel.h; sourceTree = "<group>"; };
-		3F1FF1312105C04200003997 /* YYExpressInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYExpressInfoModel.m; sourceTree = "<group>"; };
-		3F1FF1382105C05700003997 /* YYWarehouseListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYWarehouseListModel.h; sourceTree = "<group>"; };
-		3F1FF1392105C05800003997 /* YYWarehouseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYWarehouseModel.h; sourceTree = "<group>"; };
-		3F1FF13A2105C05800003997 /* YYDeliverModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYDeliverModel.h; sourceTree = "<group>"; };
-		3F1FF13B2105C05800003997 /* YYWarehouseListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYWarehouseListModel.m; sourceTree = "<group>"; };
-		3F1FF13C2105C05900003997 /* YYWarehouseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYWarehouseModel.m; sourceTree = "<group>"; };
-		3F1FF13D2105C05900003997 /* YYExpressCompanyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYExpressCompanyModel.m; sourceTree = "<group>"; };
-		3F1FF13E2105C05900003997 /* YYDeliverModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYDeliverModel.m; sourceTree = "<group>"; };
-		3F1FF13F2105C05900003997 /* YYExpressCompanyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYExpressCompanyModel.h; sourceTree = "<group>"; };
-		3F1FF1442105C06B00003997 /* YYParcelExceptionDetailModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYParcelExceptionDetailModel.h; sourceTree = "<group>"; };
-		3F1FF1452105C06B00003997 /* YYPackageListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYPackageListModel.h; sourceTree = "<group>"; };
-		3F1FF1462105C06B00003997 /* YYParcelExceptionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYParcelExceptionModel.m; sourceTree = "<group>"; };
-		3F1FF1472105C06C00003997 /* YYOrderPackageStatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYOrderPackageStatModel.h; sourceTree = "<group>"; };
-		3F1FF1482105C06C00003997 /* YYOrderPackageStatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYOrderPackageStatModel.m; sourceTree = "<group>"; };
-		3F1FF1492105C06C00003997 /* YYParcelExceptionDetailModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYParcelExceptionDetailModel.m; sourceTree = "<group>"; };
-		3F1FF14A2105C06C00003997 /* YYPackageListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYPackageListModel.m; sourceTree = "<group>"; };
-		3F1FF14B2105C06D00003997 /* YYPackageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYPackageModel.m; sourceTree = "<group>"; };
-		3F1FF14C2105C06D00003997 /* YYParcelExceptionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYParcelExceptionModel.h; sourceTree = "<group>"; };
-		3F1FF14D2105C06D00003997 /* YYPackageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYPackageModel.h; sourceTree = "<group>"; };
-		3F1FF1552107275D00003997 /* YYPackingListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYPackingListViewController.m; sourceTree = "<group>"; };
-		3F1FF1562107275D00003997 /* YYPackingListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYPackingListViewController.h; sourceTree = "<group>"; };
-		3F1FF1582107275D00003997 /* YYPickingListStyleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYPickingListStyleCell.m; sourceTree = "<group>"; };
-		3F1FF15A2107275D00003997 /* YYPickingListInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYPickingListInfoCell.m; sourceTree = "<group>"; };
-		3F1FF15B2107275D00003997 /* YYPickingListStyleEditCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYPickingListStyleEditCell.h; sourceTree = "<group>"; };
-		3F1FF15C2107275D00003997 /* YYPickingListStyleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYPickingListStyleCell.h; sourceTree = "<group>"; };
-		3F1FF15E2107275D00003997 /* YYPickingListInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYPickingListInfoCell.h; sourceTree = "<group>"; };
-		3F1FF15F2107275D00003997 /* YYPickingListStyleEditCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYPickingListStyleEditCell.m; sourceTree = "<group>"; };
 		3F27614C1E8D17B80045965C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		3F27614E1E8D17CE0045965C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		3F27A16C1E26AF0B00D92EF5 /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
 		3F29C38C1F906D04003F9758 /* NSMutableArray+extra.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+extra.m"; sourceTree = "<group>"; };
 		3F29C38D1F906D05003F9758 /* NSMutableArray+extra.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+extra.h"; sourceTree = "<group>"; };
 		3F2E4CAD1E1A3616008FBEF1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		3F2E59D0210DC0CF004D2816 /* YYDeliverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYDeliverViewController.h; sourceTree = "<group>"; };
-		3F2E59D3210DC0D0004D2816 /* YYDeliverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYDeliverViewController.m; sourceTree = "<group>"; };
-		3F2E59D8210DC317004D2816 /* YYDeliverCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYDeliverCustomCell.m; sourceTree = "<group>"; };
-		3F2E59D9210DC317004D2816 /* YYDeliverCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYDeliverCustomCell.h; sourceTree = "<group>"; };
-		3F2E59DE210EFFA5004D2816 /* YYDeliverSubmitCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYDeliverSubmitCell.h; sourceTree = "<group>"; };
-		3F2E59DF210EFFA5004D2816 /* YYDeliverSubmitCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYDeliverSubmitCell.m; sourceTree = "<group>"; };
-		3F2E59E1210FF108004D2816 /* YYChooseLogisticsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYChooseLogisticsView.h; sourceTree = "<group>"; };
-		3F2E59E2210FF108004D2816 /* YYChooseLogisticsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYChooseLogisticsView.m; sourceTree = "<group>"; };
-		3F2E59E4210FF534004D2816 /* YYChooseLogisticsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYChooseLogisticsCell.m; sourceTree = "<group>"; };
-		3F2E59E5210FF535004D2816 /* YYChooseLogisticsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYChooseLogisticsCell.h; sourceTree = "<group>"; };
-		3F2E59E8210FF572004D2816 /* ChineseToPinyin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChineseToPinyin.m; sourceTree = "<group>"; };
-		3F2E59E9210FF572004D2816 /* ChineseToPinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChineseToPinyin.h; sourceTree = "<group>"; };
-		3F2E59EB211059DB004D2816 /* YYChooseWarehouseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYChooseWarehouseView.h; sourceTree = "<group>"; };
-		3F2E59EC211059DB004D2816 /* YYChooseWarehouseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYChooseWarehouseView.m; sourceTree = "<group>"; };
-		3F2E59EE211066D9004D2816 /* YYChooseWarehouseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYChooseWarehouseCell.h; sourceTree = "<group>"; };
-		3F2E59EF211066D9004D2816 /* YYChooseWarehouseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYChooseWarehouseCell.m; sourceTree = "<group>"; };
 		3F3161D91E18DC6E00830787 /* YYTypeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTypeButton.h; sourceTree = "<group>"; };
 		3F3161DA1E18DC6E00830787 /* YYTypeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTypeButton.m; sourceTree = "<group>"; };
 		3F36DCEA1E0FFC64003839C0 /* UIImageView+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Custom.h"; sourceTree = "<group>"; };
@@ -1276,38 +1176,6 @@
 		3FC8CE0A1F6786BE004324A8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3FC8CE0B1F6786BF004324A8 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		3FC8CE0C1F6786C2004324A8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		3FD350D5211932EB006A0210 /* YYDeliveringDoneConfirmViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYDeliveringDoneConfirmViewController.h; sourceTree = "<group>"; };
-		3FD350D6211932EB006A0210 /* YYDeliveringDoneConfirmViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYDeliveringDoneConfirmViewController.m; sourceTree = "<group>"; };
-		3FD350D821197DCE006A0210 /* YYDeliverDoneConfirmStyleInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYDeliverDoneConfirmStyleInfoCell.h; sourceTree = "<group>"; };
-		3FD350D921197DCF006A0210 /* YYDeliverDoneTotalPriceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYDeliverDoneTotalPriceCell.h; sourceTree = "<group>"; };
-		3FD350DA21197DD0006A0210 /* YYDeliverDoneTotalPriceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYDeliverDoneTotalPriceCell.m; sourceTree = "<group>"; };
-		3FD350DB21197DD0006A0210 /* YYDeliverDoneConfirmStyleInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYDeliverDoneConfirmStyleInfoCell.m; sourceTree = "<group>"; };
-		3FD350E3211A808D006A0210 /* YYOrderPackageInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYOrderPackageInfoCell.h; sourceTree = "<group>"; };
-		3FD350E4211A808D006A0210 /* YYOrderPackageInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYOrderPackageInfoCell.m; sourceTree = "<group>"; };
-		3FD350E6211A9B1F006A0210 /* YYPackageListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYPackageListView.h; sourceTree = "<group>"; };
-		3FD350E7211A9B1F006A0210 /* YYPackageListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYPackageListView.m; sourceTree = "<group>"; };
-		3FD350E9211AC3FE006A0210 /* YYPackageListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYPackageListCell.h; sourceTree = "<group>"; };
-		3FD350EA211AC405006A0210 /* YYPackageListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYPackageListCell.m; sourceTree = "<group>"; };
-		3FD350EC211AC683006A0210 /* YYPackageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYPackageDetailViewController.m; sourceTree = "<group>"; };
-		3FD350ED211AC683006A0210 /* YYPackageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYPackageDetailViewController.h; sourceTree = "<group>"; };
-		3FD350EF211AC849006A0210 /* YYPackageLogisticsInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYPackageLogisticsInfoCell.h; sourceTree = "<group>"; };
-		3FD350F0211AC849006A0210 /* YYPackageAddressInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYPackageAddressInfoCell.h; sourceTree = "<group>"; };
-		3FD350F1211AC849006A0210 /* YYPackageLogisticsInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYPackageLogisticsInfoCell.m; sourceTree = "<group>"; };
-		3FD350F2211AC84A006A0210 /* YYPackageAddressInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYPackageAddressInfoCell.m; sourceTree = "<group>"; };
-		3FD350FB211C38C2006A0210 /* YYLogisticsDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYLogisticsDetailCell.h; sourceTree = "<group>"; };
-		3FD350FC211C38C3006A0210 /* YYLogisticsDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYLogisticsDetailCell.m; sourceTree = "<group>"; };
-		3FD350FE211C3F23006A0210 /* YYLogisticsDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYLogisticsDetailViewController.h; sourceTree = "<group>"; };
-		3FD350FF211C3F23006A0210 /* YYLogisticsDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYLogisticsDetailViewController.m; sourceTree = "<group>"; };
-		3FD35101211D3C87006A0210 /* YYPackageDetailInfoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YYPackageDetailInfoCell.h; sourceTree = "<group>"; };
-		3FD35102211D3C87006A0210 /* YYPackageDetailInfoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YYPackageDetailInfoCell.m; sourceTree = "<group>"; };
-		3FD35104211D7FE5006A0210 /* YYParcelExceptionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYParcelExceptionDetailViewController.h; sourceTree = "<group>"; };
-		3FD35105211D7FE5006A0210 /* YYParcelExceptionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYParcelExceptionDetailViewController.m; sourceTree = "<group>"; };
-		3FD35107211D7FFC006A0210 /* YYParcelExceptionInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYParcelExceptionInfoCell.m; sourceTree = "<group>"; };
-		3FD35108211D7FFC006A0210 /* YYParcelExceptionInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYParcelExceptionInfoCell.h; sourceTree = "<group>"; };
-		3FD35109211D7FFD006A0210 /* YYParcelExceptionStyleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYParcelExceptionStyleCell.h; sourceTree = "<group>"; };
-		3FD3510A211D7FFD006A0210 /* YYParcelExceptionStyleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYParcelExceptionStyleCell.m; sourceTree = "<group>"; };
-		3FD3510F211D8178006A0210 /* YYBuyerBaseInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYBuyerBaseInfoModel.h; sourceTree = "<group>"; };
-		3FD35110211D8179006A0210 /* YYBuyerBaseInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYBuyerBaseInfoModel.m; sourceTree = "<group>"; };
 		3FDB3FDF1F6A89C3006636CF /* YYWebImageHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYWebImageHelper.h; sourceTree = "<group>"; };
 		3FDB3FE01F6A89C3006636CF /* YYWebImageHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYWebImageHelper.m; sourceTree = "<group>"; };
 		3FDF7C041E02B57F008E9E88 /* NSString+extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+extra.h"; sourceTree = "<group>"; };
@@ -1335,8 +1203,8 @@
 		3FEA62021B8349A900D3D54F /* YYStylesAndTotalPriceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYStylesAndTotalPriceModel.m; sourceTree = "<group>"; };
 		3FF73D911F5EAA1B001FDA7A /* YYScanFunctionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYScanFunctionModel.h; sourceTree = "<group>"; };
 		3FF73D921F5EAA1B001FDA7A /* YYScanFunctionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYScanFunctionModel.m; sourceTree = "<group>"; };
-		3FF73D941F5EAA9E001FDA7A /* YYStyleOneColorModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYStyleOneColorModel.h; sourceTree = "<group>"; };
-		3FF73D951F5EAA9E001FDA7A /* YYStyleOneColorModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYStyleOneColorModel.m; sourceTree = "<group>"; };
+		3FF73D941F5EAA9E001FDA7A /* YYInventoryBoardModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYInventoryBoardModel.h; sourceTree = "<group>"; };
+		3FF73D951F5EAA9E001FDA7A /* YYInventoryBoardModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYInventoryBoardModel.m; sourceTree = "<group>"; };
 		3FF8EAB01B5CBECD005DEBD2 /* CMAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMAlertView.h; sourceTree = "<group>"; };
 		3FF8EAB11B5CBECD005DEBD2 /* CMAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMAlertView.m; sourceTree = "<group>"; wrapsLines = 1; };
 		3FF8EAB71B5CC0FB005DEBD2 /* FXBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXBlurView.h; sourceTree = "<group>"; };
@@ -1577,240 +1445,6 @@
 			path = TitlePagerView;
 			sourceTree = "<group>";
 		};
-		3F1FF1222105BFBF00003997 /* 订单相关 */ = {
-			isa = PBXGroup;
-			children = (
-				18580C5E1B71B7440055AB1C /* YYRecordShoppingModel.h */,
-				18580C5F1B71B7440055AB1C /* YYRecordShoppingModel.m */,
-				3FEA62011B8349A900D3D54F /* YYStylesAndTotalPriceModel.h */,
-				3FEA62021B8349A900D3D54F /* YYStylesAndTotalPriceModel.m */,
-				182239351D48B44700D4C86C /* YYPaymentNoteOnlinePayDetailModel.m */,
-				182239361D48B44700D4C86C /* YYPaymentNoteOnlinePayDetailModel.h */,
-				18D3DB5A1C201DCE00E34B2C /* YYOrderConnStatusModel.h */,
-				18D3DB5B1C201DCE00E34B2C /* YYOrderConnStatusModel.m */,
-				18D3DB5C1C201DCE00E34B2C /* YYOrderMessageContentModel.h */,
-				18D3DB5D1C201DCE00E34B2C /* YYOrderMessageContentModel.m */,
-				18D3DB5E1C201DCE00E34B2C /* YYOrderMessageInfoListModel.h */,
-				18D3DB5F1C201DCE00E34B2C /* YYOrderMessageInfoListModel.m */,
-				18D3DB601C201DCE00E34B2C /* YYOrderMessageInfoModel.h */,
-				18D3DB611C201DCE00E34B2C /* YYOrderMessageInfoModel.m */,
-				18D3DB621C201DCE00E34B2C /* YYOrderOperateLogListModel.h */,
-				18D3DB631C201DCE00E34B2C /* YYOrderOperateLogListModel.m */,
-				18D3DB641C201DCE00E34B2C /* YYOrderOperateLogModel.h */,
-				18D3DB651C201DCE00E34B2C /* YYOrderOperateLogModel.m */,
-				18D3DB661C201DCE00E34B2C /* YYOrderTransStatusModel.h */,
-				18D3DB671C201DCE00E34B2C /* YYOrderTransStatusModel.m */,
-				18D3DB681C201DCE00E34B2C /* YYPaymentNoteListModel.h */,
-				18D3DB691C201DCE00E34B2C /* YYPaymentNoteListModel.m */,
-				18D3DB6A1C201DCE00E34B2C /* YYPaymentNoteModel.h */,
-				18D3DB6B1C201DCE00E34B2C /* YYPaymentNoteModel.m */,
-				186926D71B870531003BB46B /* YYOrderAmountModel.h */,
-				186926D81B870531003BB46B /* YYOrderAmountModel.m */,
-				186926D91B870531003BB46B /* YYOrderSettingInfoModel.h */,
-				186926DA1B870531003BB46B /* YYOrderSettingInfoModel.m */,
-				3F63B8E81B72F24D00A5315F /* YYOrderSizeModel.h */,
-				3F63B8E91B72F24D00A5315F /* YYOrderSizeModel.m */,
-				3F63B8EB1B72F33700A5315F /* YYOrderOneColorModel.h */,
-				3F63B8EC1B72F33700A5315F /* YYOrderOneColorModel.m */,
-				3F63B8F11B72F62300A5315F /* YYOrderStyleModel.h */,
-				3F63B8F21B72F62300A5315F /* YYOrderStyleModel.m */,
-				3F63B8F41B72FD9600A5315F /* YYOrderInfoModel.h */,
-				3F63B8F51B72FD9600A5315F /* YYOrderInfoModel.m */,
-				3F63B8F71B72FE9D00A5315F /* YYOrderBuyerAddress.h */,
-				3F63B8F81B72FE9D00A5315F /* YYOrderBuyerAddress.m */,
-				3F63B8FD1B7325BA00A5315F /* YYOrderOneInfoModel.h */,
-				3F63B8FE1B7325BA00A5315F /* YYOrderOneInfoModel.m */,
-				3F74E3461B8C0D4100FC1D2C /* YYOrderSupplyTimeModel.h */,
-				3F74E3471B8C0D4100FC1D2C /* YYOrderSupplyTimeModel.m */,
-				3F74E3491B8C0DE400FC1D2C /* YYOrderListItemModel.h */,
-				3F74E34A1B8C0DE400FC1D2C /* YYOrderListItemModel.m */,
-				3F74E34C1B8C0F5600FC1D2C /* YYOrderListModel.h */,
-				3F74E34D1B8C0F5600FC1D2C /* YYOrderListModel.m */,
-				3F74E5111B8D4AA300EAF318 /* YYOrderStatusMarksModel.h */,
-				3F74E5121B8D4AA300EAF318 /* YYOrderStatusMarksModel.m */,
-				18D6837E1C51BECC0059C284 /* YYOrderStyleModifyReslutModel.h */,
-				18D6837F1C51BECC0059C284 /* YYOrderStyleModifyReslutModel.m */,
-				184C90D91CEC19E00070585C /* YYOrderSeriesModel.h */,
-				184C90DA1CEC19E00070585C /* YYOrderSeriesModel.m */,
-				18384FE51D597E630040343F /* YYOrderSimpleStyleList.h */,
-				18384FE61D597E630040343F /* YYOrderSimpleStyleList.m */,
-				18384FE81D59811F0040343F /* YYOrderAppendParamModel.h */,
-				18384FE91D59811F0040343F /* YYOrderAppendParamModel.m */,
-			);
-			path = "订单相关";
-			sourceTree = "<group>";
-		};
-		3F1FF1232105C03100003997 /* 包裹单 */ = {
-			isa = PBXGroup;
-			children = (
-				3F1FF1472105C06C00003997 /* YYOrderPackageStatModel.h */,
-				3F1FF1482105C06C00003997 /* YYOrderPackageStatModel.m */,
-				3F1FF1452105C06B00003997 /* YYPackageListModel.h */,
-				3F1FF14A2105C06C00003997 /* YYPackageListModel.m */,
-				3F1FF14D2105C06D00003997 /* YYPackageModel.h */,
-				3F1FF14B2105C06D00003997 /* YYPackageModel.m */,
-				3F1FF1442105C06B00003997 /* YYParcelExceptionDetailModel.h */,
-				3F1FF1492105C06C00003997 /* YYParcelExceptionDetailModel.m */,
-				3F1FF14C2105C06D00003997 /* YYParcelExceptionModel.h */,
-				3F1FF1462105C06B00003997 /* YYParcelExceptionModel.m */,
-			);
-			path = "包裹单";
-			sourceTree = "<group>";
-		};
-		3F1FF1242105C03200003997 /* 发货 */ = {
-			isa = PBXGroup;
-			children = (
-				3F1FF1382105C05700003997 /* YYWarehouseListModel.h */,
-				3F1FF13B2105C05800003997 /* YYWarehouseListModel.m */,
-				3F1FF1392105C05800003997 /* YYWarehouseModel.h */,
-				3F1FF13C2105C05900003997 /* YYWarehouseModel.m */,
-				3F1FF13A2105C05800003997 /* YYDeliverModel.h */,
-				3F1FF13E2105C05900003997 /* YYDeliverModel.m */,
-				3F1FF13F2105C05900003997 /* YYExpressCompanyModel.h */,
-				3F1FF13D2105C05900003997 /* YYExpressCompanyModel.m */,
-			);
-			path = "发货";
-			sourceTree = "<group>";
-		};
-		3F1FF1252105C03200003997 /* 装箱单(建立和发货) */ = {
-			isa = PBXGroup;
-			children = (
-				3F1FF12D2105C04100003997 /* YYPackingListDetailModel.h */,
-				3F1FF12F2105C04200003997 /* YYPackingListDetailModel.m */,
-				3F1FF1262105C03F00003997 /* YYPackingListStyleModel.h */,
-				3F1FF1282105C04000003997 /* YYPackingListStyleModel.m */,
-				3F1FF1292105C04100003997 /* YYPackingListColorModel.h */,
-				3F1FF1272105C04000003997 /* YYPackingListColorModel.m */,
-				3F1FF1302105C04200003997 /* YYPackingListSizeModel.h */,
-				3F1FF12A2105C04100003997 /* YYPackingListSizeModel.m */,
-				3F1FF12C2105C04100003997 /* YYExpressInfoModel.h */,
-				3F1FF1312105C04200003997 /* YYExpressInfoModel.m */,
-				3F1FF12E2105C04100003997 /* YYExpressItemModel.h */,
-				3F1FF12B2105C04100003997 /* YYExpressItemModel.m */,
-			);
-			path = "装箱单(建立和发货)";
-			sourceTree = "<group>";
-		};
-		3F1FF1532107272E00003997 /* 订单相关 */ = {
-			isa = PBXGroup;
-			children = (
-				3FE342651FDED6B40035357E /* Custom */,
-				3F9C4CD51EF8B7BD00BDA9BA /* YYTaxChooseViewController.h */,
-				3F9C4CD61EF8B7BD00BDA9BA /* YYTaxChooseViewController.m */,
-				3FE342661FDED8EA0035357E /* YYCustomCell02ViewController.h */,
-				3F10C5E62112DCE5008BEA6A /* YYSelectOrderTypeMethodTableViewController.h */,
-				3F10C5E72112DCE5008BEA6A /* YYSelectOrderTypeMethodTableViewController.m */,
-				186926C51B8704D8003BB46B /* YYSelectDeliverMethodTableViewController.h */,
-				186926C61B8704D8003BB46B /* YYSelectDeliverMethodTableViewController.m */,
-				186926C71B8704D8003BB46B /* YYSelecteOrderSituationTableViewController.h */,
-				186926C81B8704D8003BB46B /* YYSelecteOrderSituationTableViewController.m */,
-				186926C91B8704D8003BB46B /* YYSelectPayMethodTableViewController.h */,
-				186926CA1B8704D8003BB46B /* YYSelectPayMethodTableViewController.m */,
-				186926CB1B8704D8003BB46B /* YYSelectUserTableViewController.h */,
-				186926CC1B8704D8003BB46B /* YYSelectUserTableViewController.m */,
-				3F63B9021B7341FB00A5315F /* YYCustomCellTableViewController.h */,
-				3F63B9031B7341FB00A5315F /* YYCustomCellTableViewController.m */,
-				3F63F7F41B900FA900A23500 /* YYShareOrderViewController.h */,
-				3F63F7F51B900FA900A23500 /* YYShareOrderViewController.m */,
-				AFA1BAC31B82013B009C6DB2 /* YYCartDetailViewController.h */,
-				AFA1BAC41B82013B009C6DB2 /* YYCartDetailViewController.m */,
-				3F63B9081B73508100A5315F /* YYOrderDetailViewController.h */,
-				3F63B9091B73508100A5315F /* YYOrderDetailViewController.m */,
-				18AFD4681B817D190098B142 /* YYOrderListViewController.h */,
-				18AFD4691B817D190098B142 /* YYOrderListViewController.m */,
-				3F3F52DE1B831D6000F20108 /* YYOrderModifyViewController.h */,
-				3F3F52DF1B831D6000F20108 /* YYOrderModifyViewController.m */,
-				3F74E51A1B8D64DE00EAF318 /* YYDiscountViewController.h */,
-				3F74E51B1B8D64DE00EAF318 /* YYDiscountViewController.m */,
-				18D7F7231BDE0AA500076380 /* YYOrderAddressListController.h */,
-				18D7F7241BDE0AA500076380 /* YYOrderAddressListController.m */,
-				18D7F72E1BDE366400076380 /* YYOrderMessageViewController.h */,
-				18D7F72F1BDE366400076380 /* YYOrderMessageViewController.m */,
-				18DC43C01BE22B5800ACB9F0 /* YYOrderModifyLogListController.h */,
-				18DC43C11BE22B5800ACB9F0 /* YYOrderModifyLogListController.m */,
-				18C8D03E1C06FE1000D973F9 /* YYOrderAddMoneyLogController.h */,
-				18C8D03F1C06FE1000D973F9 /* YYOrderAddMoneyLogController.m */,
-				18D683811C54E2220059C284 /* YYOrderStatusRequestCloseViewController.h */,
-				18D683821C54E2220059C284 /* YYOrderStatusRequestCloseViewController.m */,
-				182239111D422B1A00D4C86C /* YYOrderPayLogViewController.h */,
-				182239101D422B1A00D4C86C /* YYOrderPayLogViewController.m */,
-				18384FDC1D581EA40040343F /* YYOrderAppendViewController.h */,
-				18384FDD1D581EA40040343F /* YYOrderAppendViewController.m */,
-				18384FE21D58646B0040343F /* YYOrderAddStyleRemarkViewController.h */,
-				18384FE31D58646B0040343F /* YYOrderAddStyleRemarkViewController.m */,
-			);
-			path = "订单相关";
-			sourceTree = "<group>";
-		};
-		3F1FF1542107275D00003997 /* 装箱单(建立和发货) */ = {
-			isa = PBXGroup;
-			children = (
-				3F1FF1572107275D00003997 /* Custom */,
-				3F1FF1562107275D00003997 /* YYPackingListViewController.h */,
-				3F1FF1552107275D00003997 /* YYPackingListViewController.m */,
-			);
-			path = "装箱单(建立和发货)";
-			sourceTree = "<group>";
-		};
-		3F1FF1572107275D00003997 /* Custom */ = {
-			isa = PBXGroup;
-			children = (
-				3F1FF15E2107275D00003997 /* YYPickingListInfoCell.h */,
-				3F1FF15A2107275D00003997 /* YYPickingListInfoCell.m */,
-				3F1FF15C2107275D00003997 /* YYPickingListStyleCell.h */,
-				3F1FF1582107275D00003997 /* YYPickingListStyleCell.m */,
-				3F1FF15B2107275D00003997 /* YYPickingListStyleEditCell.h */,
-				3F1FF15F2107275D00003997 /* YYPickingListStyleEditCell.m */,
-			);
-			path = Custom;
-			sourceTree = "<group>";
-		};
-		3F2E59CA210DC07B004D2816 /* 发货 */ = {
-			isa = PBXGroup;
-			children = (
-				3F2E59CB210DC08D004D2816 /* Custom */,
-				3F2E59E1210FF108004D2816 /* YYChooseLogisticsView.h */,
-				3F2E59E2210FF108004D2816 /* YYChooseLogisticsView.m */,
-				3F2E59EB211059DB004D2816 /* YYChooseWarehouseView.h */,
-				3F2E59EC211059DB004D2816 /* YYChooseWarehouseView.m */,
-				3F2E59D0210DC0CF004D2816 /* YYDeliverViewController.h */,
-				3F2E59D3210DC0D0004D2816 /* YYDeliverViewController.m */,
-				3F10C5E9211458BE008BEA6A /* YYDeliverModifyAddressViewController.h */,
-				3F10C5EA211458BE008BEA6A /* YYDeliverModifyAddressViewController.m */,
-				3FD350D5211932EB006A0210 /* YYDeliveringDoneConfirmViewController.h */,
-				3FD350D6211932EB006A0210 /* YYDeliveringDoneConfirmViewController.m */,
-			);
-			path = "发货";
-			sourceTree = "<group>";
-		};
-		3F2E59CB210DC08D004D2816 /* Custom */ = {
-			isa = PBXGroup;
-			children = (
-				3FD350D821197DCE006A0210 /* YYDeliverDoneConfirmStyleInfoCell.h */,
-				3FD350DB21197DD0006A0210 /* YYDeliverDoneConfirmStyleInfoCell.m */,
-				3FD350D921197DCF006A0210 /* YYDeliverDoneTotalPriceCell.h */,
-				3FD350DA21197DD0006A0210 /* YYDeliverDoneTotalPriceCell.m */,
-				3F2E59EE211066D9004D2816 /* YYChooseWarehouseCell.h */,
-				3F2E59EF211066D9004D2816 /* YYChooseWarehouseCell.m */,
-				3F2E59E5210FF535004D2816 /* YYChooseLogisticsCell.h */,
-				3F2E59E4210FF534004D2816 /* YYChooseLogisticsCell.m */,
-				3F2E59D9210DC317004D2816 /* YYDeliverCustomCell.h */,
-				3F2E59D8210DC317004D2816 /* YYDeliverCustomCell.m */,
-				3F2E59DE210EFFA5004D2816 /* YYDeliverSubmitCell.h */,
-				3F2E59DF210EFFA5004D2816 /* YYDeliverSubmitCell.m */,
-			);
-			path = Custom;
-			sourceTree = "<group>";
-		};
-		3F2E59E7210FF572004D2816 /* ChineseToPinyin */ = {
-			isa = PBXGroup;
-			children = (
-				3F2E59E8210FF572004D2816 /* ChineseToPinyin.m */,
-				3F2E59E9210FF572004D2816 /* ChineseToPinyin.h */,
-			);
-			path = ChineseToPinyin;
-			sourceTree = "<group>";
-		};
 		3F37D7AF1FDF6E110092C066 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -2032,84 +1666,11 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		3FD350E1211A7FFB006A0210 /* 包裹单 */ = {
-			isa = PBXGroup;
-			children = (
-				3FD350E2211A7FFB006A0210 /* Custom */,
-				3FD350E6211A9B1F006A0210 /* YYPackageListView.h */,
-				3FD350E7211A9B1F006A0210 /* YYPackageListView.m */,
-				3FD350FE211C3F23006A0210 /* YYLogisticsDetailViewController.h */,
-				3FD350FF211C3F23006A0210 /* YYLogisticsDetailViewController.m */,
-				3FD350ED211AC683006A0210 /* YYPackageDetailViewController.h */,
-				3FD350EC211AC683006A0210 /* YYPackageDetailViewController.m */,
-				3FD35104211D7FE5006A0210 /* YYParcelExceptionDetailViewController.h */,
-				3FD35105211D7FE5006A0210 /* YYParcelExceptionDetailViewController.m */,
-			);
-			path = "包裹单";
-			sourceTree = "<group>";
-		};
-		3FD350E2211A7FFB006A0210 /* Custom */ = {
-			isa = PBXGroup;
-			children = (
-				3FD35101211D3C87006A0210 /* YYPackageDetailInfoCell.h */,
-				3FD35102211D3C87006A0210 /* YYPackageDetailInfoCell.m */,
-				3FD350F0211AC849006A0210 /* YYPackageAddressInfoCell.h */,
-				3FD350F2211AC84A006A0210 /* YYPackageAddressInfoCell.m */,
-				3FD350EF211AC849006A0210 /* YYPackageLogisticsInfoCell.h */,
-				3FD350F1211AC849006A0210 /* YYPackageLogisticsInfoCell.m */,
-				3FD350FB211C38C2006A0210 /* YYLogisticsDetailCell.h */,
-				3FD350FC211C38C3006A0210 /* YYLogisticsDetailCell.m */,
-				3FD350E9211AC3FE006A0210 /* YYPackageListCell.h */,
-				3FD350EA211AC405006A0210 /* YYPackageListCell.m */,
-				3FD350E3211A808D006A0210 /* YYOrderPackageInfoCell.h */,
-				3FD350E4211A808D006A0210 /* YYOrderPackageInfoCell.m */,
-				3FD35109211D7FFD006A0210 /* YYParcelExceptionStyleCell.h */,
-				3FD3510A211D7FFD006A0210 /* YYParcelExceptionStyleCell.m */,
-				3FD35108211D7FFC006A0210 /* YYParcelExceptionInfoCell.h */,
-				3FD35107211D7FFC006A0210 /* YYParcelExceptionInfoCell.m */,
-			);
-			path = Custom;
-			sourceTree = "<group>";
-		};
-		3FD3510D211D8111006A0210 /* Brand */ = {
-			isa = PBXGroup;
-			children = (
-				185D9BB51BA6956000745E47 /* YYBrandIntroductionModel.h */,
-				185D9BB61BA6956000745E47 /* YYBrandIntroductionModel.m */,
-				3F8D52F01B607EFE00D65D0A /* YYBrandInfoModel.h */,
-				3F8D52F11B607EFE00D65D0A /* YYBrandInfoModel.m */,
-			);
-			path = Brand;
-			sourceTree = "<group>";
-		};
-		3FD3510E211D8112006A0210 /* Buyer */ = {
-			isa = PBXGroup;
-			children = (
-				3FD3510F211D8178006A0210 /* YYBuyerBaseInfoModel.h */,
-				3FD35110211D8179006A0210 /* YYBuyerBaseInfoModel.m */,
-				18D3DB2D1C20128C00E34B2C /* YYBuyerAddressListModel.h */,
-				18D3DB2E1C20128C00E34B2C /* YYBuyerAddressListModel.m */,
-				18D3DB2F1C20128C00E34B2C /* YYBuyerAddressModel.h */,
-				18D3DB301C20128C00E34B2C /* YYBuyerAddressModel.m */,
-				18D3DB311C20128C00E34B2C /* YYBuyerDetailModel.h */,
-				18D3DB321C20128C00E34B2C /* YYBuyerDetailModel.m */,
-				18D3DB331C20128C00E34B2C /* YYBuyerListModel.h */,
-				18D3DB341C20128C00E34B2C /* YYBuyerListModel.m */,
-				18D3DB351C20128C00E34B2C /* YYBuyerModel.h */,
-				18D3DB361C20128C00E34B2C /* YYBuyerModel.m */,
-				3F8D52F21B607EFE00D65D0A /* YYBuyerStoreModel.h */,
-				3F8D52F31B607EFE00D65D0A /* YYBuyerStoreModel.m */,
-			);
-			path = Buyer;
-			sourceTree = "<group>";
-		};
 		3FE342301FDECD930035357E /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				3F60DFAD1B69BC4E00FAB344 /* YYUser.h */,
 				3F60DFAE1B69BC4E00FAB344 /* YYUser.m */,
-				3FD3510D211D8111006A0210 /* Brand */,
-				3FD3510E211D8112006A0210 /* Buyer */,
 				3FE342371FDECE780035357E /* Other */,
 				3FE342361FDECDE40035357E /* Opus */,
 				3FE342351FDECDDE0035357E /* Order */,
@@ -2180,10 +1741,24 @@
 				3F60DFAC1B69BC4E00FAB344 /* YYSeller.m */,
 				3F60DFAF1B69BC4E00FAB344 /* YYUserInfo.h */,
 				3F60DFB01B69BC4E00FAB344 /* YYUserInfo.m */,
+				18D3DB2D1C20128C00E34B2C /* YYBuyerAddressListModel.h */,
+				18D3DB2E1C20128C00E34B2C /* YYBuyerAddressListModel.m */,
+				18D3DB2F1C20128C00E34B2C /* YYBuyerAddressModel.h */,
+				18D3DB301C20128C00E34B2C /* YYBuyerAddressModel.m */,
+				18D3DB311C20128C00E34B2C /* YYBuyerDetailModel.h */,
+				18D3DB321C20128C00E34B2C /* YYBuyerDetailModel.m */,
+				18D3DB331C20128C00E34B2C /* YYBuyerListModel.h */,
+				18D3DB341C20128C00E34B2C /* YYBuyerListModel.m */,
+				18D3DB351C20128C00E34B2C /* YYBuyerModel.h */,
+				18D3DB361C20128C00E34B2C /* YYBuyerModel.m */,
 				3F8D52EC1B607EFE00D65D0A /* YYAddressListModel.h */,
 				3F8D52ED1B607EFE00D65D0A /* YYAddressListModel.m */,
 				3F8D52EE1B607EFE00D65D0A /* YYAddressModel.h */,
 				3F8D52EF1B607EFE00D65D0A /* YYAddressModel.m */,
+				3F8D52F01B607EFE00D65D0A /* YYBrandInfoModel.h */,
+				3F8D52F11B607EFE00D65D0A /* YYBrandInfoModel.m */,
+				3F8D52F21B607EFE00D65D0A /* YYBuyerStoreModel.h */,
+				3F8D52F31B607EFE00D65D0A /* YYBuyerStoreModel.m */,
 				3F8D52F41B607EFE00D65D0A /* YYDesignerModel.h */,
 				3F8D52F51B607EFE00D65D0A /* YYDesignerModel.m */,
 				3F8D52F61B607EFE00D65D0A /* YYRspStatusAndMessage.h */,
@@ -2211,6 +1786,8 @@
 				18D754371C224D70004B83B1 /* YYHomePageModel.m */,
 				185D9BB21BA6933600745E47 /* YYLookBookModel.h */,
 				185D9BB31BA6933600745E47 /* YYLookBookModel.m */,
+				185D9BB51BA6956000745E47 /* YYBrandIntroductionModel.h */,
+				185D9BB61BA6956000745E47 /* YYBrandIntroductionModel.m */,
 				18F3ADC11BA7BCB9002E7CF7 /* YYLookBookListModel.h */,
 				18F3ADC21BA7BCB9002E7CF7 /* YYLookBookListModel.m */,
 				18D754391C2250B5004B83B1 /* YYIndexPicsModel.h */,
@@ -2222,10 +1799,62 @@
 		3FE342351FDECDDE0035357E /* Order */ = {
 			isa = PBXGroup;
 			children = (
-				3F1FF1222105BFBF00003997 /* 订单相关 */,
-				3F1FF1252105C03200003997 /* 装箱单(建立和发货) */,
-				3F1FF1242105C03200003997 /* 发货 */,
-				3F1FF1232105C03100003997 /* 包裹单 */,
+				18580C5E1B71B7440055AB1C /* YYRecordShoppingModel.h */,
+				18580C5F1B71B7440055AB1C /* YYRecordShoppingModel.m */,
+				3FEA62011B8349A900D3D54F /* YYStylesAndTotalPriceModel.h */,
+				3FEA62021B8349A900D3D54F /* YYStylesAndTotalPriceModel.m */,
+				182239351D48B44700D4C86C /* YYPaymentNoteOnlinePayDetailModel.m */,
+				182239361D48B44700D4C86C /* YYPaymentNoteOnlinePayDetailModel.h */,
+				18D3DB5A1C201DCE00E34B2C /* YYOrderConnStatusModel.h */,
+				18D3DB5B1C201DCE00E34B2C /* YYOrderConnStatusModel.m */,
+				18D3DB5C1C201DCE00E34B2C /* YYOrderMessageContentModel.h */,
+				18D3DB5D1C201DCE00E34B2C /* YYOrderMessageContentModel.m */,
+				18D3DB5E1C201DCE00E34B2C /* YYOrderMessageInfoListModel.h */,
+				18D3DB5F1C201DCE00E34B2C /* YYOrderMessageInfoListModel.m */,
+				18D3DB601C201DCE00E34B2C /* YYOrderMessageInfoModel.h */,
+				18D3DB611C201DCE00E34B2C /* YYOrderMessageInfoModel.m */,
+				18D3DB621C201DCE00E34B2C /* YYOrderOperateLogListModel.h */,
+				18D3DB631C201DCE00E34B2C /* YYOrderOperateLogListModel.m */,
+				18D3DB641C201DCE00E34B2C /* YYOrderOperateLogModel.h */,
+				18D3DB651C201DCE00E34B2C /* YYOrderOperateLogModel.m */,
+				18D3DB661C201DCE00E34B2C /* YYOrderTransStatusModel.h */,
+				18D3DB671C201DCE00E34B2C /* YYOrderTransStatusModel.m */,
+				18D3DB681C201DCE00E34B2C /* YYPaymentNoteListModel.h */,
+				18D3DB691C201DCE00E34B2C /* YYPaymentNoteListModel.m */,
+				18D3DB6A1C201DCE00E34B2C /* YYPaymentNoteModel.h */,
+				18D3DB6B1C201DCE00E34B2C /* YYPaymentNoteModel.m */,
+				186926D71B870531003BB46B /* YYOrderAmountModel.h */,
+				186926D81B870531003BB46B /* YYOrderAmountModel.m */,
+				186926D91B870531003BB46B /* YYOrderSettingInfoModel.h */,
+				186926DA1B870531003BB46B /* YYOrderSettingInfoModel.m */,
+				3F63B8E81B72F24D00A5315F /* YYOrderSizeModel.h */,
+				3F63B8E91B72F24D00A5315F /* YYOrderSizeModel.m */,
+				3F63B8EB1B72F33700A5315F /* YYOrderOneColorModel.h */,
+				3F63B8EC1B72F33700A5315F /* YYOrderOneColorModel.m */,
+				3F63B8F11B72F62300A5315F /* YYOrderStyleModel.h */,
+				3F63B8F21B72F62300A5315F /* YYOrderStyleModel.m */,
+				3F63B8F41B72FD9600A5315F /* YYOrderInfoModel.h */,
+				3F63B8F51B72FD9600A5315F /* YYOrderInfoModel.m */,
+				3F63B8F71B72FE9D00A5315F /* YYOrderBuyerAddress.h */,
+				3F63B8F81B72FE9D00A5315F /* YYOrderBuyerAddress.m */,
+				3F63B8FD1B7325BA00A5315F /* YYOrderOneInfoModel.h */,
+				3F63B8FE1B7325BA00A5315F /* YYOrderOneInfoModel.m */,
+				3F74E3461B8C0D4100FC1D2C /* YYOrderSupplyTimeModel.h */,
+				3F74E3471B8C0D4100FC1D2C /* YYOrderSupplyTimeModel.m */,
+				3F74E3491B8C0DE400FC1D2C /* YYOrderListItemModel.h */,
+				3F74E34A1B8C0DE400FC1D2C /* YYOrderListItemModel.m */,
+				3F74E34C1B8C0F5600FC1D2C /* YYOrderListModel.h */,
+				3F74E34D1B8C0F5600FC1D2C /* YYOrderListModel.m */,
+				3F74E5111B8D4AA300EAF318 /* YYOrderStatusMarksModel.h */,
+				3F74E5121B8D4AA300EAF318 /* YYOrderStatusMarksModel.m */,
+				18D6837E1C51BECC0059C284 /* YYOrderStyleModifyReslutModel.h */,
+				18D6837F1C51BECC0059C284 /* YYOrderStyleModifyReslutModel.m */,
+				184C90D91CEC19E00070585C /* YYOrderSeriesModel.h */,
+				184C90DA1CEC19E00070585C /* YYOrderSeriesModel.m */,
+				18384FE51D597E630040343F /* YYOrderSimpleStyleList.h */,
+				18384FE61D597E630040343F /* YYOrderSimpleStyleList.m */,
+				18384FE81D59811F0040343F /* YYOrderAppendParamModel.h */,
+				18384FE91D59811F0040343F /* YYOrderAppendParamModel.m */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -2288,8 +1917,8 @@
 		3FE342371FDECE780035357E /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				3FF73D941F5EAA9E001FDA7A /* YYStyleOneColorModel.h */,
-				3FF73D951F5EAA9E001FDA7A /* YYStyleOneColorModel.m */,
+				3FF73D941F5EAA9E001FDA7A /* YYInventoryBoardModel.h */,
+				3FF73D951F5EAA9E001FDA7A /* YYInventoryBoardModel.m */,
 				3FF73D911F5EAA1B001FDA7A /* YYScanFunctionModel.h */,
 				3FF73D921F5EAA1B001FDA7A /* YYScanFunctionModel.m */,
 				3F868E4A1EF64FCB00B8A31A /* YYCountryListModel.h */,
@@ -2661,6 +2290,8 @@
 				3F7E5198200462E200CB6B8C /* YYBrandSeriesToCartTempModel.h */,
 				3F7E5197200462E200CB6B8C /* YYBrandSeriesToCartTempModel.m */,
 				3FE342521FDED4890035357E /* Custom */,
+				187ECBCA1C0ED6A400EA1B0D /* YYBrandViewController.h */,
+				187ECBCB1C0ED6A400EA1B0D /* YYBrandViewController.m */,
 				18D16BFB1C0FE34100DA83C2 /* YYBrandSeriesViewController.h */,
 				18D16BFC1C0FE34100DA83C2 /* YYBrandSeriesViewController.m */,
 				18D16C041C10442500DA83C2 /* YYConnAddViewController.h */,
@@ -2930,10 +2561,48 @@
 		3FE342641FDED6AE0035357E /* Order */ = {
 			isa = PBXGroup;
 			children = (
-				3F1FF1532107272E00003997 /* 订单相关 */,
-				3F1FF1542107275D00003997 /* 装箱单(建立和发货) */,
-				3F2E59CA210DC07B004D2816 /* 发货 */,
-				3FD350E1211A7FFB006A0210 /* 包裹单 */,
+				3FE342651FDED6B40035357E /* Custom */,
+				3F9C4CD51EF8B7BD00BDA9BA /* YYTaxChooseViewController.h */,
+				3F9C4CD61EF8B7BD00BDA9BA /* YYTaxChooseViewController.m */,
+				3FE342661FDED8EA0035357E /* YYCustomCell02ViewController.h */,
+				186926C51B8704D8003BB46B /* YYSelectDeliverMethodTableViewController.h */,
+				186926C61B8704D8003BB46B /* YYSelectDeliverMethodTableViewController.m */,
+				186926C71B8704D8003BB46B /* YYSelecteOrderSituationTableViewController.h */,
+				186926C81B8704D8003BB46B /* YYSelecteOrderSituationTableViewController.m */,
+				186926C91B8704D8003BB46B /* YYSelectPayMethodTableViewController.h */,
+				186926CA1B8704D8003BB46B /* YYSelectPayMethodTableViewController.m */,
+				186926CB1B8704D8003BB46B /* YYSelectUserTableViewController.h */,
+				186926CC1B8704D8003BB46B /* YYSelectUserTableViewController.m */,
+				3F63B9021B7341FB00A5315F /* YYCustomCellTableViewController.h */,
+				3F63B9031B7341FB00A5315F /* YYCustomCellTableViewController.m */,
+				3F63F7F41B900FA900A23500 /* YYShareOrderViewController.h */,
+				3F63F7F51B900FA900A23500 /* YYShareOrderViewController.m */,
+				AFA1BAC31B82013B009C6DB2 /* YYCartDetailViewController.h */,
+				AFA1BAC41B82013B009C6DB2 /* YYCartDetailViewController.m */,
+				3F63B9081B73508100A5315F /* YYOrderDetailViewController.h */,
+				3F63B9091B73508100A5315F /* YYOrderDetailViewController.m */,
+				18AFD4681B817D190098B142 /* YYOrderListViewController.h */,
+				18AFD4691B817D190098B142 /* YYOrderListViewController.m */,
+				3F3F52DE1B831D6000F20108 /* YYOrderModifyViewController.h */,
+				3F3F52DF1B831D6000F20108 /* YYOrderModifyViewController.m */,
+				3F74E51A1B8D64DE00EAF318 /* YYDiscountViewController.h */,
+				3F74E51B1B8D64DE00EAF318 /* YYDiscountViewController.m */,
+				18D7F7231BDE0AA500076380 /* YYOrderAddressListController.h */,
+				18D7F7241BDE0AA500076380 /* YYOrderAddressListController.m */,
+				18D7F72E1BDE366400076380 /* YYOrderMessageViewController.h */,
+				18D7F72F1BDE366400076380 /* YYOrderMessageViewController.m */,
+				18DC43C01BE22B5800ACB9F0 /* YYOrderModifyLogListController.h */,
+				18DC43C11BE22B5800ACB9F0 /* YYOrderModifyLogListController.m */,
+				18C8D03E1C06FE1000D973F9 /* YYOrderAddMoneyLogController.h */,
+				18C8D03F1C06FE1000D973F9 /* YYOrderAddMoneyLogController.m */,
+				18D683811C54E2220059C284 /* YYOrderStatusRequestCloseViewController.h */,
+				18D683821C54E2220059C284 /* YYOrderStatusRequestCloseViewController.m */,
+				182239101D422B1A00D4C86C /* YYOrderPayLogViewController.m */,
+				182239111D422B1A00D4C86C /* YYOrderPayLogViewController.h */,
+				18384FDC1D581EA40040343F /* YYOrderAppendViewController.h */,
+				18384FDD1D581EA40040343F /* YYOrderAppendViewController.m */,
+				18384FE21D58646B0040343F /* YYOrderAddStyleRemarkViewController.h */,
+				18384FE31D58646B0040343F /* YYOrderAddStyleRemarkViewController.m */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -3008,8 +2677,8 @@
 				1822390B1D41BBFA00D4C86C /* YYNormalnfoItemCell.h */,
 				1822390C1D41BBFA00D4C86C /* YYNormalnfoItemCell.m */,
 				3F5ACB161EDAB63D006D67B8 /* YYNormalnfoItemCell.xib */,
-				182239141D422B2400D4C86C /* YYOrderPayLogViewCell.h */,
 				182239131D422B2400D4C86C /* YYOrderPayLogViewCell.m */,
+				182239141D422B2400D4C86C /* YYOrderPayLogViewCell.h */,
 				18384FDF1D582EBC0040343F /* YYOrderAppendStyleInfoCell.h */,
 				18384FE01D582EBC0040343F /* YYOrderAppendStyleInfoCell.m */,
 			);
@@ -3019,7 +2688,6 @@
 		3FE342761FDEDBB10035357E /* 工具类 */ = {
 			isa = PBXGroup;
 			children = (
-				3F2E59E7210FF572004D2816 /* ChineseToPinyin */,
 				3FE342801FDEDC470035357E /* regexKitLite */,
 				3FE3427F1FDEDC3D0035357E /* updateAppStore */,
 				3FE3427B1FDEDBE80035357E /* jpushHandler */,
@@ -3500,13 +3168,10 @@
 				18D3DB541C20192800E34B2C /* YYConnBuyerInfoViewController.m in Sources */,
 				3F60DFB21B69BC4E00FAB344 /* YYSeller.m in Sources */,
 				3FA1B6A4205771310081F012 /* YYShowroomOrderingCheckListModel.m in Sources */,
-				3F1FF1412105C05900003997 /* YYWarehouseModel.m in Sources */,
 				3F0861F51E83B0070068C35F /* NSDate+Formatter.m in Sources */,
 				186926E01B870531003BB46B /* YYOrderSettingInfoModel.m in Sources */,
 				3F7224741BAA925100CE3D3E /* YYAboutUsViewController.m in Sources */,
-				3F2E59DC210DC319004D2816 /* YYDeliverCustomCell.m in Sources */,
 				F74DB35D1F4D90260033BE71 /* YYTelephoneTableViewCell.m in Sources */,
-				3F2E59E3210FF108004D2816 /* YYChooseLogisticsView.m in Sources */,
 				18D0CCFD1C0585AE0008A2A7 /* YYOrderStatusView.m in Sources */,
 				18EA690B1C293B8200BACAF8 /* YYSeriesDetailInfoViewCell.m in Sources */,
 				18E23D771BC8DEC6002B281F /* SCLoopItem.m in Sources */,
@@ -3519,7 +3184,6 @@
 				3F63F7F61B900FA900A23500 /* YYShareOrderViewController.m in Sources */,
 				3F79F4661B574825000FD43A /* YYUserInfoCell.m in Sources */,
 				3FF8EAB91B5CC0FB005DEBD2 /* FXBlurView.m in Sources */,
-				3FD350EE211AC684006A0210 /* YYPackageDetailViewController.m in Sources */,
 				3F79F4631B573F49000FD43A /* YYAddressCell.m in Sources */,
 				F75157F11F452F3D005B999B /* YYPhotoSelectView.m in Sources */,
 				18D7543B1C2250B5004B83B1 /* YYIndexPicsModel.m in Sources */,
@@ -3535,7 +3199,6 @@
 				3FA1B6B52057797F0081F012 /* YYShowroomNotificationListViewController.m in Sources */,
 				3F8D53051B607EFE00D65D0A /* YYSalesManModel.m in Sources */,
 				182239251D48453F00D4C86C /* ASProgressPopUpView.m in Sources */,
-				3FD350E8211A9B1F006A0210 /* YYPackageListView.m in Sources */,
 				3FF73D931F5EAA1B001FDA7A /* YYScanFunctionModel.m in Sources */,
 				3F3F52E01B831D6000F20108 /* YYOrderModifyViewController.m in Sources */,
 				3FE3426F1FDEDADE0035357E /* YYLoginViewController.m in Sources */,
@@ -3545,14 +3208,12 @@
 				3F0E465E1B4FA89D00B547C1 /* YYIndexViewController.m in Sources */,
 				3F7AB1EF1B844B1600DA24B5 /* YYSelecteDateView.m in Sources */,
 				187ECBD71C0EF60C00EA1B0D /* YYConnBrandInfoModel.m in Sources */,
-				3FD350DC21197DD1006A0210 /* YYDeliverDoneTotalPriceCell.m in Sources */,
 				3F7D3CAF1E80D1D3009EA3EC /* YYNavView.m in Sources */,
-				3F10C5E82112DCE5008BEA6A /* YYSelectOrderTypeMethodTableViewController.m in Sources */,
 				3F68C0311B4650EB00E70653 /* main.m in Sources */,
 				3F0BAAD11B64B54900ECBDAC /* YYStyleDetailListViewController.m in Sources */,
 				3F7C5B7B1B74AB67000CAC11 /* YYDiscountView.m in Sources */,
 				3F63F7E91B900B3A00A23500 /* qrspec.c in Sources */,
-				3FF73D961F5EAA9E001FDA7A /* YYStyleOneColorModel.m in Sources */,
+				3FF73D961F5EAA9E001FDA7A /* YYInventoryBoardModel.m in Sources */,
 				3F8D53061B607EFE00D65D0A /* YYUserModel.m in Sources */,
 				3F6626811B9941DF009FF3B1 /* Main.m in Sources */,
 				3F9C4CD71EF8B7BD00BDA9BA /* YYTaxChooseViewController.m in Sources */,
@@ -3563,7 +3224,6 @@
 				18D3DB4A1C2018FB00E34B2C /* YYConnBuyerInfoListCell.m in Sources */,
 				18E090971C7555EB006577C2 /* LanguageManager.m in Sources */,
 				3F63F7EB1B900B3A00A23500 /* split.c in Sources */,
-				3F1FF1402105C05900003997 /* YYWarehouseListModel.m in Sources */,
 				3F60DFCD1B69F07200FAB344 /* mmDAO.m in Sources */,
 				3F44A7C31E1655EE00EB97E0 /* YYTypeTextView.m in Sources */,
 				184C90D81CEAE8870070585C /* Series+CoreDataProperties.m in Sources */,
@@ -3585,12 +3245,10 @@
 				183B8F891C0DF4A100503865 /* YYConnBuyerListModel.m in Sources */,
 				F7425E751F4FB98A005D5D7F /* YYDesignRegisterSubmitTableViewCell.m in Sources */,
 				3F3877B91F7B5085001092D5 /* YYNetworkReachability.m in Sources */,
-				3F2E59E0210EFFA5004D2816 /* YYDeliverSubmitCell.m in Sources */,
 				18DC43C51BE2339B00ACB9F0 /* YYOrderModifyListCell.m in Sources */,
 				186926DF1B870531003BB46B /* YYOrderAmountModel.m in Sources */,
 				18580C601B71B7440055AB1C /* YYRecordShoppingModel.m in Sources */,
 				18C8D0401C06FE1000D973F9 /* YYOrderAddMoneyLogController.m in Sources */,
-				3F1FF1522105C06D00003997 /* YYPackageModel.m in Sources */,
 				184C90D41CEACBEB0070585C /* StyleDateRange+CoreDataProperties.m in Sources */,
 				3F76F7A61E68792A00B49C41 /* regular.m in Sources */,
 				3F8BBB2A1B563097009E2880 /* UIImage+YYImage.m in Sources */,
@@ -3614,7 +3272,6 @@
 				3F4416671B52AA3B005054A8 /* YYHelpViewController.m in Sources */,
 				187ECBD41C0EF5F300EA1B0D /* YYConnBrandInfoListModel.m in Sources */,
 				3F6626841B9941DF009FF3B1 /* unzip.c in Sources */,
-				3FD35103211D3C87006A0210 /* YYPackageDetailInfoCell.m in Sources */,
 				3F6626851B9941DF009FF3B1 /* zip.c in Sources */,
 				18D7F7301BDE366400076380 /* YYOrderMessageViewController.m in Sources */,
 				18384FDE1D581EA40040343F /* YYOrderAppendViewController.m in Sources */,
@@ -3632,7 +3289,6 @@
 				18D3DB561C20192800E34B2C /* YYConnMsgListController.m in Sources */,
 				18D3DB591C201CE000E34B2C /* YYUserLogoInfoCell.m in Sources */,
 				3F1451AE1E1BBB7600748919 /* YYConnBuyerInfoAboutViewController.m in Sources */,
-				3FD350DD21197DD1006A0210 /* YYDeliverDoneConfirmStyleInfoCell.m in Sources */,
 				184C90CC1CE9B3960070585C /* YYSeriesTagsView.m in Sources */,
 				18D3DB4B1C2018FB00E34B2C /* YYConnInfoCell.m in Sources */,
 				3F69C84C1B5DE885002CBD77 /* YYTouchIgnoreView.m in Sources */,
@@ -3654,12 +3310,10 @@
 				18CFF4731C1165830000E69A /* YYBrandSeriesListViewController.m in Sources */,
 				3F76B49B1B62215D0057F7A5 /* YYSmallShoppingCarButton.m in Sources */,
 				3FE342751FDEDB370035357E /* YYSelectRoleViewController.m in Sources */,
-				3F1FF14E2105C06D00003997 /* YYParcelExceptionModel.m in Sources */,
 				3F6626711B9933DA009FF3B1 /* YYSeriesCollectionViewCell.m in Sources */,
 				180856C11DCB08990047385F /* YYOpusSeriesAuthTypeBuyerModel.m in Sources */,
 				3F5FF6811B4A498A0030B50A /* ESSABase64.mm in Sources */,
 				18F3ADC31BA7BCB9002E7CF7 /* YYLookBookListModel.m in Sources */,
-				3F1FF1512105C06D00003997 /* YYPackageListModel.m in Sources */,
 				18D564561C2A46DE00C2B4AA /* LookBookPics.m in Sources */,
 				183C5A531C5B31BA009C5C7A /* YYTopAlertView.m in Sources */,
 				3F73E0501B71D44B007543DF /* StyleColors.m in Sources */,
@@ -3681,16 +3335,12 @@
 				18D7F7251BDE0AA500076380 /* YYOrderAddressListController.m in Sources */,
 				3F36FD471E14C79C0031E46B /* YYIndexInfoAboutViewController.m in Sources */,
 				18D3DB6C1C201DCE00E34B2C /* YYOrderConnStatusModel.m in Sources */,
-				3F1FF1422105C05900003997 /* YYExpressCompanyModel.m in Sources */,
 				1894BE7C1BB3E015001D7266 /* YYRegisterTableCellInfoModel.m in Sources */,
 				18D3DB6E1C201DCE00E34B2C /* YYOrderMessageInfoListModel.m in Sources */,
 				3F868E491EF64FB400B8A31A /* YYCountryPickView.m in Sources */,
 				18D0CD031C0598C00008A2A7 /* YYOrderStatusCell.m in Sources */,
-				3FD3510B211D7FFD006A0210 /* YYParcelExceptionInfoCell.m in Sources */,
 				3F7D3CBE1E80FD9F009EA3EC /* YYShowroomCollectionViewCell.m in Sources */,
 				18384FE71D597E630040343F /* YYOrderSimpleStyleList.m in Sources */,
-				3F2E59ED211059DB004D2816 /* YYChooseWarehouseView.m in Sources */,
-				3F1FF1432105C05900003997 /* YYDeliverModel.m in Sources */,
 				18D2EB5A1BFAEC010044C91D /* YYUpdateAppStore.m in Sources */,
 				3F1451B11E1BBB9500748919 /* YYConnBuyerInfoContactViewController.m in Sources */,
 				3F63B9041B7341FB00A5315F /* YYCustomCellTableViewController.m in Sources */,
@@ -3698,26 +3348,21 @@
 				18CFF46D1C11200F0000E69A /* YYConnDesignerListModel.m in Sources */,
 				182239371D48B44700D4C86C /* YYPaymentNoteOnlinePayDetailModel.m in Sources */,
 				3F63B8FF1B7325BA00A5315F /* YYOrderOneInfoModel.m in Sources */,
-				3FD35111211D8179006A0210 /* YYBuyerBaseInfoModel.m in Sources */,
 				3FE006991B662562007F9BC7 /* YYOpusStyleListModel.m in Sources */,
 				3F76B4951B61DA230057F7A5 /* YYStyleDetailViewController.m in Sources */,
 				3F777EDD1B6746B200EE36EB /* UIColor+KTUtilities.m in Sources */,
 				3FF8EAC01B5D0D15005DEBD2 /* YYCreateOrModifyAddressViewController.m in Sources */,
 				185D9BB41BA6933600745E47 /* YYLookBookModel.m in Sources */,
-				3F2E59F0211066DA004D2816 /* YYChooseWarehouseCell.m in Sources */,
 				3F8D530A1B607FC600D65D0A /* YYOpusSeriesModel.m in Sources */,
 				18AFD46D1B81AD520098B142 /* YYOrderDetailSectionHead.m in Sources */,
 				3F777EE31B67575F00EE36EB /* YYStyleInfoDetailModel.m in Sources */,
 				18D3DB551C20192800E34B2C /* YYConnBuyerListController.m in Sources */,
 				18D3DB6D1C201DCE00E34B2C /* YYOrderMessageContentModel.m in Sources */,
 				189044771CFED6160059E12B /* JpushHandler.m in Sources */,
-				3F1FF14F2105C06D00003997 /* YYOrderPackageStatModel.m in Sources */,
-				3F1FF1362105C04200003997 /* YYPackingListDetailModel.m in Sources */,
 				18DC92991BCF3EC700A2F328 /* YYIntroductionViewController.m in Sources */,
 				3FE9FE8F1E03923C0099BA4B /* YYUserHomePageModel.m in Sources */,
 				18D3DB251C20100200E34B2C /* YYAlertViewController.m in Sources */,
 				F70BD95F1F67BAC300F508E2 /* UIView+MLInputDodger.m in Sources */,
-				3F2E59EA210FF572004D2816 /* ChineseToPinyin.m in Sources */,
 				1899EC4B1C05C7BD009B8B42 /* TPPropertyAnimation.m in Sources */,
 				3F0E46601B4FA89D00B547C1 /* YYLeftMenuViewController.m in Sources */,
 				186926CD1B8704D8003BB46B /* YYBuyerMessageCell.m in Sources */,
@@ -3726,16 +3371,11 @@
 				3F8D53031B607EFE00D65D0A /* YYRspStatusAndMessage.m in Sources */,
 				18D683801C51BECC0059C284 /* YYOrderStyleModifyReslutModel.m in Sources */,
 				3F89BA911EA4A223004E580D /* YYShareSeriesView.m in Sources */,
-				3F1FF1622107275D00003997 /* YYPickingListInfoCell.m in Sources */,
 				3F411F971E83A22400C4BC69 /* YYShowroomAgentView.m in Sources */,
 				3F8498C91D45AE7100677A80 /* SCGIFButtonView.m in Sources */,
 				3F63F7E81B900B3A00A23500 /* qrinput.c in Sources */,
-				3FD3510C211D7FFD006A0210 /* YYParcelExceptionStyleCell.m in Sources */,
-				3F1FF1502105C06D00003997 /* YYParcelExceptionDetailModel.m in Sources */,
 				184C90DB1CEC19E00070585C /* YYOrderSeriesModel.m in Sources */,
-				3FD350FD211C38C3006A0210 /* YYLogisticsDetailCell.m in Sources */,
 				3F63B8ED1B72F33700A5315F /* YYOrderOneColorModel.m in Sources */,
-				3F1FF1612107275D00003997 /* YYPickingListStyleCell.m in Sources */,
 				3F187D871F27299200D0E356 /* YYShoppingView.m in Sources */,
 				18E1F39D1BE1158D005F994B /* YYOrderAddressMoreCell.m in Sources */,
 				18AFD46A1B817D190098B142 /* YYOrderListViewController.m in Sources */,
@@ -3750,14 +3390,13 @@
 				3FA39C351F6B7D3400907422 /* YYCacheHelper.m in Sources */,
 				3F4416601B52A3A8005054A8 /* YYAccountDetailViewController.m in Sources */,
 				187ECBD11C0EE60D00EA1B0D /* YYBrandViewCell.m in Sources */,
-				3F2E59D7210DC0D0004D2816 /* YYDeliverViewController.m in Sources */,
 				18D683831C54E2220059C284 /* YYOrderStatusRequestCloseViewController.m in Sources */,
 				3F74E34E1B8C0F5600FC1D2C /* YYOrderListModel.m in Sources */,
 				18D3DB701C201DCE00E34B2C /* YYOrderOperateLogListModel.m in Sources */,
-				3FD35106211D7FE6006A0210 /* YYParcelExceptionDetailViewController.m in Sources */,
 				F77134231F4EB58000BE909E /* YYDesignerRegisterViewController.m in Sources */,
 				3F74E34B1B8C0DE400FC1D2C /* YYOrderListItemModel.m in Sources */,
 				3F8D52FE1B607EFE00D65D0A /* YYAddressListModel.m in Sources */,
+				187ECBCC1C0ED6A400EA1B0D /* YYBrandViewController.m in Sources */,
 				3FA1B6A7205771310081F012 /* YYShowroomOrderingListModel.m in Sources */,
 				18E090981C7555EB006577C2 /* NSBundle+Language.m in Sources */,
 				18DC43BF1BE212B000ACB9F0 /* YYMessageButton.m in Sources */,
@@ -3766,7 +3405,6 @@
 				F75AFB1B1F6A7E29001BC793 /* CJRootModel.m in Sources */,
 				184C90CF1CE9BEB30070585C /* YYDateRangeModel.m in Sources */,
 				3F0A9A0F2019BDE6003E8558 /* TitlePagerView.m in Sources */,
-				3FD350F4211AC84A006A0210 /* YYPackageAddressInfoCell.m in Sources */,
 				3F5FF6801B4A498A0030B50A /* ESSAAES.mm in Sources */,
 				18D3DB2C1C2011D800E34B2C /* YYConnApi.m in Sources */,
 				18D564571C2A46DE00C2B4AA /* LookBookPics+CoreDataProperties.m in Sources */,
@@ -3787,8 +3425,6 @@
 				F754E3C91F74E1FE008EFBA8 /* YYCurrentNetworkSpace.m in Sources */,
 				3F0E46611B4FA89D00B547C1 /* YYMainViewController.m in Sources */,
 				188F8A561B7C922800AAF8A5 /* YYNoDataView.m in Sources */,
-				3FD35100211C3F23006A0210 /* YYLogisticsDetailViewController.m in Sources */,
-				3F1FF1322105C04200003997 /* YYPackingListColorModel.m in Sources */,
 				3F63B8061E0B751700071C0F /* UITextField+Custom.m in Sources */,
 				181FAAB61CBB9E0C00651B18 /* UIView+UpdateAutoLayoutConstraints.m in Sources */,
 				185C40D91DB4621900F8FAA1 /* YYForgetPasswordTableVerifyEmailCell.m in Sources */,
@@ -3798,7 +3434,6 @@
 				3F69C84F1B5E3B8A002CBD77 /* YYFeedbackViewController.m in Sources */,
 				3F36FD4A1E14C7BE0031E46B /* YYIndexInfoContactViewController.m in Sources */,
 				3FF8EAB21B5CBECD005DEBD2 /* CMAlertView.m in Sources */,
-				3FD350F3211AC84A006A0210 /* YYPackageLogisticsInfoCell.m in Sources */,
 				3FEA62031B8349A900D3D54F /* YYStylesAndTotalPriceModel.m in Sources */,
 				3F63B8021E0B74F900071C0F /* UILabel+Custom.m in Sources */,
 				1894BE791BB3CDB4001D7266 /* YYRegisterTableCellModel.m in Sources */,
@@ -3810,25 +3445,20 @@
 				180856C71DCB0A300047385F /* YYOpusSettingDefinedTypeViewCell.m in Sources */,
 				3F8D53101B6084FA00D65D0A /* YYPageInfoModel.m in Sources */,
 				3F36DCF61E0FFF54003839C0 /* UIImageView+CornerRadius.m in Sources */,
-				3F10C5EB211458BE008BEA6A /* YYDeliverModifyAddressViewController.m in Sources */,
 				3F7D3CB51E80D2E3009EA3EC /* YYShowroomBrandTool.m in Sources */,
 				3F76B4981B61DA4D0057F7A5 /* YYTopBarShoppingCarButton.m in Sources */,
 				3F60DFCE1B69F07200FAB344 /* NSManagedObject+helper.m in Sources */,
 				3FDB3FE11F6A89C3006636CF /* YYWebImageHelper.m in Sources */,
-				3F1FF1642107275D00003997 /* YYPickingListStyleEditCell.m in Sources */,
 				186926D21B8704D8003BB46B /* YYSelectUserTableViewController.m in Sources */,
 				18D3DB381C20128C00E34B2C /* YYBuyerAddressModel.m in Sources */,
 				18CFF4761C116B380000E69A /* YYSeriesListViewCell.m in Sources */,
 				3F63B8FC1B730AC700A5315F /* YYOrderApi.m in Sources */,
-				3F1FF1602107275D00003997 /* YYPackingListViewController.m in Sources */,
 				18F8FEF51D06678100229E9D /* YYOpusSettingViewController.m in Sources */,
 				18D16C031C0FEC5300DA83C2 /* YYSeriesStyleViewCell.m in Sources */,
 				18D754381C224D70004B83B1 /* YYHomePageModel.m in Sources */,
-				3F1FF1332105C04200003997 /* YYPackingListStyleModel.m in Sources */,
 				18D3DB741C201DCE00E34B2C /* YYPaymentNoteModel.m in Sources */,
 				3F839D9B1E7D05FF00C816FB /* YYShowroomBrandModel.m in Sources */,
 				F75AFB281F6A7E9F001BC793 /* YYSubShowroomUserPowerModel.m in Sources */,
-				3F1FF1352105C04200003997 /* YYExpressItemModel.m in Sources */,
 				18384FE41D58646B0040343F /* YYOrderAddStyleRemarkViewController.m in Sources */,
 				1896F5351DB08A470053BDB0 /* YYForgetPasswordTableStepCell.m in Sources */,
 				18D3DB261C20100200E34B2C /* YYPopoverArrowBackgroundView.m in Sources */,
@@ -3841,24 +3471,19 @@
 				18E54CF51BA275B400EA159F /* MXPullDownMenu.m in Sources */,
 				3F411F941E837A3900C4BC69 /* YYShowroomAgentModel.m in Sources */,
 				18D3DB721C201DCE00E34B2C /* YYOrderTransStatusModel.m in Sources */,
-				3F2E59E6210FF535004D2816 /* YYChooseLogisticsCell.m in Sources */,
 				3F79F46D1B57B59E000FD43A /* YYModifyNameOrPhoneViewContrller.m in Sources */,
 				F70BD95D1F67BAC300F508E2 /* MLInputDodgerRetractView.m in Sources */,
-				3FD350EB211AC405006A0210 /* YYPackageListCell.m in Sources */,
 				F7D74EE61F46D63800A990C0 /* XXTextView.m in Sources */,
 				3F8D52EA1B607E9400D65D0A /* YYOpusApi.m in Sources */,
 				3FAA24211E7F75DC00E7550E /* YYShowroomMainViewController.m in Sources */,
 				F75043AD1F29DB3D009BFBCD /* Foundtion+JRLog.m in Sources */,
 				F75157F91F4590EB005B999B /* YYEditMyPageViewController.m in Sources */,
-				3FD350E5211A808D006A0210 /* YYOrderPackageInfoCell.m in Sources */,
 				3F839D881E7D04AD00C816FB /* YYShowroomApi.m in Sources */,
 				F7D78D331F62803E004525D2 /* SJCameraViewController.m in Sources */,
 				3F8D52FF1B607EFE00D65D0A /* YYAddressModel.m in Sources */,
 				F70BD95E1F67BAC300F508E2 /* UIScrollView+MLInputDodger.m in Sources */,
-				3F1FF1372105C04200003997 /* YYExpressInfoModel.m in Sources */,
 				AFA1BAC51B82013B009C6DB2 /* YYCartDetailViewController.m in Sources */,
 				3F73E04F1B71D44B007543DF /* Series.m in Sources */,
-				3F1FF1342105C04200003997 /* YYPackingListSizeModel.m in Sources */,
 				3F8D530D1B60845900D65D0A /* YYOpusSeriesListModel.m in Sources */,
 				180856CB1DCB0A5B0047385F /* YYOpusSettingDefinedViewController.m in Sources */,
 				3F02F73B1F2745EE00229A3D /* YYShoppingStyleInfoCell.m in Sources */,
@@ -3876,7 +3501,6 @@
 				3F73E0541B71D44B007543DF /* StyleDetailColors.m in Sources */,
 				3FE006961B661BBB007F9BC7 /* YYOpusStyleModel.m in Sources */,
 				18D7F72B1BDE1B8600076380 /* YYBuyerInfoRemarkCell.m in Sources */,
-				3FD350D7211932EB006A0210 /* YYDeliveringDoneConfirmViewController.m in Sources */,
 				3F7D3CB21E80D22E009EA3EC /* YYShowroomMainNoDataView.m in Sources */,
 				3F5FF6841B4A536F0030B50A /* CommonHelper.m in Sources */,
 				3FAA06331E8933830007ED03 /* SZKNetWorkUtils.m in Sources */,

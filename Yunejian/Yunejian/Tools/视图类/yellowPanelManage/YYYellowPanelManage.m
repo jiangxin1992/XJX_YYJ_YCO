@@ -37,27 +37,9 @@
 
 #import "AppDelegate.h"
 
-@interface YYYellowPanelManage ()
-
-@property(nonatomic,assign) UIView *parentView;
-
-@property(nonatomic,strong) YYOrderAddMoneyLogController *moneyLogViewContorller;
-@property(nonatomic,strong) YYAlertViewController *alertViewController;
-@property (nonatomic,strong) YYOrderAddressListController *buyerAddressListController;
-@property (nonatomic,strong) YYDiscountViewController *discountViewController;
-@property (nonatomic,strong) YYUserCheckAlertViewController *userCheckAlertViewController;
-@property (nonatomic,strong) YYOrderStatusRequestCloseViewController *orderStatusRequestCloseViewController;
-@property (nonatomic,strong) YYOpusSettingViewController *opusSettingViewController;
-@property (nonatomic,strong) YYSeriesInfoDetailViewController *seriesInfoDetailViewController;
-@property (nonatomic,strong) YYOrderAppendViewController *orderAppendViewController;
-@property (nonatomic,strong) YYOrderAddStyleRemarkViewController *orderAddStyleRemarkViewController;
-@property (nonatomic,strong) YYOpusSettingDefinedViewController *opusSettingDefinedViewController;
-
-@end
-
 @implementation YYYellowPanelManage
-
 static YYYellowPanelManage *instance = nil;
+
 
 +(id)allocWithZone:(struct _NSZone *)zone{
     static dispatch_once_t predicate;
@@ -77,28 +59,30 @@ static YYYellowPanelManage *instance = nil;
     return instance;
 }
 
--(void)showOrderAddMoneyLogPanel:(NSString *)storyboardName andIdentifier:(NSString *)identifier totalMoney:(double)totalMoney moneyType:(NSInteger)moneyType orderCode:(NSString*)orderCode isNeedRefund:(BOOL)isNeedRefund parentView:(UIView *)specialParentView andCallBack:(void (^)(NSString *orderCode, NSNumber *totalPercent))callback{
+-(void)showOrderAddMoneyLogPanel:(NSString *)storyboardName andIdentifier:(NSString *)identifier totalMoney:(double)totalMoney moneyType:(NSInteger)moneyType orderCode:(NSString*)orderCode parentView:(UIView *)specialParentView andCallBack:(void (^)(NSString *orderCode, NSNumber *totalPercent))callback{
 
     WeakSelf(ws);
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:[NSBundle mainBundle]];
-    self.moneyLogViewContorller = [storyboard instantiateViewControllerWithIdentifier:identifier];
-    self.moneyLogViewContorller.totalMoney = totalMoney;
-    self.moneyLogViewContorller.moneyType = moneyType;
-    self.moneyLogViewContorller.orderCode = orderCode;
+    [YYOrderApi getPaymentNoteList:orderCode andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYPaymentNoteListModel *paymentNoteList, NSError *error) {
 
-    UIView *showView = self.moneyLogViewContorller.view;
-    __weak UIView *weakShowView = showView;
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle:[NSBundle mainBundle]];
+        self.moneyLogViewContorller = [storyboard instantiateViewControllerWithIdentifier:identifier];
+        self.moneyLogViewContorller.totalMoney = totalMoney;
+        self.moneyLogViewContorller.paymentNoteList = paymentNoteList;
+        self.moneyLogViewContorller.moneyType = moneyType;
+        self.moneyLogViewContorller.orderCode = orderCode;
+        WeakSelf(ws);
+        UIView *showView = self.moneyLogViewContorller.view;
+        __weak UIView *weakShowView = showView;
+        [self.moneyLogViewContorller setCancelButtonClicked:^(){
+            removeFromSuperviewUseUseAnimateAndDeallocViewController(weakShowView,ws.moneyLogViewContorller);
+        }];
+        [self.moneyLogViewContorller setModifySuccess:^(NSString *orderCode, NSNumber *totalPercent){
+            removeFromSuperviewUseUseAnimateAndDeallocViewController(weakShowView,ws.moneyLogViewContorller);
+            callback(orderCode,totalPercent);
+        }];
+        [self addToWindow:self.moneyLogViewContorller parentView:specialParentView];
 
-    [self.moneyLogViewContorller setCancelButtonClicked:^(){
-        removeFromSuperviewUseUseAnimateAndDeallocViewController(weakShowView,ws.moneyLogViewContorller);
     }];
-
-    [self.moneyLogViewContorller setModifySuccess:^(NSString *orderCode, NSNumber *totalPercent){
-        removeFromSuperviewUseUseAnimateAndDeallocViewController(weakShowView,ws.moneyLogViewContorller);
-        callback(orderCode,totalPercent);
-    }];
-
-    [self addToWindow:self.moneyLogViewContorller parentView:specialParentView];
 
 }
 

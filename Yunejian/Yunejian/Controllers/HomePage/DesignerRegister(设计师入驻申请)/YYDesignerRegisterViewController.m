@@ -464,7 +464,7 @@ static NSString *submitCellId = @"YYEditMyPageViewControllerSubmitCell";
     [YYUserApi registerDesignerWithData:param andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSError *error) {
         StrongSelf(ws);
         [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
-        if( rspStatusAndMessage.status == YYReqStatusCode100){
+        if( rspStatusAndMessage.status == kCode100){
             //直接请求登录接口？
             [YYToast showToastWithTitle:NSLocalizedString(@"注册成功！",nil) andDuration:kAlertToastDuration];
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -472,7 +472,7 @@ static NSString *submitCellId = @"YYEditMyPageViewControllerSubmitCell";
                     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
                     strongSelf.resultView= [storyboard instantiateViewControllerWithIdentifier:@"YYRegisterResultViewController"];
                 }
-                strongSelf.resultView.registerType = YYUserTypeDesigner;
+                strongSelf.resultView.registerType = kDesignerType;
                 strongSelf.resultView.status = 0;
                 strongSelf.resultView.email = email;
                 [strongSelf.navigationController pushViewController:strongSelf.resultView animated:YES];

@@ -22,7 +22,7 @@ UIKIT_EXTERN NSString * const kLoginHaveCaptcha_buyer;
 UIKIT_EXTERN NSString * const kLoginHaveCaptcha_yco;
 /** 修改密码 */
 UIKIT_EXTERN NSString * const kUpdatePassword;
-/** 修改买手用户名或电话 */
+/** 修改买家用户名或电话 */
 UIKIT_EXTERN NSString * const kUpdateBuyerUsernameOrPhoneParams;
 /** 修改设计师用户名或电话 */
 UIKIT_EXTERN NSString * const kUpdateDesignerUsernameOrPhoneParams;
@@ -36,13 +36,13 @@ UIKIT_EXTERN NSString * const kaddSubShowroomParams;
 UIKIT_EXTERN NSString * const kBrandInfoUpdateParams;
 /** 修改买手店品牌信息 */
 UIKIT_EXTERN NSString * const kStoreUpdateParams;
-/** 修改收件地址 */
+/** 修改收货地址 */
 UIKIT_EXTERN NSString * const kModifyAddressParams;
-/** 修改收件地址，不是默认地址 */
+/** 修改收货地址，不是默认地址 */
 UIKIT_EXTERN NSString * const kModifyAddressParamsNoDefault;
-/** 添加收件地址 */
+/** 添加收货地址 */
 UIKIT_EXTERN NSString * const kAddAddressParams;
-/** 添加收件地址，不是默认地址 */
+/** 添加收货地址，不是默认地址 */
 UIKIT_EXTERN NSString * const kAddAddressParamsNoDefault;
 /** 用户反馈 */
 UIKIT_EXTERN NSString * const kSubmitFeedbackParams;
@@ -65,9 +65,9 @@ UIKIT_EXTERN NSString * const kOrderInfoParams;
 UIKIT_EXTERN NSString * const kOrderCreateOrModifyParams_brand;
 UIKIT_EXTERN NSString * const kOrderCreateOrModifyParams_buyer;
 UIKIT_EXTERN NSString * const kOrderCreateOrModifyParams_yco;
-/** 修改买手收件地址 */
+/** 修改买家收货地址 */
 UIKIT_EXTERN NSString * const kModifyBuyerAddressParams;
-/** 添加买手收件地址 */
+/** 添加买家收货地址 */
 UIKIT_EXTERN NSString * const kAddBuyerAddressParams;
 /** 修改订单标记状态 */
 UIKIT_EXTERN NSString * const kUpdateOrderStatusMarkParams;

@@ -146,10 +146,8 @@
         make.top.mas_equalTo(lastView.mas_bottom).with.offset(16);
         make.left.mas_equalTo(26);
     }];
-
-    NSString *contentValue = [LanguageManager isEnglishLanguage]?_agentModel.contentEn:_agentModel.content;
-    NSString *string = [contentValue stringByReplacingOccurrencesOfString:@"<br>" withString:@""];
-    UILabel *contentLabel = [UILabel getLabelWithAlignment:0 WithTitle:string WithFont:13.0f WithTextColor:nil WithSpacing:0];
+    
+    UILabel *contentLabel = [UILabel getLabelWithAlignment:0 WithTitle:_agentModel.agentContent WithFont:13.0f WithTextColor:nil WithSpacing:0];
     [_tempContainerView addSubview:contentLabel];
     contentLabel.numberOfLines = 0;
     [contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -158,7 +156,7 @@
         make.right.mas_equalTo(-26);
     }];
     
-    if([NSString isNilOrEmpty:string])
+    if([NSString isNilOrEmpty:_agentModel.agentContent])
     {
         contentTitleLabel.text = @"";
     }else
@@ -201,6 +199,7 @@
 #pragma Other
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 - (UIStatusBarStyle)preferredStatusBarStyle
 {

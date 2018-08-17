@@ -123,7 +123,7 @@
             __block NSString *blockEmailstr = content;
             [YYUserApi forgetPassword:[NSString stringWithFormat:@"email=%@",content] andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSError *error) {
                 [MBProgressHUD hideAllHUDsForView:ws.view animated:NO];
-                if( rspStatusAndMessage.status == YYReqStatusCode100){
+                if( rspStatusAndMessage.status == kCode100){
                     //[YYToast showToastWithTitle:@"提交成功!" andDuration:kAlertToastDuration];
                     ws.viewType = kEmailPasswordType;
                     ws.userEmail = blockEmailstr;

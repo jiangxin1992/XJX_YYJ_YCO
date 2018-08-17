@@ -14,14 +14,12 @@
 
 #import "YYUser.h"
 #import "YYUserApi.h"
-#import "YYConnBuyerListModel.h"
 #import "YYRspStatusAndMessage.h"
 #import "YYUserInfo.h"
 #import "YYDesignerModel.h"
 #import "UIImage+YYImage.h"
 #import "YYBrandInfoModel.h"
 #import "YYBuyerStoreModel.h"
-#import "YYAddressListModel.h"
 #import "YYShowroomInfoModel.h"
 #import "YYShowroomApi.h"
 
@@ -43,6 +41,7 @@
 
 #import "YYCreateOrModifySellerViewContorller.h"
 #import "YYModifyBuyerStoreBrandInfoViewController.h"
+#import "YYCreateOrModifyAddressViewController.h"
 #import "MBProgressHUD.h"
 #import "UserDefaultsMacro.h"
 
@@ -57,17 +56,26 @@
 #import "YYConnAddViewController.h"
 
 @interface YYAccountDetailViewController ()<UITableViewDataSource,UITableViewDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate,YYUserLogoInfoCellDelegate>
+//@property (weak, nonatomic) IBOutlet UIView *tableHeadView;
+//
+//
+//@property (weak, nonatomic) IBOutlet UIButton *logoButton;
+//@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewLayoutConstraintTop;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewLayoutConstraintLead;
 
+//@property(nonatomic,strong) YYProtocolViewController *protocolViewController;
 @property(nonatomic,strong) YYModifyPasswordViewController *modifyPasswordViewController;
 @property(nonatomic,strong) YYModifyNameOrPhoneViewContrller *modifyNameOrPhoneViewContrller;
 @property(nonatomic,strong) YYCreateOrModifySellerViewContorller *createOrModifySellerViewContorller;
 @property(nonatomic,strong) YYSettingViewController *settingViewController;
 
 @property(nonatomic,strong) YYModifyBuyerStoreBrandInfoViewController *modifyBuyerStoreBrandInfoViewController;
+
+@property(nonatomic,strong) YYCreateOrModifyAddressViewController *createOrModifyAddressViewController;
 
 @property (strong, nonatomic) YYUserInfo *userInfo;
 @property (strong, nonatomic) YYShowroomInfoModel *ShowroomModel;
@@ -184,7 +192,7 @@
     if ([YYNetworkReachability connectedToNetwork]) {
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         UIView *superView = appDelegate.mainViewController.view;
-        if (user.userType == YYUserTypeDesigner) {
+        if (user.userType == kDesignerType) {
             [MBProgressHUD showHUDAddedTo:superView animated:YES];
         }
         [self loadDataFromServer];
@@ -206,7 +214,7 @@
     //_logoButton.enabled = YES;
      self.userInfo.status = user.status;
     switch (user.userType) {
-        case YYUserTypeDesigner:{
+        case kDesignerType:{
             [self getDesignerInfo];
             [self getDesignerBrandInfo];
             [self getSellList];
@@ -214,17 +222,17 @@
             [self getShowroomInfoByDesigner];
         }
             break;
-        case YYUserTypeShowroom:{
+        case kShowroomType:{
             self.userInfo.username = user.name;
             self.userInfo.email = user.email;
-            self.userInfo.userType = YYUserTypeShowroom;
+            self.userInfo.userType = kShowroomType;
             [self getShowroomInfo];
         }
             break;
-        case YYUserTypeShowroomSub:{
+        case kShowroomSubType:{
             self.userInfo.username = user.name;
             self.userInfo.email = user.email;
-            self.userInfo.userType = YYUserTypeShowroomSub;
+            self.userInfo.userType = kShowroomSubType;
             [self getShowroomInfo];
         }
             break;
@@ -273,7 +281,7 @@
             ws.userInfo.username = designerModel.userName;
             ws.userInfo.phone = designerModel.phone;
             ws.userInfo.email = designerModel.email;
-            ws.userInfo.userType = YYUserTypeDesigner;
+            ws.userInfo.userType = kDesignerType;
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 [ws reloadTableView];
@@ -299,7 +307,7 @@
 -(void)getConnBuyerInfo{
     WeakSelf(ws);
     [YYConnApi getConnBuyers:1 pageIndex:1 pageSize:1 andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYConnBuyerListModel *listModel, NSError *error) {
-        if(rspStatusAndMessage.status == YYReqStatusCode100){
+        if(rspStatusAndMessage.status == kCode100){
             ws.connedNum = [listModel.pageInfo.recordTotalAmount integerValue];
         }
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -307,7 +315,7 @@
         });
     }];
     [YYConnApi getConnBuyers:0 pageIndex:1 pageSize:1 andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYConnBuyerListModel *listModel, NSError *error) {
-        if(rspStatusAndMessage.status == YYReqStatusCode100){
+        if(rspStatusAndMessage.status == kCode100){
             ws.conningNum = [listModel.pageInfo.recordTotalAmount integerValue];
         }
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -327,7 +335,7 @@
                     //去掉自己(主账号)
                 }else{
 //                    0:设计师 1:买手店 2:销售代表 5:Showroom 6:Showroom子账号
-                    if([salesManModel.userType integerValue] == YYUserTypeDesigner || [salesManModel.userType integerValue] == YYUserTypeSales){
+                    if([salesManModel.userType integerValue] == 0||[salesManModel.userType integerValue] == 2){
                         YYSeller *seller = [[YYSeller alloc] init];
                         seller.salesmanId = [salesManModel.userId intValue];
                         seller.name = salesManModel.username;
@@ -354,7 +362,7 @@
             ws.userInfo.username = BuyerStoreModel.contactName;
             ws.userInfo.phone = BuyerStoreModel.contactPhone;
             ws.userInfo.email = BuyerStoreModel.contactEmail;
-            ws.userInfo.userType = YYUserTypeRetailer;
+            ws.userInfo.userType = kBuyerStorUserType;
             ws.userInfo.brandName = BuyerStoreModel.name;
             ws.userInfo.brandLogoName = BuyerStoreModel.logoPath;
             
@@ -417,7 +425,7 @@
 -(void)getAgencyData{
     if(_showroomInfoByDesignerModel)
     {
-        [YYShowroomApi getAgentContentWithBrandID:_showroomInfoByDesignerModel.brandId WithShowroomID:_showroomInfoByDesignerModel.showroomId andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYShowroomAgentModel *agentModel, NSError *error) {
+        [YYShowroomApi getAgentContentWebWithBrandID:_showroomInfoByDesignerModel.brandId WithShowroomID:_showroomInfoByDesignerModel.showroomId andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, YYShowroomAgentModel *agentModel, NSError *error) {
             if(agentModel){
                 [self showAgencyView:agentModel];
             }
@@ -484,10 +492,11 @@
 - (void)inviteBuyer{
     WeakSelf(ws);
     [YYUserApi getUserStatus:-1 andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSInteger status, NSError *error) {
-        if(rspStatusAndMessage.status == YYReqStatusCode100){
-            if(status == YYUserStatusOk){
+        if(rspStatusAndMessage.status == kCode100){
+            if(status == kUserStatusOk){
                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Brand" bundle:[NSBundle mainBundle]];
                 YYConnAddViewController *addBrandViewController = [storyboard instantiateViewControllerWithIdentifier:@"YYConnAddViewController"];
+                addBrandViewController.isAddDesigner = YES;
                 [addBrandViewController setCancelButtonClicked:^(){
                     [ws getConnBuyerInfo];
                 }];
@@ -511,9 +520,9 @@
 
     createOrModifySellerViewContorller.modifySuccess = ^(NSNumber *userId) {
         YYUser *user = [YYUser currentUser];
-        if(user.userType == YYUserTypeDesigner){
+        if(user.userType == 0){
             [ws getSellList];
-        }else if(user.userType == YYUserTypeShowroom){
+        }else if(user.userType == 5){
             [self getShowroomInfo];
 
             YYSubShowroomPowerViewContorller *subShowRoomPower = [[YYSubShowroomPowerViewContorller alloc] init];
@@ -531,6 +540,61 @@
 
 
 
+//创建或修改收货地址
+- (void)createOrModifyAddress:(YYAddress *)address{
+    // 买手店会用到，暂时不用考虑
+    if (![YYNetworkReachability connectedToNetwork]) {
+        [YYToast showToastWithView:self.view title:NSLocalizedString(@"请在网络连接的情况下添加收件地址！",nil) andDuration:kAlertToastDuration];
+        return;
+    }
+    
+    WeakSelf(ws);
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    UIView *superView = appDelegate.mainViewController.view;
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Account" bundle:[NSBundle mainBundle]];
+    YYCreateOrModifyAddressViewController *createOrModifyAddressViewController = [storyboard instantiateViewControllerWithIdentifier:@"YYCreateOrModifyAddressViewController"];
+    self.createOrModifyAddressViewController = createOrModifyAddressViewController;
+    
+    if (address
+        && [address isKindOfClass:[YYAddress class]]) {
+        createOrModifyAddressViewController.currentOperationType = OperationTypeModify;
+        createOrModifyAddressViewController.address = address;
+    }else{
+        createOrModifyAddressViewController.currentOperationType = OperationTypeCreate;
+        createOrModifyAddressViewController.address = nil;
+    }
+    
+    
+    
+    __weak UIView *weakSuperView = superView;
+    UIView *showView = createOrModifyAddressViewController.view;
+    __weak UIView *weakShowView = showView;
+    [createOrModifyAddressViewController setCancelButtonClicked:^(){
+        removeFromSuperviewUseUseAnimateAndDeallocViewController(weakShowView,ws.createOrModifyAddressViewController);
+        
+    }];
+    
+    [createOrModifyAddressViewController setModifySuccess:^(){
+        removeFromSuperviewUseUseAnimateAndDeallocViewController(weakShowView,ws.createOrModifyAddressViewController);
+        [ws getAddressList];
+    }];
+    
+    
+    [superView addSubview:showView];
+    [showView mas_makeConstraints:^(MASConstraintMaker *make) {
+        
+        make.top.equalTo(weakSuperView.mas_top);
+        make.left.equalTo(weakSuperView.mas_left);
+        make.bottom.equalTo(weakSuperView.mas_bottom);
+        make.right.equalTo(weakSuperView.mas_right);
+        
+    }];
+    
+    addAnimateWhenAddSubview(showView);
+    
+}
 -(void)OnTapBg:(UITapGestureRecognizer *)sender{
     if (_messageViewController && _messageViewController.markAsReadHandler) {
         CGPoint point = [sender locationInView:_messageViewController.view];
@@ -547,7 +611,7 @@
 }
 
 -(void) checkUserIdentity{
-    if([_userInfo.status integerValue] == YYReqStatusCode300){
+    if([_userInfo.status integerValue] == kCode300){
         [YYToast showToastWithTitle:NSLocalizedString(@"审核中！",nil) andDuration:kAlertToastDuration];
         return ;
     }
@@ -749,7 +813,7 @@
                 [user saveUserData];
                 [YYUserApi modifyLogoWithUrl:imageUrl andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSError *error) {
                     //                    成功的时候去回调
-                    if(rspStatusAndMessage.status == YYReqStatusCode100){
+                    if(rspStatusAndMessage.status == kCode100){
                         if(_modifySuccess)
                         {
                             _modifySuccess();
@@ -787,11 +851,11 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     YYUser *user = [YYUser currentUser];
     int sections = 0;
-    if (user.userType == YYUserTypeDesigner) {
+    if (user.userType == kDesignerType) {
         sections = 5;
-    }else if(user.userType == YYUserTypeShowroom){
+    }else if(user.userType == kShowroomType){
         sections = 3;
-    }else if(user.userType == YYUserTypeShowroomSub){
+    }else if(user.userType == kShowroomSubType){
         sections = 2;
     }
     return sections;
@@ -801,7 +865,7 @@
     YYUser *user = [YYUser currentUser];
     NSInteger rows = 0;
     switch (user.userType) {
-        case YYUserTypeDesigner:{
+        case kDesignerType:{
             if(section == 0){
                 rows = 1;
             }else if (section == 1) {
@@ -825,7 +889,7 @@
             }
         }
             break;
-        case YYUserTypeShowroom:{
+        case kShowroomType:{
             if(section == 0){
                 rows = 1;
             }else if (section == 1) {
@@ -840,7 +904,7 @@
             }
         }
             break;
-        case YYUserTypeShowroomSub:{
+        case kShowroomSubType:{
             if(section == 0){
                 rows = 1;
             }else if (section == 1) {
@@ -889,20 +953,20 @@
         }else{
              logoCell.logoButton.enabled = NO;
         }
-        if(user.userType == YYUserTypeDesigner){
-            if([_userInfo.status integerValue] == YYReqStatusCode305){
+        if(user.userType == kDesignerType){
+            if([_userInfo.status integerValue] == kCode305){
                 //需要审核
                 logoCell.verifyBackView.hidden=NO;
                 logoCell.verifyButton.hidden=NO;
                 logoCell.warnLabel.text = NSLocalizedString(@"请在30天内完成品牌验证",nil);
                 logoCell.tipLabel.text = NSLocalizedString(@"未验证的品牌账号将被锁定",nil);
-            }else if([_userInfo.status integerValue] == YYReqStatusCode300){
+            }else if([_userInfo.status integerValue] == kCode300){
                 //审核中
                 logoCell.verifyBackView.hidden=NO;
                 logoCell.verifyButton.hidden=YES;
                 logoCell.warnLabel.text = NSLocalizedString(@"品牌正在审核中，请耐心等待",nil);
                 logoCell.tipLabel.text = NSLocalizedString(@"未验证的品牌账号将被锁定",nil);
-            }else if([_userInfo.status integerValue] == YYReqStatusCode301){
+            }else if([_userInfo.status integerValue] == kCode301){
                 //审核被拒
                 logoCell.verifyBackView.hidden=NO;
                 logoCell.verifyButton.hidden=NO;
@@ -917,7 +981,7 @@
         }
         
         cell = logoCell;
-    }else if (user.userType == YYUserTypeDesigner&& section == 1) {
+    }else if (user.userType == kDesignerType&& section == 1) {
         
         static NSString *CellIdentifier = @"YYConnInfoCell";
         YYConnInfoCell *connInfoCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -952,7 +1016,7 @@
         userInfoCell.updatePower.hidden = YES;
 
         switch (user.userType) {
-            case YYUserTypeDesigner:{
+            case kDesignerType:{
                 if (section == 2) {
                     if (row == 0) {
                         [userInfoCell updateUIWithShowType:ShowTypeEmail];
@@ -1005,7 +1069,7 @@
                 }
             }
                 break;
-            case YYUserTypeShowroom:{
+            case kShowroomType:{
                 if (section == 1) {
                     if (row == 0) {
                         [userInfoCell updateUIWithShowType:ShowTypeEmail];
@@ -1022,7 +1086,7 @@
                     userInfoCell.deleteNotActiveWithId = ^(NSNumber *userId) {
                         [YYShowroomApi deleteNotActiveSubShowroomUserId:userId andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSError *error) {
 
-                            if (rspStatusAndMessage.status == YYReqStatusCode100) {
+                            if (rspStatusAndMessage.status == kCode100) {
                                 [YYToast showToastWithTitle:NSLocalizedString(@"操作成功！",nil) andDuration:kAlertToastDuration];
                                 // 退出
                                 [self getShowroomInfo];
@@ -1036,7 +1100,7 @@
                     // 修改
                     userInfoCell.updatePowerWithId = ^(NSNumber *userId) {
                         [YYShowroomApi selectSubShowroomPowerUserId:userId andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSArray *powerArray, NSError *error) {
-                            if (rspStatusAndMessage.status == YYReqStatusCode100) {
+                            if (rspStatusAndMessage.status == kCode100) {
                                 YYSubShowroomPowerViewContorller *subShowRoomPower = [[YYSubShowroomPowerViewContorller alloc] init];
                                 subShowRoomPower.userId = userId;
                                 subShowRoomPower.defaultPowerArray = powerArray;
@@ -1089,7 +1153,7 @@
                 }
             }
                 break;
-            case YYUserTypeShowroomSub:{
+            case kShowroomSubType:{
                 if (section == 1) {
                     if (row == 0) {
                         [userInfoCell updateUIWithShowType:ShowTypeEmail];
@@ -1127,7 +1191,7 @@
                         
                         removeFromSuperviewUseUseAnimateAndDeallocViewController(weakShowView,ws.modifyPasswordViewController);
                         CMAlertView *alertView = [[CMAlertView alloc] initWithTitle:NSLocalizedString(@"密码修改成功！",nil) message:nil needwarn:NO delegate:nil cancelButtonTitle:NSLocalizedString(@"重新登录",nil) otherButtonTitles:@[] bgClose:YES];
-                        alertView.specialParentView = self.view;
+                        //alertView.specialParentView = self.view;
                         [alertView setAlertViewBlock:^(NSInteger selectedIndex){
                             if (selectedIndex == 0) {
                                 [[NSNotificationCenter defaultCenter] postNotificationName:kNeedLoginNotification object:nil];
@@ -1171,7 +1235,7 @@
                     
                     [modifyNameOrPhoneViewContrller setModifySuccess:^(){
                         removeFromSuperviewUseUseAnimateAndDeallocViewController(weakShowView,ws.modifyNameOrPhoneViewContrller);
-                        if (ws.userInfo.userType == YYUserTypeDesigner) {
+                        if (ws.userInfo.userType == kDesignerType) {
                             [ws getDesignerInfo];
                         }
                         
@@ -1206,7 +1270,7 @@
                     
                     [modifyNameOrPhoneViewContrller setModifySuccess:^(){
                         removeFromSuperviewUseUseAnimateAndDeallocViewController(weakShowView,ws.modifyNameOrPhoneViewContrller);
-                        if (ws.userInfo.userType == YYUserTypeDesigner) {
+                        if (ws.userInfo.userType == kDesignerType) {
                             [ws getDesignerInfo];
                         }
                         
@@ -1248,9 +1312,9 @@
             }else {
                 status = 1;
             }
-            if(user.userType == YYUserTypeDesigner){
+            if(user.userType == 0){
                 [YYUserApi updateSalesmanStatusWithId:[salesmanId integerValue] status:status andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSError *error) {
-                    if (rspStatusAndMessage.status == YYReqStatusCode100) {
+                    if (rspStatusAndMessage.status == kCode100) {
                         [YYToast showToastWithTitle:NSLocalizedString(@"操作成功",nil) andDuration:kAlertToastDuration];
                         
                     }else{
@@ -1259,9 +1323,9 @@
                     
                     [ws getSellList];
                 }];
-            }else if(user.userType == YYUserTypeShowroom){
+            }else if(user.userType == 5){
                 [YYShowroomApi updateSubShowroomStatusWithId:[salesmanId integerValue] status:status andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSError *error) {
-                    if (rspStatusAndMessage.status == YYReqStatusCode100) {
+                    if (rspStatusAndMessage.status == kCode100) {
                         [YYToast showToastWithTitle:NSLocalizedString(@"操作成功！",nil) andDuration:kAlertToastDuration];
                         
                     }else{
@@ -1287,11 +1351,11 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     YYUser *user = [YYUser currentUser];
     if(indexPath.section== 0){
-        if([_userInfo.status integerValue] == YYReqStatusCode305){
+        if([_userInfo.status integerValue] == kCode305){
            return 195;
-        }else if([_userInfo.status integerValue] == YYReqStatusCode300){
+        }else if([_userInfo.status integerValue] == kCode300){
            return 195;
-        }else if([_userInfo.status integerValue] == YYReqStatusCode301){
+        }else if([_userInfo.status integerValue] == kCode301){
             return 195;
         }else
         {
@@ -1320,6 +1384,7 @@
     }else{
         UILabel *titleLabel = (UILabel *)[headerView viewWithTag:70001];
         UIButton *button = (UIButton *)[headerView viewWithTag:70002];
+        //UIButton *maskbutton = (UIButton *)[headerView viewWithTag:70003];
         if ([YYNetworkReachability connectedToNetwork]) {
              button.enabled = YES;
              [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -1330,9 +1395,10 @@
         
         
         button.hidden = YES;
+        //[maskbutton addTarget:self action:@selector(testClick) forControlEvents:UIControlEventTouchUpInside];
         YYUser *user = [YYUser currentUser];
         switch (user.userType) {
-            case YYUserTypeDesigner:{
+            case kDesignerType:{
                 if (section == 1) {
                     button.hidden = NO;
                     [button setTitle:NSLocalizedString(@"邀请合作买手店",nil) forState:UIControlStateNormal];
@@ -1350,7 +1416,7 @@
                 }
             }
                 break;
-            case YYUserTypeShowroom:{
+            case kShowroomType:{
                 if (section == 1) {
                     titleLabel.text = NSLocalizedString(@"Showroom信息",nil);
                 }else if (section == 2) {
@@ -1361,7 +1427,7 @@
                 }
             }
                 break;
-            case YYUserTypeShowroomSub:{
+            case kShowroomSubType:{
                 if (section == 1) {
                     titleLabel.text = NSLocalizedString(@"Showroom信息",nil);
                 }
@@ -1392,7 +1458,7 @@
      WeakSelf(ws);
 
     YYUser *user = [YYUser currentUser];
-    if (user.userType == YYUserTypeDesigner && indexPath.section == 1){
+    if (user.userType == kDesignerType && indexPath.section == 1){
         if(indexPath.row == 0){
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Account" bundle:[NSBundle mainBundle]];
             YYConnBuyerListController *connInfoListController = [storyboard instantiateViewControllerWithIdentifier:@"YYConnBuyerListController"];

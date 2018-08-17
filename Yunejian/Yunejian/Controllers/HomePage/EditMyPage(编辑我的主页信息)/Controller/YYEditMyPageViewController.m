@@ -124,7 +124,6 @@ static NSString *blankCellId = @"YYEditMyPageViewControllerblankCell";
         [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
 
         CMAlertView *alertView = [[CMAlertView alloc] initWithTitle:NSLocalizedString(@"确认返回？",nil) message:NSLocalizedString(@"您修改的信息还未保存，返回后将不被保存",nil) needwarn:NO delegate:nil cancelButtonTitle:NSLocalizedString(@"暂不返回_no",nil) otherButtonTitles:@[[NSString stringWithFormat:@"%@|000000",NSLocalizedString(@"返回_yes",nil)]]];
-        alertView.specialParentView = self.view;
         [alertView setAlertViewBlock:^(NSInteger selectedIndex){
             if (selectedIndex == 1) {
                 [strongSelf.navigationController popViewControllerAnimated:YES];
@@ -632,7 +631,7 @@ static NSString *blankCellId = @"YYEditMyPageViewControllerblankCell";
 
     [MBProgressHUD showHUDAddedTo:self.view animated:NO];
     [YYUserApi updateBrandWithData:self.param andBlock:^(YYRspStatusAndMessage *rspStatusAndMessage, NSError *error) {
-        if( rspStatusAndMessage.status == YYReqStatusCode100){
+        if( rspStatusAndMessage.status == kCode100){
             [MBProgressHUD hideAllHUDsForView:self.view animated:NO];
 
             if([self.param objectForKey:@"userContactInfos"]){

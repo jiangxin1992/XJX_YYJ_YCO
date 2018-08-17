@@ -10,6 +10,8 @@
 
 @interface YYConnAddViewController : UIViewController
 
-@property (nonatomic, strong) CancelButtonClicked cancelButtonClicked;
+@property (nonatomic,assign)NSInteger isAddDesigner;
+
+@property (nonatomic,strong)CancelButtonClicked cancelButtonClicked;
 
 @end
